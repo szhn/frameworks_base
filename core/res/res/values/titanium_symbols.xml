@@ -269,4 +269,7 @@
 
     <java-symbol type="integer" name="config_screenBrightnessPulse" />
 
+    <!-- Vendor mismatch fingerprint warning -->
+    <java-symbol type="string" name="system_error_vendorprint" />
+
 </resources>
