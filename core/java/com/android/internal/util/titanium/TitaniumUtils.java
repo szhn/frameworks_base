@@ -18,6 +18,7 @@
 package com.android.internal.util.titanium;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.app.ActivityManager;
 import android.app.NotificationManager;
 import android.media.AudioManager;
@@ -28,9 +29,11 @@ import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.hardware.input.InputManager;
 import android.hardware.fingerprint.FingerprintManager;
+import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.BatteryManager;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.internal.utip.titanium;
+package com.android.internal.util.titanium;
 
 import android.content.Context;
 import android.content.res.Resources;
