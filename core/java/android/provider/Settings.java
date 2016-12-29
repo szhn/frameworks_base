@@ -5334,6 +5334,14 @@ public final class Settings {
         public static final String FINGERPRINT_ERROR_VIB = "fingerprint_error_vib";
 
         /**
+         * media artwork wallpaper blur level on lockscreen
+         * @hide
+         */
+        public static final String LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
+
+        private static final Validator LOCKSCREEN_MEDIA_BLUR_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -5428,6 +5436,7 @@ public final class Settings {
 	    STATUSBAR_CLOCK_DATE_POSITION,
             HEADS_UP_STOPLIST_VALUES,
             HEADS_UP_BLACKLIST_VALUES,
+            LOCKSCREEN_MEDIA_BLUR,
         };
 
         /**
@@ -5600,6 +5609,7 @@ public final class Settings {
 	    PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_DATE_POSITION);
             PRIVATE_SETTINGS.add(HEADS_UP_STOPLIST_VALUES);
             PRIVATE_SETTINGS.add(HEADS_UP_BLACKLIST_VALUES);
+            PRIVATE_SETTINGS.add(LOCKSCREEN_MEDIA_BLUR);
         }
 
         /**
@@ -5743,6 +5753,7 @@ public final class Settings {
 	    VALIDATORS.put(STATUSBAR_CLOCK_DATE_POSITION, STATUSBAR_CLOCK_DATE_POSITION_VALIDATOR);
             VALIDATORS.put(HEADS_UP_STOPLIST_VALUES, HEADS_UP_STOPLIST_VALUES_VALIDATOR);
             VALIDATORS.put(HEADS_UP_BLACKLIST_VALUES, HEADS_UP_BLACKLIST_VALUES_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_MEDIA_BLUR, LOCKSCREEN_MEDIA_BLUR_VALIDATOR);
         }
 
         /**
