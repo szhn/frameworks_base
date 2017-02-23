@@ -5460,6 +5460,15 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * @hide
+         */
+        public static final String LOCK_SHOW_STATUS_BAR = "lockscreen_show_status_bar";
+
+        /** @hide */
+        private static final Validator LOCK_SHOW_STATUS_BAR_VALIDATOR =
+               BOOLEAN_VALIDATOR;
+
+        /**
          * Whether to enable gaming mode or not
          * @hide
          */
@@ -5562,6 +5571,7 @@ public final class Settings {
             LOCKSCREEN_MEDIA_BLUR,
             SCREEN_OFF_ANIMATION,
             NOTIFICATION_GUTS_KILL_APP_BUTTON,
+            LOCK_SHOW_STATUS_BAR,
         };
 
         /**
@@ -5736,6 +5746,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(LOCKSCREEN_MEDIA_BLUR);
             PRIVATE_SETTINGS.add(SCREEN_OFF_ANIMATION);
             PRIVATE_SETTINGS.add(NOTIFICATION_GUTS_KILL_APP_BUTTON);
+            PRIVATE_SETTINGS.add(LOCK_SHOW_STATUS_BAR);
         }
 
         /**
@@ -5881,6 +5892,7 @@ public final class Settings {
             VALIDATORS.put(LOCKSCREEN_MEDIA_BLUR, LOCKSCREEN_MEDIA_BLUR_VALIDATOR);
             VALIDATORS.put(SCREEN_OFF_ANIMATION, SCREEN_OFF_ANIMATION_VALIDATOR);
             VALIDATORS.put(NOTIFICATION_GUTS_KILL_APP_BUTTON, NOTIFICATION_GUTS_KILL_APP_BUTTON_VALIDATOR);
+            VALIDATORS.put(LOCK_SHOW_STATUS_BAR,LOCK_SHOW_STATUS_BAR_VALIDATOR);
         }
 
         /**
