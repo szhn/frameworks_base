@@ -296,4 +296,8 @@
     <java-symbol type="color" name="gradient_start" />
     <java-symbol type="color" name="gradient_end" />
 
+
+    <!-- Device keyhandlers -->
+    <java-symbol type="string" name="config_deviceKeyHandlerLib" />
+    <java-symbol type="string" name="config_deviceKeyHandlerClass" />
 </resources>
