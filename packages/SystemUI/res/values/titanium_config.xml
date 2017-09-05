@@ -39,4 +39,7 @@
     <string name="quick_settings_tiles_extra" translatable="false">
     </string>
 
+    <!-- CPUInfoService temperature sysfs path -->
+    <string name="config_cpuinfoSysTemp" translatable="false"></string>
+
 </resources>
