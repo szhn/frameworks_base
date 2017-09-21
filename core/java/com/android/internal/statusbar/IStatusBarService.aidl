@@ -120,4 +120,9 @@ interface IStatusBarService
      * Titanium utils
      */
     void toggleCameraFlash();
+    void toggleRecentApps();
+    void toggleSplitScreen();
+    void preloadRecentApps();
+    void cancelPreloadRecentApps();
+    void startAssist(in Bundle args);
 }
