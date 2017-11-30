@@ -4679,6 +4679,12 @@ public final class Settings {
          */
         public static final String SCREENSHOT_DEFAULT_MODE = "screenshot_default_mode";
 
+	 /**
+         * Whether the haptic feedback on action instead of touch
+         * @hide
+         */
+        public static final String HAPTIC_ON_ACTION_KEY = "haptic_on_action_key";
+
         /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
