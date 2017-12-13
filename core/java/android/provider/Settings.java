@@ -5744,6 +5744,12 @@ public final class Settings {
         private static final Validator ASPECT_RATIO_APPS_ENABLED_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+         * Enable\Disable Bluetooth Battery bar in quick settings
+         * @hide
+         */
+        public static final String BLUETOOTH_QS_SHOW_BATTERY = "bluetooth_qs_show_battery";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
