@@ -175,4 +175,7 @@
     <string name="action_null">Blank</string>
     <string name="animation_ethans">Ethans</string>
 
+    <!-- Whether the device supports Smart Pixels -->
+    <bool name="config_enableSmartPixels">false</bool>
+
 </resources>
