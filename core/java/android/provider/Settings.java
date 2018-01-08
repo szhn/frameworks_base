@@ -4556,6 +4556,13 @@ public final class Settings {
                 ANY_STRING_VALIDATOR;
 
         /**
+         * 0 - fullscreen
+         * 1 - partial
+         * @hide
+         */
+        public static final String SCREENSHOT_DEFAULT_MODE = "screenshot_default_mode";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -4758,6 +4765,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(CUSTOM_DEVICE_PROXI_CHECK_ENABLED);
             PRIVATE_SETTINGS.add(CUSTOM_DEVICE_GESTURE_FEEDBACK_ENABLED);
             PRIVATE_SETTINGS.add(CUSTOM_DEVICE_FEATURE_SETTINGS);
+            PRIVATE_SETTINGS.add(SCREENSHOT_DEFAULT_MODE);
         }
 
         /**
