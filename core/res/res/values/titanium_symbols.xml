@@ -303,4 +303,7 @@
     <java-symbol type="string" name="config_lightFontFamily" />
     <java-symbol type="string" name="config_regularFontFamily" />
 
+    <!-- Time to give to the proximity sensor before toggling the flashlight with the Power button.
+       Set to -1 to disable the proximity sensor check at all-->
+    <java-symbol type="integer" name="config_flashlightProximityTimeout" />
 </resources>
