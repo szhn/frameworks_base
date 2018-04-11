@@ -5807,6 +5807,16 @@ public final class Settings {
         public static final String GAMING_MODE_DYNAMIC_STATE = "gaming_mode_dynamic_state";
 
         /**
+         * Whether to change the transparency of the qs panel
+         * @hide
+         */
+        public static final String QS_PANEL_BG_ALPHA = "qs_panel_bg_alpha";
+
+        /** @hide */
+        private static final Validator QS_PANEL_BG_ALPHA_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -5917,6 +5927,7 @@ public final class Settings {
             DOZE_ON_CHARGE,
             ASPECT_RATIO_APPS_ENABLED,
             ASPECT_RATIO_APPS_LIST,
+            QS_PANEL_BG_ALPHA,
         };
 
         /**
@@ -6106,6 +6117,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DOZE_ON_CHARGE);
             PRIVATE_SETTINGS.add(ASPECT_RATIO_APPS_ENABLED);
             PRIVATE_SETTINGS.add(ASPECT_RATIO_APPS_LIST);
+            PRIVATE_SETTINGS.add(QS_PANEL_BG_ALPHA);
         }
 
         /**
@@ -6266,6 +6278,7 @@ public final class Settings {
             VALIDATORS.put(DOZE_ON_CHARGE, DOZE_ON_CHARGE_VALIDATOR);
             VALIDATORS.put(ASPECT_RATIO_APPS_ENABLED, ASPECT_RATIO_APPS_ENABLED_VALIDATOR);
             VALIDATORS.put(ASPECT_RATIO_APPS_LIST, ASPECT_RATIO_APPS_LIST_VALIDATOR);
+            VALIDATORS.put(QS_PANEL_BG_ALPHA, QS_PANEL_BG_ALPHA_VALIDATOR);
         }
 
         /**
