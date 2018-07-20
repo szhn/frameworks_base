@@ -538,6 +538,8 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     private VisualizerView mVisualizerView;
 
+    private boolean mAmbientVisualizer;
+
     private boolean mWallpaperSupportsAmbientMode;
     private final BroadcastReceiver mWallpaperChangedReceiver = new BroadcastReceiver() {
         @Override
@@ -3568,6 +3570,10 @@ public class StatusBar extends SystemUI implements DemoMode,
         mVisualizerView.setDozing(mDozing);
         updateQsExpansionEnabled();
         Trace.endSection();
+
+        if (mAmbientVisualizer && mDozing) {
+            mVisualizerView.setVisible(true);
+        }
     }
 
     public void userActivity() {
@@ -4065,6 +4071,9 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.HEADS_UP_STOPLIST_VALUES), false, this);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.HEADS_UP_BLACKLIST_VALUES), false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.Secure.AMBIENT_VISUALIZER_ENABLED),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -4106,6 +4115,12 @@ public class StatusBar extends SystemUI implements DemoMode,
     private void setHeadsUpBlacklist() {
         if (mPresenter != null)
             mPresenter.setHeadsUpBlacklist();
+    }
+
+    private void setAmbientVis() {
+        mAmbientVisualizer = Settings.Secure.getIntForUser(
+                mContext.getContentResolver(), Settings.Secure.AMBIENT_VISUALIZER_ENABLED, 0,
+                UserHandle.USER_CURRENT) == 1;
     }
 
     public int getWakefulnessState() {
