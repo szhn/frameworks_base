@@ -820,6 +820,9 @@ public final class DefaultPermissionGrantPolicy {
         grantSystemFixedPermissionsToSystemPackage(
                 getDefaultProviderAuthorityPackage("com.android.providers.media.MediaProvider", userId), userId,
                 STORAGE_PERMISSIONS);
+
+        // Google sound picker
+        grantSystemFixedPermissionsToSystemPackage("com.google.android.soundpicker", userId, STORAGE_PERMISSIONS);
     }
 
     private String getDefaultSystemHandlerActivityPackageForCategory(String category, int userId) {
