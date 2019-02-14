@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2015 The Android Open Source Project
-
+<!-- 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
@@ -21,10 +20,12 @@
        android:insetBottom="@dimen/button_inset_vertical_material">
     <ripple android:color="?attr/colorControlHighlight">
         <item>
-            <shape android:shape="rectangle"
-                   android:tint="@color/btn_colored_background_material">
+            <shape android:shape="rectangle">
                 <corners android:radius="?attr/buttonCornerRadius" />
-                <solid android:color="@color/white" />
+                <gradient 
+                    android:startColor="@color/gradient_start"
+                    android:endColor="@color/gradient_end"
+                    android:angle="45"/>
                 <padding android:left="@dimen/button_padding_horizontal_material"
                          android:top="@dimen/button_padding_vertical_material"
                          android:right="@dimen/button_padding_horizontal_material"
