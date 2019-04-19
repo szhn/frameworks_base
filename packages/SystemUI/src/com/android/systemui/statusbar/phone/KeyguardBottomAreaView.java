@@ -178,6 +178,8 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
     private boolean mIsPowerCameraGesture;
     private String mPreviousSource;
 
+    private boolean mDisplayFODView;
+
     public KeyguardBottomAreaView(Context context) {
         this(context, null);
     }
@@ -249,6 +251,16 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
                 R.dimen.keyguard_indication_margin_bottom);
         mIndicationBottomMarginFod = getResources().getDimensionPixelSize(
                 R.dimen.keyguard_indication_margin_bottom_fingerprint_in_display);
+        mDisplayFODView = getResources()
+                .getBoolean(com.android.internal.R.bool.config_supportsInDisplayFingerprint);
+
+        if (mDisplayFODView) {
+            mIndicationBottomMargin = getResources().getDimensionPixelSize(
+                  R.dimen.op_keyguard_indication_margin_bottom);
+        } else {
+            mIndicationBottomMargin = getResources().getDimensionPixelSize(
+                  R.dimen.keyguard_indication_margin_bottom);
+        }
         mBurnInYOffset = getResources().getDimensionPixelSize(
                 R.dimen.default_burn_in_prevention_offset);
         updateCameraVisibility();
@@ -316,6 +328,20 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
 
         // Update the bottom margin of the indication area
         updateIndicationAreaPadding();
+        if (mDisplayFODView) {
+            mIndicationBottomMargin = getResources().getDimensionPixelSize(
+                  R.dimen.op_keyguard_indication_margin_bottom);
+        } else {
+            mIndicationBottomMargin = getResources().getDimensionPixelSize(
+                  R.dimen.keyguard_indication_margin_bottom);
+        }
+        mBurnInYOffset = getResources().getDimensionPixelSize(
+                R.dimen.default_burn_in_prevention_offset);
+        MarginLayoutParams mlp = (MarginLayoutParams) mIndicationArea.getLayoutParams();
+        if (mlp.bottomMargin != mIndicationBottomMargin) {
+            mlp.bottomMargin = mIndicationBottomMargin;
+            mIndicationArea.setLayoutParams(mlp);
+        }
 
         // Respect font size setting.
         mEnterpriseDisclosure.setTextSize(TypedValue.COMPLEX_UNIT_PX,
