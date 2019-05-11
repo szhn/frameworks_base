@@ -545,6 +545,8 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     private boolean mAmbientVisualizer;
 
+    private boolean mPocketJudgeAllowFP;
+
     private boolean mWallpaperSupportsAmbientMode;
     private final BroadcastReceiver mWallpaperChangedReceiver = new BroadcastReceiver() {
         @Override
@@ -4143,14 +4145,20 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.LESS_BORING_HEADS_UP),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.POCKET_JUDGE_ALLOW_FP),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
         public void onChange(boolean selfChange, Uri uri) {
-          if (uri.equals(Settings.Secure.getUriFor(
-                  Settings.Secure.FP_SWIPE_TO_DISMISS_NOTIFICATIONS))) {
-              setFpToDismissNotifications();
-          }
+            if (uri.equals(Settings.Secure.getUriFor(
+                    Settings.Secure.FP_SWIPE_TO_DISMISS_NOTIFICATIONS))) {
+                setFpToDismissNotifications();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.POCKET_JUDGE_ALLOW_FP))) {
+                updatePocketJudgeFP();
+            }
             update();
         }
 
@@ -4163,7 +4171,14 @@ public class StatusBar extends SystemUI implements DemoMode,
             setPulseOnNewTracks();
             setFpToDismissNotifications();
             setUseLessBoringHeadsUp();
+            updatePocketJudgeFP();
         }
+    }
+
+    private void updatePocketJudgeFP() {
+        mPocketJudgeAllowFP = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.POCKET_JUDGE_ALLOW_FP, 0,
+                UserHandle.USER_CURRENT) == 1;
     }
 
     private void setUseLessBoringHeadsUp() {
