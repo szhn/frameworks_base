@@ -478,6 +478,7 @@ public class StatusBar extends SystemUI implements DemoMode,
     private PackageMonitor mPackageMonitor;
 
     private boolean mSysuiRoundedFwvals;
+    private boolean mHeadsUpDisabled, mGamingModeActivated;
 
     // XXX: gesture research
     private final GestureRecorder mGestureRec = DEBUG_GESTURES
@@ -4171,6 +4172,12 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.LOCKSCREEN_CHARGING_ANIMATION),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.GAMING_MODE_ACTIVE),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.GAMING_MODE_HEADSUP_TOGGLE),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -4210,6 +4217,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             updateQsPanelResources();
             setLockScreenMediaBlurLevel();
             updateChargingAnimation();
+            setGamingMode();
         }
     }
 
@@ -4284,6 +4292,16 @@ public class StatusBar extends SystemUI implements DemoMode,
             sliceProvider.setPulseOnNewTracks(Settings.System.getIntForUser(mContext.getContentResolver(),
                     Settings.System.PULSE_ON_NEW_TRACKS, 1, UserHandle.USER_CURRENT) == 1);
         }
+    }
+
+    private void setGamingMode() {
+        mGamingModeActivated = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.GAMING_MODE_ACTIVE, 0,
+                UserHandle.USER_CURRENT) == 1;
+        mHeadsUpDisabled = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.GAMING_MODE_HEADSUP_TOGGLE, 1,
+                UserHandle.USER_CURRENT) == 1;
+        mNotificationInterruptionStateProvider.setGamingPeekMode(mGamingModeActivated && mHeadsUpDisabled);
     }
 
     public int getWakefulnessState() {
