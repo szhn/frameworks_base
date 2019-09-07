@@ -514,7 +514,7 @@ public final class SystemServer {
             System.loadLibrary("android_servers");
 
             // Debug builds - allow heap profiling.
-            if (Build.IS_DEBUGGABLE) {
+            if (Build.IS_ENG) {
                 initZygoteChildHeapProfiling();
             }
 
@@ -949,7 +949,7 @@ public final class SystemServer {
                 PackageManager.FEATURE_VR_MODE_HIGH_PERFORMANCE);
 
         // For debugging RescueParty
-        if (Build.IS_DEBUGGABLE && SystemProperties.getBoolean("debug.crash_system", false)) {
+        if (Build.IS_ENG && SystemProperties.getBoolean("debug.crash_system", false)) {
             throw new RuntimeException();
         }
 
