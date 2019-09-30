@@ -40,6 +40,7 @@ import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
 import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HotspotTile;
+import com.android.systemui.qs.tiles.HWKeysTile;
 import com.android.systemui.qs.tiles.IntentTile;
 import com.android.systemui.qs.tiles.LiveDisplayTile;
 import com.android.systemui.qs.tiles.LocationTile;
@@ -108,6 +109,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<LteTile> mLteTileProvider;
     private final Provider<CPUInfoTile> mCPUInfoTileProvider;
     private final Provider<SmartPixelsTile> mSmartPixelsTileProvider;
+    private final Provider<HWKeysTile> mHWKeysTileProvider;
 
     private QSTileHost mHost;
 
@@ -146,7 +148,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<ScreenRecordTile> screenRecordTileProvider,
             Provider<LteTile> lteTileProvider,
             Provider<CPUInfoTile> cpuInfoTileProvider,
-            Provider<SmartPixelsTile> smartPixelsTileProvider) {
+            Provider<SmartPixelsTile> smartPixelsTileProvider,
+            Provider<HWKeysTile> hWKeysTileProvider) {
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
         mCellularTileProvider = cellularTileProvider;
@@ -183,6 +186,7 @@ public class QSFactoryImpl implements QSFactory {
         mLteTileProvider = lteTileProvider;
         mCPUInfoTileProvider = cpuInfoTileProvider;
         mSmartPixelsTileProvider = smartPixelsTileProvider;
+        mHWKeysTileProvider = hWKeysTileProvider;
     }
 
     public void setHost(QSTileHost host) {
@@ -269,6 +273,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mCPUInfoTileProvider.get();
             case "smartpixels":
                 return mSmartPixelsTileProvider.get();
+            case "hwkeys":
+                return mHWKeysTileProvider.get();
         }
 
         // Intent tiles.
