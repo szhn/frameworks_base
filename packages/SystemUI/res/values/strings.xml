@@ -1507,6 +1507,9 @@
     <!-- Name of the roaming status bar icon. -->
     <string name="status_bar_roaming">Roaming</string>
 
+    <!-- Name of the data disaled stautus bar icon -->
+    <string name="status_bar_data_disabled">Data disabled</string>
+
     <!-- Description for adding  a quick settings tile -->
     <string name="add_tile">Add tile</string>
 
