@@ -1570,8 +1570,6 @@ public class ActivityManagerService extends IActivityManager.Stub
 
     static final String SERVICE_RECORD_KEY = "servicerecord";
 
-    static final ActivityTrigger mActivityTrigger = new ActivityTrigger();
-
     long mLastMemUsageReportTime = 0;
 
     /**
@@ -5266,8 +5264,6 @@ public class ActivityManagerService extends IActivityManager.Stub
                 (int) (SystemClock.elapsedRealtime() - app.startTime),
                 app.hostingRecord.getType(),
                 (app.hostingRecord.getName() != null ? app.hostingRecord.getName() : ""));
-        //send start notification to AT with the starting app's info.
-        mActivityTrigger.activityStartTrigger(app.info, app.pid);
         return true;
     }
 
