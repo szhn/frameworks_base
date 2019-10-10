@@ -288,4 +288,8 @@
 
     <!-- Whether key handler sends intent when changing slider position -->
     <java-symbol type="string" name="config_alertSliderIntent" />
+
+    <!-- Ambient Pulse Light -->
+    <java-symbol type="integer" name="config_AmbientPulseLightColor" />
+
 </resources>
