@@ -42,8 +42,18 @@ LOCAL_REQUIRED_MODULES := \
 	FontArbutusSourceOverlay \
 	FontArvoLatoOverlay \
 	FontGoogleSansOverlay \
-	FontNotoSerifSourceOverlay \
 	FontRubikRubikOverlay \
+        FontAclonicaSourceOverlay \
+        FontAmaranteSourceOverlay \
+        FontBariolSourceOverlay \
+        FontCagliostroSourceOverlay \
+        FontCoolstorySourceOverlay \
+        FontLGSmartGothicSourceOverlay \
+        FontNotoSerifSourceOverlay \
+        FontRosemarySourceOverlay \
+        FontSonySketchSourceOverlay \
+        FontSurferSourceOverlay \
+        FontHYCoffeeSourceOverlay \
 	IconPackCircularAndroidOverlay \
 	IconPackCircularPixelLauncherOverlay \
 	IconPackCircularPixelThemePickerOverlay \
