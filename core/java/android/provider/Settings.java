@@ -5443,8 +5443,13 @@ public final class Settings {
         public static final String STATUS_BAR_BATTERY_TEXT_CHARGING = "status_bar_battery_text_charging";
 
         /**
+         * Whether to pulse ambient on new music tracks
+         * @hide
+         */
+        public static final String PULSE_ON_NEW_TRACKS = "pulse_on_new_tracks";
+
+        /**
          * Whether to enable gaming mode or not
-         *
          * @hide
          */
         public static final String ENABLE_GAMING_MODE = "enable_gaming_mode";
