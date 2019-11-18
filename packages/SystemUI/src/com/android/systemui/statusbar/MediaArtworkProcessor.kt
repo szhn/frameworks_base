@@ -56,7 +56,13 @@ class MediaArtworkProcessor @Inject constructor() {
         var output: Allocation? = null
         var inBitmap: Bitmap? = null
         try {
-            if (blur_radius < 5f) mDownSample = 2 else mDownSample = DOWNSAMPLE
+            if (blur_radius < 1f) {
+                mDownSample = 1
+                //mColorAlpha = (mColorAlpha * 0.1f).toInt()
+            } else if (blur_radius < 5f) {
+                mDownSample = 2
+                //mColorAlpha = (mColorAlpha * 0.5f).toInt()
+            }
             context.display.getSize(mTmpSize)
             val rect = Rect(0, 0, artwork.width, artwork.height)
             MathUtils.fitRect(rect, Math.max(mTmpSize.x / mDownSample, mTmpSize.y / mDownSample))
