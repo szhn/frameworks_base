@@ -54,6 +54,7 @@ LOCAL_REQUIRED_MODULES := \
         FontSonySketchSourceOverlay \
         FontSurferSourceOverlay \
         FontHYCoffeeSourceOverlay \
+        FontGoogleSansMediumOverlay \
 	IconPackCircularAndroidOverlay \
 	IconPackCircularPixelLauncherOverlay \
 	IconPackCircularPixelThemePickerOverlay \
