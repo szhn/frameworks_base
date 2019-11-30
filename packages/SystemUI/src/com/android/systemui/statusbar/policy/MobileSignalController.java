@@ -22,6 +22,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.database.ContentObserver;
+import android.graphics.drawable.Drawable;
 import android.net.NetworkCapabilities;
 import android.net.Uri;
 import android.os.Handler;
@@ -102,6 +103,9 @@ public class MobileSignalController extends SignalController<
     boolean mIsShowingIconGracefully = false;
     // Some specific carriers have 5GE network which is special LTE CA network.
     private static final int NETWORK_TYPE_LTE_CA_5GE = TelephonyManager.MAX_NETWORK_TYPE + 1;
+
+    // Volte Icon Style
+    private int mVoLTEstyle;
 
     private ImsManager mImsManager;
     private ImsManager.Connector mImsManagerConnector;
@@ -193,6 +197,9 @@ public class MobileSignalController extends SignalController<
             resolver.registerContentObserver(
                     Settings.System.getUriFor(Settings.System.SHOW_FOURG_ICON), false,
                     this, UserHandle.USER_ALL);
+           resolver.registerContentObserver(
+	            Settings.System.getUriFor(Settings.System.VOLTE_ICON_STYLE), false,
+		    this, UserHandle.USER_ALL);
             updateSettings();
         }
 
@@ -211,6 +218,9 @@ public class MobileSignalController extends SignalController<
         mShow4gForLte = Settings.System.getIntForUser(resolver,
                 Settings.System.SHOW_FOURG_ICON, 0,
                 UserHandle.USER_CURRENT) == 1;
+        mVoLTEstyle = Settings.System.getIntForUser(resolver,
+                Settings.System.VOLTE_ICON_STYLE, 0,
+                UserHandle.USER_CURRENT);
         mapIconSets();
         updateTelephony();
     }
@@ -459,6 +469,44 @@ public class MobileSignalController extends SignalController<
 
         if ( mCurrentState.imsRegistered ) {
             resId = R.drawable.ic_volte;
+            switch(mVoLTEstyle) {
+                // Asus Style VoLTE
+                case 1:
+                    resId = R.drawable.ic_volte1;
+                    break;
+                // Vo
+                case 2:
+                    resId = R.drawable.ic_volte2;
+                    break;
+                // VoLIT
+                case 3:
+                     resId = R.drawable.ic_volte3;
+                     break;
+                // Margarita VoLTE
+                case 4:
+                     resId = R.drawable.ic_volte4;
+                     break;
+                // OOS VoLTE
+                case 5:
+                     resId = R.drawable.ic_volte5;
+                     break;
+                // HD Icon
+                case 6:
+                     resId = R.drawable.ic_hd_volte;
+                     break;
+                // Android One HD icon
+                case 7:
+                     resId = R.drawable.ic_hd_volte1;
+                     break;
+                case 8:
+                    resId = R.drawable.ic_volte_miui;
+                    break;
+ 	        // TOS VoLTE
+                case 0:
+                default:
+                    resId = R.drawable.ic_volte;
+                    break;
+            }
         }
         return resId;
     }
