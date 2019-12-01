@@ -126,4 +126,7 @@ interface IStatusBarService
     void cancelPreloadRecentApps();
     void startAssist(in Bundle args);
     void killForegroundApp();
+
+    // Used to block or unblock usage of gestural navigation
+    void setBlockedGesturalNavigation(boolean blocked);
 }
