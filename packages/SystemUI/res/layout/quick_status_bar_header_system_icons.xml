@@ -40,6 +40,13 @@
         android:textAppearance="@style/TextAppearance.StatusBar.Clock"
         systemui:showDark="false" />
 
+    <android.widget.Space
+        android:id="@+id/space"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_gravity="center_vertical|center_horizontal" />
+
     <com.android.systemui.statusbar.policy.NetworkTraffic
         android:id="@+id/networkTraffic"
         android:paddingEnd="@dimen/status_bar_left_clock_end_padding"
@@ -55,7 +62,6 @@
         android:id="@+id/battery"
         android:layout_height="match_parent"
         android:layout_width="wrap_content"
-        systemui:textAppearance="@style/TextAppearance.QS.Status"
-        android:gravity="right|end"/>
+        android:gravity="center_vertical|end" />
 
 </LinearLayout>
