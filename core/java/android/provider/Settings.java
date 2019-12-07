@@ -4844,6 +4844,15 @@ public final class Settings {
         public static final String NETWORK_TRAFFIC_STATE = "network_traffic_state";
 
         /**
+         * Network traffic layout
+         * @hide
+         */
+        public static final String NETWORK_TRAFFIC_LAYOUT = "network_traffic_layout";
+
+        /** @hide */
+        private static final Validator NETWORK_TRAFFIC_LAYOUT_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
+        /**
          * Network traffic inactivity threshold (default is 1 kBs)
          * @hide
          */
@@ -6780,6 +6789,7 @@ public final class Settings {
             VIBRATE_ON_CALLWAITING,
             VIBRATE_ON_DISCONNECT,
             LOCKSCREEN_BATTERY_INFO,
+            NETWORK_TRAFFIC_LAYOUT,
             ALLOW_INCALL_HOME,
             VOLUME_ROCKER_WAKE,
             VOLUME_BUTTON_MUSIC_CONTROL,
@@ -7002,6 +7012,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(LOCKSCREEN_BATTERY_INFO);
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_STATE);
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_TYPE);
+            PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_LAYOUT);
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD);
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_FONT_SIZE);
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_VIEW_LOCATION);
@@ -7224,6 +7235,7 @@ public final class Settings {
             VALIDATORS.put(VIBRATE_ON_DISCONNECT, VIBRATE_ON_DISCONNECT_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_MEDIA_METADATA, LOCKSCREEN_MEDIA_METADATA_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_BATTERY_INFO, LOCKSCREEN_BATTERY_INFO_VALIDATOR);
+            VALIDATORS.put(NETWORK_TRAFFIC_LAYOUT, NETWORK_TRAFFIC_LAYOUT_VALIDATOR);
             VALIDATORS.put(ALLOW_INCALL_HOME, ALLOW_INCALL_HOME_VALIDATOR);
             VALIDATORS.put(VOLUME_ROCKER_WAKE, VOLUME_ROCKER_WAKE_VALIDATOR);
             VALIDATORS.put(VOLUME_BUTTON_MUSIC_CONTROL, VOLUME_BUTTON_MUSIC_CONTROL_VALIDATOR);
