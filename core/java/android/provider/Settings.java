@@ -5974,6 +5974,14 @@ public final class Settings {
         private static final Validator AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+         * @hide
+         */
+        public static final String AMBIENT_LIGHT_AUTO_COLOR = "ambient_light_auto_color";
+
+        /** @hide */
+        private static final Validator AMBIENT_LIGHT_AUTO_COLOR_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * helper setting to contain the current pulse reason so we can check
          * if it has been triggered from a notification or a gesture
          * @hide
@@ -6046,6 +6054,7 @@ public final class Settings {
             ALARM_ALERT,
             AMBIENT_NOTIFICATION_LIGHT,
             AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC,
+            AMBIENT_LIGHT_AUTO_COLOR,
             NOTIFICATION_LIGHT_PULSE,
             CUSTOM_BUTTON_EXTRA_KEY_MAPPING,
             CUSTOM_DEVICE_PROXI_CHECK_ENABLED,
@@ -6302,6 +6311,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(VOLTE_ICON_STYLE);
             PRIVATE_SETTINGS.add(AMBIENT_NOTIFICATION_LIGHT);
             PRIVATE_SETTINGS.add(AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC);
+            PRIVATE_SETTINGS.add(AMBIENT_LIGHT_AUTO_COLOR);
         }
 
         /**
@@ -6396,6 +6406,7 @@ public final class Settings {
             VALIDATORS.put(WIFI_STATIC_DNS2, WIFI_STATIC_DNS2_VALIDATOR);
             VALIDATORS.put(AMBIENT_NOTIFICATION_LIGHT, AMBIENT_NOTIFICATION_LIGHT_VALIDATOR);
             VALIDATORS.put(AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC, AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC_VALIDATOR);
+            VALIDATORS.put(AMBIENT_LIGHT_AUTO_COLOR, AMBIENT_LIGHT_AUTO_COLOR_VALIDATOR);
             VALIDATORS.put(NOTIFICATION_LIGHT_PULSE, BOOLEAN_VALIDATOR);
             VALIDATORS.put(BUTTON_BACKLIGHT_TIMEOUT, BUTTON_BACKLIGHT_TIMEOUT_VALIDATOR);
             VALIDATORS.put(BUTTON_BRIGHTNESS, BUTTON_BRIGHTNESS_VALIDATOR);
