@@ -5817,7 +5817,15 @@ public final class Settings {
                 ANY_INTEGER_VALIDATOR;
 
         /**
-         * User definable value of pulse notification screen brightness
+         * FOD icon picker
+         * @hide
+         */
+        public static final String FOD_ICON = "fod_icon";
+
+        /**
+         * Whether the battery light should be enabled (if hardware supports it)
+         * The value is boolean (1 or 0).
+          * User definable value of pulse notification screen brightness
          *
          * @hide
          */
