@@ -25,8 +25,6 @@ import android.os.Parcelable;
 import android.util.SparseArray;
 import android.content.ContentResolver;
 import android.database.ContentObserver;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -47,6 +45,8 @@ import com.android.systemui.Dependency;
 import com.android.systemui.Interpolators;
 import com.android.systemui.R;
 import com.android.systemui.SysUiServiceProvider;
+import com.android.systemui.plugins.DarkIconDispatcher;
+import com.android.systemui.plugins.DarkIconDispatcher.DarkReceiver;
 import com.android.systemui.plugins.statusbar.StatusBarStateController;
 import com.android.systemui.statusbar.CommandQueue;
 import com.android.systemui.statusbar.StatusBarState;
@@ -101,7 +101,6 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private ImageView mEvoLogoRight;
     private int mLogoStyle;
     private int mShowLogo;
-    private int mLogoColor;
 
     private class SettingsObserver extends ContentObserver {
        SettingsObserver(Handler handler) {
@@ -124,16 +123,12 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
          mContentResolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_LOGO_STYLE),
                     false, this, UserHandle.USER_ALL);
-         mContentResolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.STATUS_BAR_LOGO_COLOR),
-                    false, this, UserHandle.USER_ALL);
        }
 
        @Override
        public void onChange(boolean selfChange, Uri uri) {
            if ((uri.equals(Settings.System.getUriFor(Settings.System.STATUS_BAR_LOGO))) ||
-               (uri.equals(Settings.System.getUriFor(Settings.System.STATUS_BAR_LOGO_STYLE))) ||
-               (uri.equals(Settings.System.getUriFor(Settings.System.STATUS_BAR_LOGO_COLOR)))) {
+               (uri.equals(Settings.System.getUriFor(Settings.System.STATUS_BAR_LOGO_STYLE)))) {
                updateLogoSettings(true);
            }
            updateSettings(true);
@@ -189,6 +184,8 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mCustomCarrierLabel = mStatusBar.findViewById(R.id.statusbar_carrier_text);
         mEvoLogo = mStatusBar.findViewById(R.id.status_bar_logo);
         mEvoLogoRight = mStatusBar.findViewById(R.id.status_bar_logo_right);
+        Dependency.get(DarkIconDispatcher.class).addDarkReceiver(mEvoLogo);
+        Dependency.get(DarkIconDispatcher.class).addDarkReceiver(mEvoLogoRight);
         updateSettings(false);
         updateLogoSettings(false);
         showSystemIconArea(false);
@@ -228,6 +225,8 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         if (mNetworkController.hasEmergencyCryptKeeperText()) {
             mNetworkController.removeCallback(mSignalCallback);
         }
+        Dependency.get(DarkIconDispatcher.class).removeDarkReceiver(mEvoLogo);
+        Dependency.get(DarkIconDispatcher.class).removeDarkReceiver(mEvoLogoRight);
     }
 
     public void initNotificationIconArea(NotificationIconAreaController
@@ -541,9 +540,6 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mShowLogo = Settings.System.getIntForUser(
                 getContext().getContentResolver(), Settings.System.STATUS_BAR_LOGO, 0,
                 UserHandle.USER_CURRENT);
-        mLogoColor = Settings.System.getIntForUser(
-                getContext().getContentResolver(), Settings.System.STATUS_BAR_LOGO_COLOR, 0xffff8800,
-                UserHandle.USER_CURRENT);
         mLogoStyle = Settings.System.getIntForUser(
                 getContext().getContentResolver(), Settings.System.STATUS_BAR_LOGO_STYLE, 0,
                 UserHandle.USER_CURRENT);
@@ -642,11 +638,9 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         if (mShowLogo == 1) {
             mEvoLogo.setImageDrawable(null);
             mEvoLogo.setImageDrawable(logo);
-            mEvoLogo.setColorFilter(mLogoColor, PorterDuff.Mode.MULTIPLY);
         } else if (mShowLogo == 2) {
             mEvoLogoRight.setImageDrawable(null);
             mEvoLogoRight.setImageDrawable(logo);
-            mEvoLogoRight.setColorFilter(mLogoColor, PorterDuff.Mode.MULTIPLY);
         }
 
         if (mNotificationIconAreaInner != null) {
