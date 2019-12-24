@@ -24,16 +24,16 @@ LOCAL_REQUIRED_MODULES := \
 	AccentColorSpaceOverlay \
 	AccentColorGreenOverlay \
 	AccentColorPurpleOverlay \
-        AccentColorCocaColaOverlay \
+	AccentColorCocaColaOverlay \
 	AccentColorDiscordOverlay \
 	AccentColorGoldenShowerOverlay \
 	AccentColorJollibeeOverlay \
-        AccentColorNextbitOverlay \
+	AccentColorNextbitOverlay \
 	AccentColorOnePlusOverlay \
 	AccentColorParanoidOverlay \
 	AccentColorPepsiOverlay \
-        AccentColorRazerOverlay \
-        AccentColorStarbucksOverlay \
+	AccentColorRazerOverlay \
+	AccentColorStarbucksOverlay \
 	AccentColorXboxOverlay \
 	AccentColorXiaomiOverlay \
 	DisplayCutoutEmulationCornerOverlay \
@@ -45,18 +45,19 @@ LOCAL_REQUIRED_MODULES := \
 	FontRubikRubikOverlay \
 	FontCircularStdOverlay \
 	FontOnePlusSlateOverlay \
-        FontAclonicaSourceOverlay \
-        FontAmaranteSourceOverlay \
-        FontBariolSourceOverlay \
-        FontCagliostroSourceOverlay \
-        FontCoolstorySourceOverlay \
-        FontLGSmartGothicSourceOverlay \
-        FontNotoSerifSourceOverlay \
-        FontRosemarySourceOverlay \
-        FontSonySketchSourceOverlay \
-        FontSurferSourceOverlay \
-        FontHYCoffeeSourceOverlay \
-        FontGoogleSansMediumOverlay \
+    FontAclonicaSourceOverlay \
+	FontAmaranteSourceOverlay \
+	FontBariolSourceOverlay \
+	FontCagliostroSourceOverlay \
+	FontCoolstorySourceOverlay \
+	FontLGSmartGothicSourceOverlay \
+	FontNotoSerifSourceOverlay \
+	FontRosemarySourceOverlay \
+	FontSonySketchSourceOverlay \
+	FontSurferSourceOverlay \
+	FontHYCoffeeSourceOverlay \
+	FontGoogleSansMediumOverlay \
+	FontSlateForOnePlusOverlay \
 	IconPackCircularAndroidOverlay \
 	IconPackCircularPixelLauncherOverlay \
 	IconPackCircularPixelThemePickerOverlay \
@@ -72,7 +73,7 @@ LOCAL_REQUIRED_MODULES := \
 	IconPackRoundedPixelThemePickerOverlay \
 	IconPackRoundedSettingsOverlay \
 	IconPackRoundedSystemUIOverlay \
-        IconShapeCylinderOverlay \
+	IconShapeCylinderOverlay \
 	IconShapeRoundedRectOverlay \
 	IconShapeSquareOverlay \
 	IconShapeSquircleOverlay \
