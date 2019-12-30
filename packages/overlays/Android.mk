@@ -44,6 +44,7 @@ LOCAL_REQUIRED_MODULES := \
 	FontRosemarySourceOverlay \
 	FontRubikRubikOverlay \
 	FontSimpleDaySourceOverlay \
+	FontSFProOverlay \
 	FontSonySketchSourceOverlay \
 	FontSurferSourceOverlay \
 	FontSlateForOnePlusOverlay \
