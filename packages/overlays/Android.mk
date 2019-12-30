@@ -81,6 +81,8 @@ LOCAL_REQUIRED_MODULES := \
     FontExotwoSourceOverlay \
     FontStoropiaSourceOverlay \
     FontUbuntuSourceOverlay \
+    FontNokiaPureSourceOverlay \
+    FontFifa2018SourceOverlay \
     IconPackCircularAndroidOverlay \
     IconPackCircularPixelLauncherOverlay \
     IconPackCircularPixelThemePickerOverlay \
