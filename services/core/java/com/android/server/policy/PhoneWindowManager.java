@@ -144,10 +144,6 @@ import android.hardware.hdmi.HdmiControlManager;
 import android.hardware.hdmi.HdmiPlaybackClient;
 import android.hardware.hdmi.HdmiPlaybackClient.OneTouchPlayCallback;
 import android.hardware.input.InputManagerInternal;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.AudioManagerInternal;
@@ -710,13 +706,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     };
 
-    private static final float PROXIMITY_DISTANCE_THRESHOLD = 5.0f;
-    private int mProximityTimeOut;
-    private SensorManager mSensorManager;
-    private Sensor mProximitySensor;
-    private SensorEventListener mProximityListener;
-    private android.os.PowerManager.WakeLock mProximityWakeLock;
-
     private static final int MSG_DISPATCH_MEDIA_KEY_WITH_WAKE_LOCK = 3;
     private static final int MSG_DISPATCH_MEDIA_KEY_REPEAT_WITH_WAKE_LOCK = 4;
     private static final int MSG_KEYGUARD_DRAWN_COMPLETE = 5;
@@ -744,7 +733,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private static final int MSG_MOVE_DISPLAY_TO_TOP = 28;
     private static final int MSG_DISPATCH_VOLKEY_SKIP_TRACK = 29;
     private static final int MSG_TOGGLE_TORCH = 30;
-    private static final int MSG_CLEAR_PROXIMITY = 51;
 
     private boolean mHasAlertSlider = false;
 
@@ -867,72 +855,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     break;
                 }
                 case MSG_TOGGLE_TORCH:
-                    toggleFlashLightProximityCheck();
-                    break;
-                case MSG_CLEAR_PROXIMITY:
-                    cleanupProximity();
+                    toggleFlashLight();
                     break;
             }
-        }
-    }
-
-    private void runPostProximityCheck() {
-        if (mSensorManager == null) {
-            return;
-        }
-        synchronized (mProximityWakeLock) {
-            mProximityWakeLock.acquire();
-            mProximityListener = new SensorEventListener() {
-                @Override
-                public void onSensorChanged(SensorEvent event) {
-                    cleanupProximityLocked();
-                    if (!mHandler.hasMessages(MSG_CLEAR_PROXIMITY)) {
-                        return;
-                    }
-                    mHandler.removeMessages(MSG_CLEAR_PROXIMITY);
-                    final float distance = event.values[0];
-                    if (distance >= PROXIMITY_DISTANCE_THRESHOLD ||
-                            distance >= mProximitySensor.getMaximumRange()) {
-                        toggleFlashLight();
-                    }
-                }
-
-                @Override
-                public void onAccuracyChanged(Sensor sensor, int accuracy) {
-                }
-            };
-            mSensorManager.registerListener(mProximityListener,
-                   mProximitySensor, SensorManager.SENSOR_DELAY_FASTEST);
-        }
-    }
-
-    private void cleanupProximityLocked() {
-        if (mProximityWakeLock.isHeld()) {
-            mProximityWakeLock.release();
-        }
-        if (mProximityListener != null) {
-            mSensorManager.unregisterListener(mProximityListener);
-            mProximityListener = null;
-        }
-    }
-
-    private void cleanupProximity() {
-        synchronized (mProximityWakeLock) {
-            cleanupProximityLocked();
-        }
-    }
-
-    private void toggleFlashLightProximityCheck() {
-        if (mProximitySensor != null && mProximityTimeOut != -1) {
-            if (mHandler.hasMessages(MSG_CLEAR_PROXIMITY)) {
-                // A message is already queued
-                return;
-            }
-            final Message newMsg = mHandler.obtainMessage(MSG_CLEAR_PROXIMITY);
-            mHandler.sendMessageDelayed(newMsg, mProximityTimeOut);
-            runPostProximityCheck();
-        } else {
-            toggleFlashLight();
         }
     }
 
@@ -1466,7 +1391,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         switch (behavior) {
                 case MULTI_PRESS_POWER_NOTHING:
                 if ((!isScreenOn() || isDozeMode())) {
-                    toggleFlashLightProximityCheck();
+                    toggleFlashLight();
                 }
                 break;
             case MULTI_PRESS_POWER_THEATER_MODE:
@@ -2346,12 +2271,27 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     }
                 });
 
-        mProximityTimeOut = mContext.getResources().getInteger(
-                com.android.internal.R.integer.config_flashlightProximityTimeout);
-        mSensorManager = (SensorManager) mContext.getSystemService(Context.SENSOR_SERVICE);
-        mProximitySensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
-        mProximityWakeLock = mContext.getSystemService(PowerManager.class)
-                .newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "ProximityWakeLock");
+        final Resources res = mContext.getResources();
+        final String[] deviceKeyHandlerLibs = res.getStringArray(
+                com.android.internal.R.array.config_deviceKeyHandlerLibs);
+        final String[] deviceKeyHandlerClasses = res.getStringArray(
+                com.android.internal.R.array.config_deviceKeyHandlerClasses);
+
+        for (int i = 0;
+                i < deviceKeyHandlerLibs.length && i < deviceKeyHandlerClasses.length; i++) {
+            try {
+                PathClassLoader loader = new PathClassLoader(
+                        deviceKeyHandlerLibs[i], getClass().getClassLoader());
+                Class<?> klass = loader.loadClass(deviceKeyHandlerClasses[i]);
+                Constructor<?> constructor = klass.getConstructor(Context.class);
+                mDeviceKeyHandlers.add((DeviceKeyHandler) constructor.newInstance(mContext));
+            } catch (Exception e) {
+                Slog.w(TAG, "Could not instantiate device key handler "
+                        + deviceKeyHandlerLibs[i] + " from class "
+                        + deviceKeyHandlerClasses[i], e);
+            }
+        }
+        if (DEBUG_INPUT) Slog.d(TAG, "" + mDeviceKeyHandlers.size() + " device key handlers loaded");
 
         // Register for torch off events
         BroadcastReceiver torchReceiver = new BroadcastReceiver() {

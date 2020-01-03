@@ -234,8 +234,4 @@
     <!-- Name of a font family to use as regular font. For theming purpose. -->
     <string name="config_regularFontFamily" translatable="false">sans-serif-regular</string>
 
-    <!-- Time to give to the proximity sensor before toggling the flashlight with the Power button.
-         Set to -1 to disable the proximity sensor check at all-->
-    <integer name="config_flashlightProximityTimeout">300</integer>
-
 </resources>
