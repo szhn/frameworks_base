@@ -586,7 +586,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     // Whether system navigation keys are enabled
     boolean mSystemNavigationKeysEnabled;
 
-    int mLidState = LID_ABSENT;
     // TODO(b/111361251): Remove default when the dependencies are multi-display ready.
     Display mDefaultDisplay;
     DisplayRotation mDefaultDisplayRotation;
