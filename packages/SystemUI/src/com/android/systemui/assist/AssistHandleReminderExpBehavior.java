@@ -457,15 +457,11 @@ final class AssistHandleReminderExpBehavior implements BehaviorController {
     }
 
     private long getLearningTimeMs() {
-        return mDeviceConfigHelper.getLong(
-                SystemUiDeviceConfigFlags.ASSIST_HANDLES_LEARN_TIME_MS,
-                DEFAULT_LEARNING_TIME_MS);
+        return DEFAULT_LEARNING_TIME_MS;
     }
 
     private int getLearningCount() {
-        return mDeviceConfigHelper.getInt(
-                SystemUiDeviceConfigFlags.ASSIST_HANDLES_LEARN_COUNT,
-                DEFAULT_LEARNING_COUNT);
+        return DEFAULT_LEARNING_COUNT;
     }
 
     private long getShowAndGoDelayedShortDelayMs() {
@@ -487,9 +483,7 @@ final class AssistHandleReminderExpBehavior implements BehaviorController {
     }
 
     private boolean getSuppressOnLockscreen() {
-        return mDeviceConfigHelper.getBoolean(
-                SystemUiDeviceConfigFlags.ASSIST_HANDLES_SUPPRESS_ON_LOCKSCREEN,
-                DEFAULT_SUPPRESS_ON_LOCKSCREEN);
+        return DEFAULT_SUPPRESS_ON_LOCKSCREEN;
     }
 
     private boolean getSuppressOnLauncher() {
@@ -499,15 +493,11 @@ final class AssistHandleReminderExpBehavior implements BehaviorController {
     }
 
     private boolean getSuppressOnApps() {
-        return mDeviceConfigHelper.getBoolean(
-                SystemUiDeviceConfigFlags.ASSIST_HANDLES_SUPPRESS_ON_APPS,
-                DEFAULT_SUPPRESS_ON_APPS);
+        return DEFAULT_SUPPRESS_ON_APPS;
     }
 
     private boolean getShowWhenTaught() {
-        return mDeviceConfigHelper.getBoolean(
-                SystemUiDeviceConfigFlags.ASSIST_HANDLES_SHOW_WHEN_TAUGHT,
-                DEFAULT_SHOW_WHEN_TAUGHT);
+        return DEFAULT_SHOW_WHEN_TAUGHT;
     }
 
     @Override
