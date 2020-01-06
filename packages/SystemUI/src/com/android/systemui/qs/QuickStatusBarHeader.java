@@ -108,6 +108,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     private boolean mExpanded;
     private boolean mListening;
     private boolean mQsDisabled;
+    private boolean isHideBattIcon;
 
     private QSCarrierGroup mCarrierGroup;
     protected QuickQSPanel mHeaderQsPanel;
@@ -152,6 +153,9 @@ public class QuickStatusBarHeader extends RelativeLayout implements
                     this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System
                     .getUriFor(Settings.System.STATUS_BAR_BATTERY_STYLE), false,
+                    this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System
+                    .getUriFor(Settings.System.QS_HIDE_BATTERY), false,
                     this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System
                     .getUriFor(Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER), false,
@@ -395,6 +399,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         }
         mBatteryMeterView.updatePercentView();
         mBatteryMeterView.updateVisibility();
+        mBatteryMeterView.setVisibility(isHideBattIcon ? View.GONE : View.VISIBLE);
     }
 
     private void updateSBBatteryStyle() {

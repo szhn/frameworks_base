@@ -6322,6 +6322,16 @@ public final class Settings {
         private static final Validator QS_PANEL_BG_USE_NEW_TINT_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+         * Whether or not to hide the battery icon and % from QS header
+         * @hide
+         */
+        public static final String QS_HIDE_BATTERY = "qs_hide_battery";
+
+        /** @hide */
+        private static final Validator QS_HIDE_BATTERY_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6472,6 +6482,7 @@ public final class Settings {
             QS_PANEL_BG_USE_FW,
             STATUS_BAR_CUSTOM_HEADER_HEIGHT,
             QS_PANEL_BG_USE_NEW_TINT,
+            QS_HIDE_BATTERY,
             // TitaniumOS Settings end
         };
 
@@ -6903,6 +6914,7 @@ public final class Settings {
             VALIDATORS.put(QS_PANEL_BG_USE_FW, QS_PANEL_BG_USE_FW_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_CUSTOM_HEADER_HEIGHT, STATUS_BAR_CUSTOM_HEADER_HEIGHT_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_USE_NEW_TINT, QS_PANEL_BG_USE_NEW_TINT_VALIDATOR);
+            VALIDATORS.put(QS_HIDE_BATTERY, QS_HIDE_BATTERY_VALIDATOR);
             // TitaniumOS Settings end
         }
 
