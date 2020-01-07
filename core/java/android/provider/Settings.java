@@ -5928,6 +5928,14 @@ public final class Settings {
         public static final String FOD_PRESSED_STATE = "fod_pressed_state";
 
         /**
+         * QS blur
+         * @hide
+         */
+        public static final String QS_BLUR = "qs_blur";
+        /** @hide */
+        private static final Validator QS_BLUR_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6047,6 +6055,7 @@ public final class Settings {
             FOD_RECOGNIZING_ANIMATION,
             FOD_ANIM,
             GESTURE_PILL_TOGGLE,
+            QS_BLUR,
             // TitaniumOS Settings end
         };
 
@@ -6411,6 +6420,7 @@ public final class Settings {
             VALIDATORS.put(FOD_RECOGNIZING_ANIMATION, FOD_RECOGNIZING_ANIMATION_VALIDATOR);
             VALIDATORS.put(FOD_ANIM, FOD_ANIM_VALIDATOR);
             VALIDATORS.put(GESTURE_PILL_TOGGLE, GESTURE_PILL_TOGGLE_VALIDATOR);
+            VALIDATORS.put(QS_BLUR, QS_BLUR_VALIDATOR);
             // TitaniumOS Settings end
         }
 
