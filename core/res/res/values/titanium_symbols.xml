@@ -282,4 +282,7 @@
     <!-- Whether to use base rounded corner radius for window animations instead
           of min between top and bottom radius-->
     <java-symbol type="bool" name="config_useDefaultRoundedCornerRadius" />
+
+    <!-- Device has OnePlus haptic motor -->
+    <java-symbol type="bool" name="config_hasOnePlusHapticMotor" />
 </resources>
