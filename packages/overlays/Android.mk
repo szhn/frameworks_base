@@ -77,6 +77,7 @@ LOCAL_REQUIRED_MODULES := \
     FontRoadRageSourceOverlay \
     FontCoconSourceOverlay \
     FontQuandoSourceOverlay \
+    FontComfortaaSourceOverlay \
     IconPackCircularAndroidOverlay \
     IconPackCircularPixelLauncherOverlay \
     IconPackCircularPixelThemePickerOverlay \
