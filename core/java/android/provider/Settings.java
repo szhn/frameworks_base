@@ -6163,6 +6163,24 @@ public final class Settings {
         public static final String LOCKOWNER_FONT_SIZE= "lockowner_font_size";
 
         /**
+         * Whether to show lockscreen clock
+         * @hide
+         */
+        public static final String LOCKSCREEN_CLOCK = "lockscreen_clock";
+
+        /** @hide */
+        private static final Validator LOCKSCREEN_CLOCK_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
+         * Whether to show the items underneath lockscreen clock
+         * @hide
+         */
+        public static final String LOCKSCREEN_INFO = "lockscreen_info";
+
+        /** @hide */
+        private static final Validator LOCKSCREEN_INFO_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6296,6 +6314,8 @@ public final class Settings {
             TORCH_LONG_PRESS_POWER_TIMEOUT,
             BUTTON_EXTRA_KEY_MAPPING,
             DEVICE_PROXI_CHECK_ENABLED,
+            LOCKSCREEN_CLOCK,
+            LOCKSCREEN_INFO,
             // TitaniumOS Settings end
         };
 
@@ -6503,6 +6523,8 @@ public final class Settings {
             PRIVATE_SETTINGS.add(TORCH_LONG_PRESS_POWER_TIMEOUT);
             PRIVATE_SETTINGS.add(BUTTON_EXTRA_KEY_MAPPING);
             PRIVATE_SETTINGS.add(DEVICE_PROXI_CHECK_ENABLED);
+            PRIVATE_SETTINGS.add(LOCKSCREEN_CLOCK);
+            PRIVATE_SETTINGS.add(LOCKSCREEN_INFO);
             //TitaniumOS Settings end
         }
 
@@ -6687,6 +6709,8 @@ public final class Settings {
             VALIDATORS.put(TORCH_LONG_PRESS_POWER_TIMEOUT, TORCH_LONG_PRESS_POWER_TIMEOUT_VALIDATOR);
             VALIDATORS.put(BUTTON_EXTRA_KEY_MAPPING, BUTTON_EXTRA_KEY_MAPPING_VALIDATOR);
             VALIDATORS.put(DEVICE_PROXI_CHECK_ENABLED, DEVICE_PROXI_CHECK_ENABLED_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_CLOCK, LOCKSCREEN_CLOCK_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_INFO, LOCKSCREEN_INFO_VALIDATOR);
             // TitaniumOS Settings end
         }
 
