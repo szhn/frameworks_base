@@ -78,6 +78,9 @@ LOCAL_REQUIRED_MODULES := \
     FontCoconSourceOverlay \
     FontQuandoSourceOverlay \
     FontComfortaaSourceOverlay \
+    FontExotwoSourceOverlay \
+    FontStoropiaSourceOverlay \
+    FontUbuntuSourceOverlay \
     IconPackCircularAndroidOverlay \
     IconPackCircularPixelLauncherOverlay \
     IconPackCircularPixelThemePickerOverlay \
