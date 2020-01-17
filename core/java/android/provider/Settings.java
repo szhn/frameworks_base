@@ -6351,6 +6351,16 @@ public final class Settings {
         private static final Validator NAVIGATION_HANDLE_WIDTH_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
         /**
+         * Whether to display status area (date & weather information) on the cLock
+         * @hide
+         */
+        public static final String CLOCK_SHOW_STATUS_AREA = "clock_show_status_area";
+
+        /** @hide */
+        private static final Validator CLOCK_SHOW_STATUS_AREA_VALIDATOR =
+               BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6505,6 +6515,7 @@ public final class Settings {
             SHOW_QS_CLOCK,
             BACK_GESTURE_BLOCK_IME,
             NAVIGATION_HANDLE_WIDTH,
+            CLOCK_SHOW_STATUS_AREA,
             // TitaniumOS Settings end
         };
 
@@ -6731,6 +6742,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_NEW_TINT);
             PRIVATE_SETTINGS.add(BACK_GESTURE_BLOCK_IME);
             PRIVATE_SETTINGS.add(NAVIGATION_HANDLE_WIDTH);
+            PRIVATE_SETTINGS.add(CLOCK_SHOW_STATUS_AREA);
             //TitaniumOS Settings end
         }
 
@@ -6942,6 +6954,7 @@ public final class Settings {
             VALIDATORS.put(SHOW_QS_CLOCK, SHOW_QS_CLOCK_VALIDATOR);
             VALIDATORS.put(BACK_GESTURE_BLOCK_IME,BACK_GESTURE_BLOCK_IME_VALIDATOR);
             VALIDATORS.put(NAVIGATION_HANDLE_WIDTH, NAVIGATION_HANDLE_WIDTH_VALIDATOR);
+            VALIDATORS.put(CLOCK_SHOW_STATUS_AREA, CLOCK_SHOW_STATUS_AREA_VALIDATOR);
             // TitaniumOS Settings end
         }
 
