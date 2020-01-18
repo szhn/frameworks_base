@@ -6305,13 +6305,66 @@ public final class Settings {
         private static final Validator QS_PANEL_BG_USE_FW_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
-         * Whether to use framework styles and resources on qs panel
+         * Whether to show cross when data is disabled
          * @hide
          */
-        public static final String QS_PANEL_BG_USE_ACCENT = "qs_panel_bg_use_accent";
+        public static final String DATA_DISABLED_ICON = "data_disabled_icon";
 
         /** @hide */
-        private static final Validator QS_PANEL_BG_USE_ACCENT_VALIDATOR = BOOLEAN_VALIDATOR;
+        private static final Validator DATA_DISABLED_ICON_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
+         * Whether to show the notification ticker on the status bar
+         * @hide
+         */
+        public static final String STATUS_BAR_SHOW_TICKER = "status_bar_show_ticker";
+
+        /** @hide */
+        private static final Validator STATUS_BAR_SHOW_TICKER_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
+         * Ticker animation
+         * 0: Fade animation
+         * 1: Scrolling ticker
+         * @hide
+         */
+        public static final String STATUS_BAR_TICKER_ANIMATION_MODE =
+                "status_bar_ticker_animation_mode";
+
+        /** @hide */
+        private static final Validator STATUS_BAR_TICKER_ANIMATION_MODE_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+        /**
+         * Status bar ticker duration in milliseconds.
+         *
+         * @hide
+         */
+        public static final String STATUS_BAR_TICKER_TICK_DURATION =
+                "status_bar_ticker_tick_duration";
+
+        /** @hide */
+        private static final Validator STATUS_BAR_TICKER_TICK_DURATION_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+        /**
+         * Force show navigation bar setting.
+         * @hide
+         */
+        public static final String FORCE_SHOW_NAVBAR = "force_show_navbar";
+
+        /**
+         * FOD icon picker
+         * @hide
+         */
+        public static final String FOD_ICON = "fod_icon";
+
+        /**
+         * FOD pressed state
+         * @hide
+         */
+        public static final String FOD_PRESSED_STATE = "fod_pressed_state";
+>>>>>>> 15d95365e066... Remove "base: QS: Allow coloring bg with accent [1/2]"
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
@@ -6462,7 +6515,6 @@ public final class Settings {
             QS_PANEL_BG_COLOR_WALL,
             QS_PANEL_BG_USE_WALL,
             QS_PANEL_BG_USE_FW,
-            QS_PANEL_BG_USE_ACCENT,
             // TitaniumOS Settings end
         };
 
@@ -6685,7 +6737,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_PANEL_BG_COLOR_WALL);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_WALL);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_FW);
-            PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_ACCENT);
             //TitaniumOS Settings end
         }
 
@@ -6891,7 +6942,6 @@ public final class Settings {
             VALIDATORS.put(QS_PANEL_BG_COLOR_WALL, QS_PANEL_BG_COLOR_WALL_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_USE_WALL, QS_PANEL_BG_USE_WALL_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_USE_FW, QS_PANEL_BG_USE_FW_VALIDATOR);
-            VALIDATORS.put(QS_PANEL_BG_USE_ACCENT, QS_PANEL_BG_USE_ACCENT_VALIDATOR);
             // TitaniumOS Settings end
         }
 
