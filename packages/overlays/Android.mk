@@ -31,6 +31,7 @@ LOCAL_REQUIRED_MODULES := \
 	FontCagliostroSourceOverlay \
 	FontCoolstorySourceOverlay \
 	FontEvolveSansSourceOverlay \
+	FontFiraSansSourceOverlay \
 	FontFucekSourceOverlay \
 	FontGoogleSansOverlay \
 	FontGoogleSansMediumOverlay \
