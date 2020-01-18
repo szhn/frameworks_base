@@ -43,11 +43,12 @@ LOCAL_REQUIRED_MODULES := \
 	FontReemKufiSourceOverlay \
 	FontRosemarySourceOverlay \
 	FontRubikRubikOverlay \
+	FontSamsungOneSourceOverlay \
 	FontSimpleDaySourceOverlay \
 	FontSFProOverlay \
+	FontSlateForOnePlusOverlay \
 	FontSonySketchSourceOverlay \
 	FontSurferSourceOverlay \
-	FontSlateForOnePlusOverlay \
 	IconPackCircularAndroidOverlay \
 	IconPackCircularPixelLauncherOverlay \
 	IconPackCircularPixelThemePickerOverlay \
