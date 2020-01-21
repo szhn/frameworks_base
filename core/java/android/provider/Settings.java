@@ -6340,6 +6340,13 @@ public final class Settings {
         private static final Validator QS_HIDE_BATTERY_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
+        /** @hide */
+        public static final String BACK_GESTURE_BLOCK_IME = "back_gesture_block_ime";
+
+        /** @hide */
+        private static final Validator BACK_GESTURE_BLOCK_IME_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
@@ -6493,6 +6500,7 @@ public final class Settings {
             QS_PANEL_BG_USE_NEW_TINT,
             QS_HIDE_BATTERY,
             SHOW_QS_CLOCK,
+            BACK_GESTURE_BLOCK_IME,
             // TitaniumOS Settings end
         };
 
@@ -6717,6 +6725,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_FW);
             PRIVATE_SETTINGS.add(STATUS_BAR_CUSTOM_HEADER_HEIGHT);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_NEW_TINT);
+            PRIVATE_SETTINGS.add(BACK_GESTURE_BLOCK_IME);
             //TitaniumOS Settings end
         }
 
@@ -6926,6 +6935,7 @@ public final class Settings {
             VALIDATORS.put(QS_PANEL_BG_USE_NEW_TINT, QS_PANEL_BG_USE_NEW_TINT_VALIDATOR);
             VALIDATORS.put(QS_HIDE_BATTERY, QS_HIDE_BATTERY_VALIDATOR);
             VALIDATORS.put(SHOW_QS_CLOCK, SHOW_QS_CLOCK_VALIDATOR);
+            VALIDATORS.put(BACK_GESTURE_BLOCK_IME,BACK_GESTURE_BLOCK_IME_VALIDATOR);
             // TitaniumOS Settings end
         }
 
