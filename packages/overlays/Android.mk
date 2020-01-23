@@ -18,7 +18,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := frameworks-base-overlays
 LOCAL_REQUIRED_MODULES := \
 	DisplayCutoutEmulationCornerOverlay \
-	DisplayCutoutEmulationDoubleOverlay \
+    DisplayCutoutEmulationDoubleOverlay \
 	DisplayCutoutEmulationTallOverlay \
 	FontArbutusSourceOverlay \
 	FontArvoLatoOverlay \
@@ -73,7 +73,9 @@ LOCAL_REQUIRED_MODULES := \
     FontSofiaSans \
     FontSofiaSansSemiCondensed \
     FontTinkerbell \
-	IconPackCircularAndroidOverlay \
+    Font20SevenSourceOverlay \
+	FontRoadRageSourceOverlay \
+    IconPackCircularAndroidOverlay \
 	IconPackCircularPixelLauncherOverlay \
 	IconPackCircularPixelThemePickerOverlay \
 	IconPackCircularSettingsOverlay \
