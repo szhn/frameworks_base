@@ -75,6 +75,8 @@ LOCAL_REQUIRED_MODULES := \
     FontTinkerbell \
     Font20SevenSourceOverlay \
     FontRoadRageSourceOverlay \
+    FontCoconSourceOverlay \
+    FontQuandoSourceOverlay \
     IconPackCircularAndroidOverlay \
     IconPackCircularPixelLauncherOverlay \
     IconPackCircularPixelThemePickerOverlay \
