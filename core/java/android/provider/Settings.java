@@ -6087,6 +6087,14 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * QS blur alpha
+         * @hide
+         */
+        public static final String QS_BLUR_INTENSITY = "qs_blur_intensity";
+        /** @hide */
+        private static final Validator QS_BLUR_INTENSITY_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6214,6 +6222,7 @@ public final class Settings {
             GESTURE_PILL_TOGGLE,
             QS_BLUR,
             QS_BLUR_ALPHA,
+            QS_BLUR_INTENSITY,
             BACK_GESTURE_HAPTIC,
             TORCH_LONG_PRESS_POWER_GESTURE,
             TORCH_LONG_PRESS_POWER_TIMEOUT,
@@ -6603,6 +6612,7 @@ public final class Settings {
             VALIDATORS.put(GESTURE_PILL_TOGGLE, GESTURE_PILL_TOGGLE_VALIDATOR);
             VALIDATORS.put(QS_BLUR, QS_BLUR_VALIDATOR);
             VALIDATORS.put(QS_BLUR_ALPHA, QS_BLUR_ALPHA_VALIDATOR);
+            VALIDATORS.put(QS_BLUR_INTENSITY, QS_BLUR_INTENSITY_VALIDATOR);
             VALIDATORS.put(VOLTE_ICON_STYLE, VOLTE_ICON_STYLE_VALIDATOR);
             VALIDATORS.put(BACK_GESTURE_HAPTIC, BACK_GESTURE_HAPTIC_VALIDATOR);
             VALIDATORS.put(TORCH_LONG_PRESS_POWER_GESTURE, TORCH_LONG_PRESS_POWER_GESTURE_VALIDATOR);
