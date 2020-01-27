@@ -5706,6 +5706,14 @@ public final class Settings {
          */
         public static final String NOTIFICATION_SOUND_VIB_SCREEN_ON = "notification_sound_vib_screen_on";
 
+        /**
+         * FOD recognizing animation
+         * @hide
+         */
+        public static final String FOD_RECOGNIZING_ANIMATION = "fod_recognizing_animation";
+
+        /**
+         * Refreshed screenshot animation
          /**
          * Change quick settings tiles animation style
          *
