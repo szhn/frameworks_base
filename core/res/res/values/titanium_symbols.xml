@@ -292,4 +292,8 @@
     <!-- Ambient Pulse Light -->
     <java-symbol type="integer" name="config_AmbientPulseLightColor" />
 
+    <!-- Gradients Shit -->
+    <java-symbol type="color" name="gradient_start" />
+    <java-symbol type="color" name="gradient_end" />
+
 </resources>

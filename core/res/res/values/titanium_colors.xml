@@ -18,4 +18,8 @@
     <color name="toast_bg">@color/white</color>
     <color name="toast_text">@color/black</color>
 
+    <!-- Gradient Shit -->
+    <color name="gradient_start">#ff1a73e8</color>
+    <color name="gradient_end">#ff1a73e8</color>
+
 </resources>
