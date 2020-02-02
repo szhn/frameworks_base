@@ -49,6 +49,7 @@ import com.android.systemui.qs.tiles.LiveDisplayTile;
 import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.MusicTile;
 import com.android.systemui.qs.tiles.LteTile;
+import com.android.systemui.qs.tiles.MonoToggleTile;
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
 import com.android.systemui.qs.tiles.ReadingModeTile;
@@ -118,6 +119,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<AmbientDisplayTile> mAmbientDisplayTileProvider;
     private final Provider<FPSInfoTile> mFPSInfoTileProvider;
     private final Provider<ScreenStabilizationTile> mScreenStabilizationTileProvider;
+    private final Provider<MonoToggleTile> mMonoToggleTileProvider;
 
     private QSTileHost mHost;
 
@@ -161,7 +163,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<GamingModeTile> gamingModeTileProvider,
             Provider<AmbientDisplayTile> ambientDisplayTileProvider,
             Provider<FPSInfoTile> fpsInfoTileProvider,
-            Provider<ScreenStabilizationTile> screenStabilizationTileProvider) {
+            Provider<ScreenStabilizationTile> screenStabilizationTileProvider,
+            Provider<MonoToggleTile> monoToggleTileProvider) {
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
         mCellularTileProvider = cellularTileProvider;
@@ -203,6 +206,7 @@ public class QSFactoryImpl implements QSFactory {
         mAmbientDisplayTileProvider = ambientDisplayTileProvider;
         mFPSInfoTileProvider = fpsInfoTileProvider;
         mScreenStabilizationTileProvider = screenStabilizationTileProvider;
+        mMonoToggleTileProvider = monoToggleTileProvider;
     }
 
     public void setHost(QSTileHost host) {
@@ -299,6 +303,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mFPSInfoTileProvider.get();
             case "screenstabilization":
                 return mScreenStabilizationTileProvider.get();
+            case "mono":
+                return mMonoToggleTileProvider.get();
         }
 
         // Intent tiles.
