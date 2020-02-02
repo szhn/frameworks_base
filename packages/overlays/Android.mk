@@ -71,6 +71,7 @@ LOCAL_REQUIRED_MODULES := \
     FontRoutedGothicRobotoCondensed \
     FontSofiaSans \
     FontSofiaSansSemiCondensed \
+    FontTinkerbell \
 	IconPackCircularAndroidOverlay \
 	IconPackCircularPixelLauncherOverlay \
 	IconPackCircularPixelThemePickerOverlay \
