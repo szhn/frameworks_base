@@ -5989,6 +5989,13 @@ public final class Settings {
         private static final Validator AMBIENT_LIGHT_DURATION_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
         /**
+         * @hide
+         */
+        public static final String AMBIENT_LIGHT_REPEAT_COUNT = "ambient_light_repeat_count";
+
+        private static final Validator AMBIENT_LIGHT_REPEAT_COUNT_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
+        /**
          * helper setting to contain the current pulse reason so we can check
          * if it has been triggered from a notification or a gesture
          * @hide
@@ -6063,6 +6070,7 @@ public final class Settings {
             AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC,
             AMBIENT_LIGHT_AUTO_COLOR,
             AMBIENT_LIGHT_DURATION,
+            AMBIENT_LIGHT_REPEAT_COUNT,
             NOTIFICATION_LIGHT_PULSE,
             CUSTOM_BUTTON_EXTRA_KEY_MAPPING,
             CUSTOM_DEVICE_PROXI_CHECK_ENABLED,
@@ -6321,6 +6329,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC);
             PRIVATE_SETTINGS.add(AMBIENT_LIGHT_AUTO_COLOR);
             PRIVATE_SETTINGS.add(AMBIENT_LIGHT_DURATION);
+            PRIVATE_SETTINGS.add(AMBIENT_LIGHT_REPEAT_COUNT);
         }
 
         /**
@@ -6417,6 +6426,7 @@ public final class Settings {
             VALIDATORS.put(AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC, AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC_VALIDATOR);
             VALIDATORS.put(AMBIENT_LIGHT_AUTO_COLOR, AMBIENT_LIGHT_AUTO_COLOR_VALIDATOR);
             VALIDATORS.put(AMBIENT_LIGHT_DURATION, AMBIENT_LIGHT_DURATION_VALIDATOR);
+            VALIDATORS.put(AMBIENT_LIGHT_REPEAT_COUNT, AMBIENT_LIGHT_REPEAT_COUNT_VALIDATOR);
             VALIDATORS.put(NOTIFICATION_LIGHT_PULSE, BOOLEAN_VALIDATOR);
             VALIDATORS.put(BUTTON_BACKLIGHT_TIMEOUT, BUTTON_BACKLIGHT_TIMEOUT_VALIDATOR);
             VALIDATORS.put(BUTTON_BRIGHTNESS, BUTTON_BRIGHTNESS_VALIDATOR);
