@@ -74,7 +74,6 @@ LOCAL_REQUIRED_MODULES := \
     FontSofiaSansSemiCondensed \
     FontTinkerbell \
     Font20SevenSourceOverlay \
-    FontRoadRageSourceOverlay \
     FontCoconSourceOverlay \
     FontQuandoSourceOverlay \
     FontComfortaaSourceOverlay \
@@ -83,6 +82,8 @@ LOCAL_REQUIRED_MODULES := \
     FontUbuntuSourceOverlay \
     FontNokiaPureSourceOverlay \
     FontFifa2018SourceOverlay \
+    FontGrandHotelSourceOverlay \
+    FontRedressedSourceOverlay \
     IconPackCircularAndroidOverlay \
     IconPackCircularPixelLauncherOverlay \
     IconPackCircularPixelThemePickerOverlay \
