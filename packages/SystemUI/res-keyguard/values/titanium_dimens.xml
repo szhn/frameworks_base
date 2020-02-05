@@ -17,6 +17,7 @@
 <resources>
 
     <!-- Lock date font size parameters -->
+    <dimen name="lock_date_font_size_0">0dp</dimen>
     <dimen name="lock_date_font_size_9">9dp</dimen>
     <dimen name="lock_date_font_size_10">10dp</dimen>
     <dimen name="lock_date_font_size_11">11dp</dimen>
