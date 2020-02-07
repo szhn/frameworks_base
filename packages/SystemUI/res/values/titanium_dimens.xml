@@ -92,4 +92,7 @@
     <!-- Recognizing fingerprint animation -->
     <dimen name="fod_animation_offset">0dp</dimen>
 
+    <!-- Padding after battery level text in status bar, QS, and Keyguard -->
+    <dimen name="battery_level_padding_end">2dp</dimen>
+
 </resources>
