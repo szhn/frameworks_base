@@ -216,4 +216,7 @@
          vendor fingerprint HAL implementations. -->
     <bool name="config_fingerprintPostResetRunnableForAllClients">false</bool>
 
+     <!-- Whether to use base rounded corner radius for window animations instead
+          of min between top and bottom radius-->
+    <bool name="config_useDefaultRoundedCornerRadius">false</bool>
 </resources>
