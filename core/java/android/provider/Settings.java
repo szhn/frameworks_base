@@ -5796,7 +5796,13 @@ public final class Settings {
         public static final String GAMING_MODE_RINGER_MODE = "gaming_mode_ringer_mode";
 
         /**
-         * Whether to show notifications/toasts (0:OFF, 1:notifications, 2:toasts, 3: all)
+         * FOD recognizing animation picker
+         * @hide
+         */
+        public static final String FOD_ANIM = "fod_anim";
+
+        /**
+         * Accent Color
          * @hide
          */
         public static final String GAMING_MODE_NOTIFICATIONS = "gaming_mode_notifications";
