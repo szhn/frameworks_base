@@ -50,6 +50,7 @@ LOCAL_REQUIRED_MODULES := \
 	FontSlateForOnePlusOverlay \
 	FontSonySketchSourceOverlay \
 	FontSurferSourceOverlay \
+    FontAnaheim \
     FontBigNoodle \
     FontBikoHanken \
     FontComicNeue \
