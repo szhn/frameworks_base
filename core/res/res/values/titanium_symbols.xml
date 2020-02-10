@@ -274,7 +274,6 @@
     <!-- Post reset runnable for all clients -->
     <java-symbol type="bool" name="config_fingerprintPostResetRunnableForAllClients" />
 
-
     <!-- Whether to use base rounded corner radius for window animations instead
           of min between top and bottom radius-->
     <java-symbol type="bool" name="config_useDefaultRoundedCornerRadius" />
@@ -296,8 +295,10 @@
     <java-symbol type="color" name="gradient_start" />
     <java-symbol type="color" name="gradient_end" />
 
-
     <!-- Device keyhandlers -->
     <java-symbol type="string" name="config_deviceKeyHandlerLib" />
     <java-symbol type="string" name="config_deviceKeyHandlerClass" />
+
+    <!-- SBC Dual Channel (SBC HD Audio) -->
+    <java-symbol type="bool" name="config_enableSBCDualChannelAudio"/>
 </resources>

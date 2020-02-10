@@ -227,4 +227,7 @@
     <string name="config_deviceKeyHandlerLib" translatable="false"></string>
     <!-- Name of that key handler class -->
     <string name="config_deviceKeyHandlerClass" translatable="false"></string>
+
+    <!-- SBC Dual Channel (SBC HD Audio) -->
+    <bool name="config_enableSBCDualChannelAudio">true</bool>
 </resources>
