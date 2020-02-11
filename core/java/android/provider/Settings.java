@@ -4673,13 +4673,6 @@ public final class Settings {
                 ANY_STRING_VALIDATOR;
 
         /**
-         * 0 - fullscreen
-         * 1 - partial
-         * @hide
-         */
-        public static final String SCREENSHOT_DEFAULT_MODE = "screenshot_default_mode";
-
-     /**
          * Whether the haptic feedback on action instead of touch
          * @hide
          */
@@ -6848,7 +6841,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(CUSTOM_DEVICE_PROXI_CHECK_ENABLED);
             PRIVATE_SETTINGS.add(CUSTOM_DEVICE_GESTURE_FEEDBACK_ENABLED);
             PRIVATE_SETTINGS.add(CUSTOM_DEVICE_FEATURE_SETTINGS);
-            PRIVATE_SETTINGS.add(SCREENSHOT_DEFAULT_MODE);
             PRIVATE_SETTINGS.add(DISPLAY_TEMPERATURE_DAY);
             PRIVATE_SETTINGS.add(DISPLAY_TEMPERATURE_NIGHT);
             PRIVATE_SETTINGS.add(DISPLAY_TEMPERATURE_MODE);
