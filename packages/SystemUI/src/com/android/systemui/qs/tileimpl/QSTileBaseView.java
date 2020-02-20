@@ -36,6 +36,8 @@ import android.graphics.Shader.TileMode;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.service.quicksettings.Tile;
 import android.text.TextUtils;
 import android.util.Log;
@@ -153,7 +155,11 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
             setRipple((RippleDrawable) mTileBackground);
         }
         mColorActiveAlpha = adjustAlpha(mColorActive, 0.2f);
-        mColorActive = mColorActiveAlpha;
+        boolean setQsUseNewTint = Settings.System.getIntForUser(context.getContentResolver(),
+                    Settings.System.QS_PANEL_BG_USE_NEW_TINT, 0, UserHandle.USER_CURRENT) == 1;
+        if (setQsUseNewTint) {
+            mColorActive = mColorActiveAlpha;
+        }
         setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_YES);
         setBackground(mTileBackground);
 
