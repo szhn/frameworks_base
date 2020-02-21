@@ -5757,6 +5757,10 @@ public final class Settings {
          */
         public static final String BLUETOOTH_QS_SHOW_BATTERY = "bluetooth_qs_show_battery";
 
+        /** @hide */
+        private static final Validator FOD_ANIM_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 17);
+
         /**
          * Gaming mode master switch
          * @hide
