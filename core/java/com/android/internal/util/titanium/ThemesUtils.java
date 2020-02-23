@@ -32,4 +32,9 @@ public class ThemesUtils {
             "com.android.theme.chocox.system",
             "com.android.theme.chocox.systemui",
     };
+
+    public static final String[] PITCH_BLACK = {
+            "com.android.theme.pitchblack.system",
+            "com.android.theme.pitchblack.systemui",
+    };
 }
