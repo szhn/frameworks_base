@@ -98,7 +98,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         R.drawable.fod_icon_default_0,
         R.drawable.fod_icon_default_1,
         R.drawable.fod_icon_default_2,
-        R.drawable.fod_icon_default_3,
+        R.drawable.fod_icon_titanium,
         R.drawable.fod_icon_default_4,
         R.drawable.fod_icon_default_5,
         R.drawable.fod_icon_arc_reactor,
