@@ -4857,9 +4857,9 @@ public final class Settings {
         public static final String NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD = "network_traffic_autohide_threshold";
 
         /**
-	 ** What to show in network traffic indicator in statusbar
-	 ** @hide
-	 **/
+     ** What to show in network traffic indicator in statusbar
+     ** @hide
+     **/
         public static final String NETWORK_TRAFFIC_TYPE = "network_traffic_type";
 
         /**
@@ -5277,9 +5277,9 @@ public final class Settings {
         public static final String SWAP_VOLUME_BUTTONS = "swap_volume_buttons";
 
         /**
-	 ** Whether to use partial screenshot when using volume keys
-	 ** @hide
-	 **/
+     ** Whether to use partial screenshot when using volume keys
+     ** @hide
+     **/
         public static final String SCREENSHOT_TYPE = "screenshot_type";
 
         /**
@@ -5776,7 +5776,7 @@ public final class Settings {
 
         /** @hide */
         private static final Validator FOD_ANIM_VALIDATOR =
-                new SettingsValidators.InclusiveIntegerRangeValidator(0, 17);
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 18);
 
         /**
          * Gaming mode master switch
@@ -5969,7 +5969,7 @@ public final class Settings {
         /** @hide */
         public static final Validator VOLTE_ICON_STYLE_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
-	/**
+    /**
          * Whether to enable the pixel navbar animation
          * @hide
          */
@@ -6086,7 +6086,7 @@ public final class Settings {
         private static final Validator DEVICE_PROXI_CHECK_ENABLED_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
-	/**
+    /**
          * Whether the proximity sensor will adjust call to speaker
          */
         public static final String PROXIMITY_AUTO_SPEAKER = "proximity_auto_speaker";
@@ -6217,7 +6217,7 @@ public final class Settings {
             STATUSBAR_CLOCK_DATE_DISPLAY,
             STATUSBAR_CLOCK_DATE_STYLE,
             STATUSBAR_CLOCK_DATE_FORMAT,
-	    STATUSBAR_CLOCK_DATE_POSITION,
+        STATUSBAR_CLOCK_DATE_POSITION,
             HEADS_UP_STOPLIST_VALUES,
             HEADS_UP_BLACKLIST_VALUES,
             LOCKSCREEN_MEDIA_BLUR,
@@ -6423,7 +6423,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_DATE_DISPLAY);
             PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_DATE_STYLE);
             PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_DATE_FORMAT);
-	    PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_DATE_POSITION);
+        PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_DATE_POSITION);
             PRIVATE_SETTINGS.add(HEADS_UP_STOPLIST_VALUES);
             PRIVATE_SETTINGS.add(HEADS_UP_BLACKLIST_VALUES);
             PRIVATE_SETTINGS.add(LOCKSCREEN_MEDIA_BLUR);
@@ -6606,7 +6606,7 @@ public final class Settings {
             VALIDATORS.put(STATUSBAR_CLOCK_DATE_DISPLAY, STATUSBAR_CLOCK_DATE_DISPLAY_VALIDATOR);
             VALIDATORS.put(STATUSBAR_CLOCK_DATE_STYLE, STATUSBAR_CLOCK_DATE_STYLE_VALIDATOR);
             VALIDATORS.put(STATUSBAR_CLOCK_DATE_FORMAT, STATUSBAR_CLOCK_DATE_FORMAT_VALIDATOR);
-	    VALIDATORS.put(STATUSBAR_CLOCK_DATE_POSITION, STATUSBAR_CLOCK_DATE_POSITION_VALIDATOR);
+        VALIDATORS.put(STATUSBAR_CLOCK_DATE_POSITION, STATUSBAR_CLOCK_DATE_POSITION_VALIDATOR);
             VALIDATORS.put(HEADS_UP_STOPLIST_VALUES, HEADS_UP_STOPLIST_VALUES_VALIDATOR);
             VALIDATORS.put(HEADS_UP_BLACKLIST_VALUES, HEADS_UP_BLACKLIST_VALUES_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_MEDIA_BLUR, LOCKSCREEN_MEDIA_BLUR_VALIDATOR);
