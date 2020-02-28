@@ -5959,7 +5959,7 @@ public final class Settings {
         public static final String PIXEL_NAV_ANIMATION = "pixel_nav_animation";
 
         /**
-         * Whether to enable PULSE Edge lights
+         * Whether to enable pulse edge lights
          * @hide
          */
         public static final String AMBIENT_NOTIFICATION_LIGHT = "ambient_notification_light";
@@ -5969,17 +5969,16 @@ public final class Settings {
         /**
          * @hide
          */
-        public static final String AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC = "ambient_notification_light_automatic";
+        public static final String AMBIENT_LIGHT_COLOR = "ambient_light_color";
 
-        private static final Validator AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC_VALIDATOR = BOOLEAN_VALIDATOR;
+        private static final Validator AMBIENT_LIGHT_COLOR_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
         /**
          * @hide
          */
-        public static final String AMBIENT_LIGHT_AUTO_COLOR = "ambient_light_auto_color";
+        public static final String AMBIENT_LIGHT_CUSTOM_COLOR = "ambient_light_custom_color";
 
-        /** @hide */
-        private static final Validator AMBIENT_LIGHT_AUTO_COLOR_VALIDATOR = BOOLEAN_VALIDATOR;
+        private static final Validator AMBIENT_LIGHT_CUSTOM_COLOR_VALIDATOR = ANY_STRING_VALIDATOR;
 
         /**
          * @hide
@@ -6074,8 +6073,8 @@ public final class Settings {
             DISPLAY_COLOR_MODE,
             ALARM_ALERT,
             AMBIENT_NOTIFICATION_LIGHT,
-            AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC,
-            AMBIENT_LIGHT_AUTO_COLOR,
+            AMBIENT_LIGHT_COLOR,
+            AMBIENT_LIGHT_CUSTOM_COLOR,
             AMBIENT_LIGHT_DURATION,
             AMBIENT_LIGHT_REPEAT_COUNT,
             AMBIENT_LIGHT_PULSE_FOR_ALL,
@@ -6334,8 +6333,8 @@ public final class Settings {
             PRIVATE_SETTINGS.add(GESTURE_PILL_TOGGLE);
             PRIVATE_SETTINGS.add(VOLTE_ICON_STYLE);
             PRIVATE_SETTINGS.add(AMBIENT_NOTIFICATION_LIGHT);
-            PRIVATE_SETTINGS.add(AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC);
-            PRIVATE_SETTINGS.add(AMBIENT_LIGHT_AUTO_COLOR);
+            PRIVATE_SETTINGS.add(AMBIENT_LIGHT_COLOR);
+            PRIVATE_SETTINGS.add(AMBIENT_LIGHT_CUSTOM_COLOR);
             PRIVATE_SETTINGS.add(AMBIENT_LIGHT_DURATION);
             PRIVATE_SETTINGS.add(AMBIENT_LIGHT_REPEAT_COUNT);
             PRIVATE_SETTINGS.add(AMBIENT_LIGHT_PULSE_FOR_ALL);
@@ -6432,8 +6431,8 @@ public final class Settings {
             VALIDATORS.put(WIFI_STATIC_DNS1, WIFI_STATIC_DNS1_VALIDATOR);
             VALIDATORS.put(WIFI_STATIC_DNS2, WIFI_STATIC_DNS2_VALIDATOR);
             VALIDATORS.put(AMBIENT_NOTIFICATION_LIGHT, AMBIENT_NOTIFICATION_LIGHT_VALIDATOR);
-            VALIDATORS.put(AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC, AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC_VALIDATOR);
-            VALIDATORS.put(AMBIENT_LIGHT_AUTO_COLOR, AMBIENT_LIGHT_AUTO_COLOR_VALIDATOR);
+            VALIDATORS.put(AMBIENT_LIGHT_COLOR, AMBIENT_LIGHT_COLOR_VALIDATOR);
+            VALIDATORS.put(AMBIENT_LIGHT_CUSTOM_COLOR, AMBIENT_LIGHT_CUSTOM_COLOR_VALIDATOR);
             VALIDATORS.put(AMBIENT_LIGHT_DURATION, AMBIENT_LIGHT_DURATION_VALIDATOR);
             VALIDATORS.put(AMBIENT_LIGHT_REPEAT_COUNT, AMBIENT_LIGHT_REPEAT_COUNT_VALIDATOR);
             VALIDATORS.put(AMBIENT_LIGHT_PULSE_FOR_ALL, AMBIENT_LIGHT_PULSE_FOR_ALL_VALIDATOR);
