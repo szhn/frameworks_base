@@ -181,4 +181,5 @@ oneway interface IStatusBar
      * Titanium utils
      */
     void toggleCameraFlash();
+    void killForegroundApp();
 }
