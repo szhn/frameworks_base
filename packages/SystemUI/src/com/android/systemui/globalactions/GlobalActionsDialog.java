@@ -593,7 +593,9 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                                 new GlobalActionsPanelPlugin.Callbacks() {
                                     @Override
                                     public void dismissGlobalActionsMenu() {
-                                        dismissDialog();
+                                        if (mDialog != null) {
+                                            mDialog.dismiss();
+                                        }
                                     }
 
                                     @Override
@@ -1131,9 +1133,6 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
 
     /** {@inheritDoc} */
     public void onDismiss(DialogInterface dialog) {
-        if (mDialog == dialog) {
-            mDialog = null;
-        }
         mWindowManagerFuncs.onGlobalActionsHidden();
         if (mShowSilentToggle) {
             try {
