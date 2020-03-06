@@ -4679,7 +4679,7 @@ public final class Settings {
          */
         public static final String SCREENSHOT_DEFAULT_MODE = "screenshot_default_mode";
 
-	 /**
+     /**
          * Whether the haptic feedback on action instead of touch
          * @hide
          */
@@ -11349,6 +11349,14 @@ public final class Settings {
         private static final Validator HIDE_LOCKICON_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+         * Whether longpress back button to Kill appkeys is enabled.
+         * @hide
+         */
+        public static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
+
+        private static final Validator KILL_APP_LONGPRESS_BACK_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * This are the settings to be backed up.
          *
          * NOTE: Settings are backed up and restored in the order they appear
@@ -11696,6 +11704,7 @@ public final class Settings {
             VALIDATORS.put(HIDE_LOCKICON, HIDE_LOCKICON_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_CLOCK_SELECTION, LOCKSCREEN_CLOCK_SELECTION_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_DATE_SELECTION,LOCKSCREEN_DATE_SELECTION_VALIDATOR);
+            VALIDATORS.put(KILL_APP_LONGPRESS_BACK, KILL_APP_LONGPRESS_BACK_VALIDATOR);
         }
 
         /**
