@@ -6330,6 +6330,17 @@ public final class Settings {
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 9);
 
         /**
+         * Action to perform when the home key is long-pressed (navbar only).
+         * (Default can be configured via config_longPressOnHomeBehavior)
+         * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
+         */
+        public static final String KEY_HOME_LONG_PRESS_ACTION_NAVBAR = "key_home_long_press_action_navbar";
+
+        /** @hide */
+        public static final Validator KEY_HOME_LONG_PRESS_ACTION_NAVBAR_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 9);
+
+        /**
          * Action to perform when the home key is double-tapped.
          * (Default can be configured via config_doubleTapOnHomeBehaviorHwkeys)
          * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
@@ -6338,6 +6349,17 @@ public final class Settings {
 
         /** @hide */
         public static final Validator KEY_HOME_DOUBLE_TAP_ACTION_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 9);
+
+        /**
+         * Action to perform when the home key is double-tapped (navbar only).
+         * (Default can be configured via config_doubleTapOnHomeBehavior)
+         * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
+         */
+        public static final String KEY_HOME_DOUBLE_TAP_ACTION_NAVBAR = "key_home_double_tap_action_navbar";
+
+        /** @hide */
+        public static final Validator KEY_HOME_DOUBLE_TAP_ACTION_NAVBAR_VALIDATOR =
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 9);
 
         /**
@@ -6399,6 +6421,16 @@ public final class Settings {
 
         /** @hide */
         public static final Validator KEY_APP_SWITCH_LONG_PRESS_ACTION_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 9);
+
+        /**
+         * Action to perform when the app switch key is long-pressed. (Default is 0, navbar only)
+         * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
+         */
+        public static final String KEY_APP_SWITCH_LONG_PRESS_ACTION_NAVBAR = "key_app_switch_long_press_action_navbar";
+
+        /** @hide */
+        public static final Validator KEY_APP_SWITCH_LONG_PRESS_ACTION_NAVBAR_VALIDATOR =
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 9);
 
         /**
@@ -7026,13 +7058,16 @@ public final class Settings {
             PRIVATE_SETTINGS.add(CLOCK_SHOW_STATUS_AREA);
             PRIVATE_SETTINGS.add(FORCE_SHOW_NAVBAR);
             PRIVATE_SETTINGS.add(KEY_HOME_LONG_PRESS_ACTION);
+            PRIVATE_SETTINGS.add(KEY_HOME_LONG_PRESS_ACTION_NAVBAR);
             PRIVATE_SETTINGS.add(KEY_HOME_DOUBLE_TAP_ACTION);
+            PRIVATE_SETTINGS.add(KEY_HOME_DOUBLE_TAP_ACTION_NAVBAR);
             PRIVATE_SETTINGS.add(KEY_MENU_ACTION);
             PRIVATE_SETTINGS.add(KEY_MENU_LONG_PRESS_ACTION);
             PRIVATE_SETTINGS.add(KEY_ASSIST_ACTION);
             PRIVATE_SETTINGS.add(KEY_ASSIST_LONG_PRESS_ACTION);
             PRIVATE_SETTINGS.add(KEY_APP_SWITCH_ACTION);
             PRIVATE_SETTINGS.add(KEY_APP_SWITCH_LONG_PRESS_ACTION);
+            PRIVATE_SETTINGS.add(KEY_APP_SWITCH_LONG_PRESS_ACTION_NAVBAR);
             PRIVATE_SETTINGS.add(HOME_WAKE_SCREEN);
             PRIVATE_SETTINGS.add(BACK_WAKE_SCREEN);
             PRIVATE_SETTINGS.add(MENU_WAKE_SCREEN);
@@ -7244,13 +7279,16 @@ public final class Settings {
             VALIDATORS.put(CLOCK_SHOW_STATUS_AREA, CLOCK_SHOW_STATUS_AREA_VALIDATOR);
             VALIDATORS.put(FORCE_SHOW_NAVBAR, FORCE_SHOW_NAVBAR_VALIDATOR);
             VALIDATORS.put(KEY_HOME_LONG_PRESS_ACTION, KEY_HOME_LONG_PRESS_ACTION_VALIDATOR);
+            VALIDATORS.put(KEY_HOME_LONG_PRESS_ACTION_NAVBAR, KEY_HOME_LONG_PRESS_ACTION_NAVBAR_VALIDATOR);
             VALIDATORS.put(KEY_HOME_DOUBLE_TAP_ACTION, KEY_HOME_DOUBLE_TAP_ACTION_VALIDATOR);
+            VALIDATORS.put(KEY_HOME_DOUBLE_TAP_ACTION_NAVBAR, KEY_HOME_DOUBLE_TAP_ACTION_NAVBAR_VALIDATOR);
             VALIDATORS.put(KEY_MENU_ACTION, KEY_MENU_ACTION_VALIDATOR);
             VALIDATORS.put(KEY_MENU_LONG_PRESS_ACTION, KEY_MENU_LONG_PRESS_ACTION_VALIDATOR);
             VALIDATORS.put(KEY_ASSIST_ACTION, KEY_ASSIST_ACTION_VALIDATOR);
             VALIDATORS.put(KEY_ASSIST_LONG_PRESS_ACTION, KEY_ASSIST_LONG_PRESS_ACTION_VALIDATOR);
             VALIDATORS.put(KEY_APP_SWITCH_ACTION, KEY_APP_SWITCH_ACTION_VALIDATOR);
             VALIDATORS.put(KEY_APP_SWITCH_LONG_PRESS_ACTION, KEY_APP_SWITCH_LONG_PRESS_ACTION_VALIDATOR);
+            VALIDATORS.put(KEY_APP_SWITCH_LONG_PRESS_ACTION_NAVBAR, KEY_APP_SWITCH_LONG_PRESS_ACTION_NAVBAR_VALIDATOR);
             VALIDATORS.put(HOME_WAKE_SCREEN, HOME_WAKE_SCREEN_VALIDATOR);
             VALIDATORS.put(BACK_WAKE_SCREEN, BACK_WAKE_SCREEN_VALIDATOR);
             VALIDATORS.put(MENU_WAKE_SCREEN, MENU_WAKE_SCREENN_VALIDATOR);
