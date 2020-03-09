@@ -90,6 +90,7 @@
     <dimen name="opa_rest_to_collapse">7.0dip</dimen>
 
     <!-- Recognizing fingerprint animation -->
+    <dimen name="fod_animation_size">300dp</dimen>
     <dimen name="fod_animation_offset">0dp</dimen>
 
     <!-- Padding after battery level text in status bar, QS, and Keyguard -->

@@ -1171,8 +1171,6 @@
     <!-- Size of the RAT type for CellularTile -->
     <dimen name="celltile_rat_type_size">10sp</dimen>
 
-    <dimen name="fod_animation_size">280dp</dimen>
-
     <dimen name="custom_volume_dialog_seekbar_width">40dip</dimen>
     <dimen name="custom_volume_dialog_seekbar_height">220dip</dimen>
     <dimen name="volume_dialog_row_icon_margintop">-58dp</dimen>
