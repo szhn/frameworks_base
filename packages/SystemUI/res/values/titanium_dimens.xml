@@ -89,4 +89,7 @@
     <dimen name="opa_return_translation">-1.0dip</dimen>
     <dimen name="opa_rest_to_collapse">7.0dip</dimen>
 
+    <!-- Recognizing fingerprint animation -->
+    <dimen name="fod_animation_offset">0dp</dimen>
+
 </resources>
