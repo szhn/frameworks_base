@@ -10957,11 +10957,17 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_CLOCK_SELECTION = "lockscreen_clock_selection";
 
+        private static final Validator LOCKSCREEN_CLOCK_SELECTION_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 10);
+
         /**
          * Select which lockscreen date style to display
          * @hide
          */
         public static final String LOCKSCREEN_DATE_SELECTION = "lockscreen_date_selection";
+
+        private static final Validator LOCKSCREEN_DATE_SELECTION_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 8);
 
         /**
          * Whether the Lockdown button should be shown in the power menu.
@@ -11418,6 +11424,8 @@ public final class Settings {
             AWARE_TAP_PAUSE_GESTURE_COUNT,
             AWARE_TAP_PAUSE_TOUCH_COUNT,
             HIDE_LOCKICON,
+            LOCKSCREEN_CLOCK_SELECTION,
+            LOCKSCREEN_DATE_SELECTION,
         };
 
         /**
@@ -11622,6 +11630,8 @@ public final class Settings {
             VALIDATORS.put(AWARE_TAP_PAUSE_TOUCH_COUNT, NON_NEGATIVE_INTEGER_VALIDATOR);
             VALIDATORS.put(TAP_GESTURE, TAP_GESTURE_VALIDATOR);
             VALIDATORS.put(HIDE_LOCKICON, HIDE_LOCKICON_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_CLOCK_SELECTION, LOCKSCREEN_CLOCK_SELECTION_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_DATE_SELECTION,LOCKSCREEN_DATE_SELECTION_VALIDATOR);
         }
 
         /**
