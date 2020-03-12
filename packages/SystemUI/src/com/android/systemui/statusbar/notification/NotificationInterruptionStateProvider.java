@@ -82,7 +82,6 @@ public class NotificationInterruptionStateProvider {
     @Inject
     public NotificationInterruptionStateProvider(Context context, NotificationFilter filter,
             StatusBarStateController stateController, BatteryController batteryController) {
-
         this(context,
                 (PowerManager) context.getSystemService(Context.POWER_SERVICE),
                 IDreamManager.Stub.asInterface(
