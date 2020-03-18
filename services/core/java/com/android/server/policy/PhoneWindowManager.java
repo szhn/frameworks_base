@@ -216,7 +216,6 @@ import com.android.internal.custom.longshot.ILongScreenshotManager;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.internal.os.AlternativeDeviceKeyHandler;
-import com.android.internal.os.DeviceKeyHandler;
 import com.android.internal.os.RoSystemProperties;
 import com.android.internal.policy.IKeyguardDismissCallback;
 import com.android.internal.policy.IShortcutService;
@@ -249,15 +248,11 @@ import com.android.server.wm.DisplayRotation;
 import com.android.server.wm.WindowManagerInternal;
 import com.android.server.wm.WindowManagerInternal.AppTransitionListener;
 
-import dalvik.system.PathClassLoader;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.lang.reflect.Constructor;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
@@ -671,7 +666,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     private int mPowerButtonSuppressionDelayMillis = POWER_BUTTON_SUPPRESSION_DELAY_DEFAULT_MILLIS;
 
-    private final List<DeviceKeyHandler> mDeviceKeyHandlers = new ArrayList<>();
 
     private AlternativeDeviceKeyHandler mAlternativeDeviceKeyHandler;
     // Power long press action saved on key down that should happen on key up
@@ -2240,59 +2234,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     }
                 });
 
-        final Resources res = mContext.getResources();
-        final String[] deviceKeyHandlerLibs = res.getStringArray(
-                com.android.internal.R.array.config_deviceKeyHandlerLibs);
-        final String[] deviceKeyHandlerClasses = res.getStringArray(
-                com.android.internal.R.array.config_deviceKeyHandlerClasses);
-
-        boolean defaultKeyHandlerLoaded = false;
-        for (int i = 0;
-                i < deviceKeyHandlerLibs.length && i < deviceKeyHandlerClasses.length; i++) {
-            try {
-                PathClassLoader loader = new PathClassLoader(
-                        deviceKeyHandlerLibs[i], getClass().getClassLoader());
-                Class<?> klass = loader.loadClass(deviceKeyHandlerClasses[i]);
-                Constructor<?> constructor = klass.getConstructor(Context.class);
-                mDeviceKeyHandlers.add((DeviceKeyHandler) constructor.newInstance(mContext));
-                defaultKeyHandlerLoaded = true;
-            } catch (Exception e) {
-                Slog.w(TAG, "Could not instantiate device key handler "
-                        + deviceKeyHandlerLibs[i] + " from class "
-                        + deviceKeyHandlerClasses[i], e);
-            }
-        }
-        if (DEBUG_INPUT) {
-            Slog.d(TAG, "" + mDeviceKeyHandlers.size() + " device key handlers loaded");
-        }
-
-        if (!defaultKeyHandlerLoaded){
-            String alternativeDeviceKeyHandlerLib = res.getString(
-                    com.android.internal.R.string.config_alternativeDeviceKeyHandlerLib);
-
-            String alternativeDeviceKeyHandlerClass = res.getString(
-                    com.android.internal.R.string.config_alternativeDeviceKeyHandlerClass);
-
-            if (!alternativeDeviceKeyHandlerLib.isEmpty() && !alternativeDeviceKeyHandlerClass.isEmpty()) {
-                try {
-                    PathClassLoader loader =  new PathClassLoader(alternativeDeviceKeyHandlerLib,
-                            getClass().getClassLoader());
-
-                    Class<?> klass = loader.loadClass(alternativeDeviceKeyHandlerClass);
-                    Constructor<?> constructor = klass.getConstructor(Context.class);
-                    mAlternativeDeviceKeyHandler = (AlternativeDeviceKeyHandler) constructor.newInstance(
-                            mContext);
-                    if(DEBUG_INPUT) Slog.d(TAG, "Alternative Device key handler loaded");
-                } catch (Exception e) {
-                    Slog.w(TAG, "Could not instantiate alternative device key handler "
-                            + alternativeDeviceKeyHandlerClass + " from class "
-                            + alternativeDeviceKeyHandlerLib, e);
-                }
-            }
-        }
-
-        if (DEBUG_INPUT) Slog.d(TAG, "" + mDeviceKeyHandlers.size() + " device key handlers loaded");
-
         // Register for torch off events
         BroadcastReceiver torchReceiver = new BroadcastReceiver() {
             @Override
@@ -3433,11 +3374,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             return -1;
         }
 
-        // Specific device key handling
-        if (dispatchKeyToKeyHandlers(event)) {
-            return -1;
-        }
-
         // Alternative specific device key handling
         if (mAlternativeDeviceKeyHandler != null) {
             try {
@@ -3553,23 +3489,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 Slog.e(TAG, "Error taking bugreport", e);
             }
         }
-    }
-
-    private boolean dispatchKeyToKeyHandlers(KeyEvent event) {
-        for (DeviceKeyHandler handler : mDeviceKeyHandlers) {
-            try {
-                if (DEBUG_INPUT) {
-                    Log.d(TAG, "Dispatching key event " + event + " to handler " + handler);
-                }
-                event = handler.handleKeyEvent(event);
-                if (event == null) {
-                    return true;
-                }
-            } catch (Exception e) {
-                Slog.w(TAG, "Could not dispatch event to device key handler", e);
-            }
-        }
-        return false;
     }
 
     private boolean unpinActivity(boolean checkOnly) {
@@ -4250,11 +4169,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             if (isHwKeysDisabled() || keyguardOn() || isDozeMode()) {
                 useHapticFeedback = false;
             }
-        }
-
-        // Specific device key handling
-        if (dispatchKeyToKeyHandlers(event)) {
-            return 0;
         }
 
         // Alternative specific device key handling
