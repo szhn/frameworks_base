@@ -111,20 +111,17 @@ public class QSContainerImpl extends FrameLayout {
     }
 
     private void updateSettings() {
-        int bgAlpha = Settings.System.getIntForUser(getContext().getContentResolver(),
+        int mQsBackGroundAlpha = Settings.System.getIntForUser(getContext().getContentResolver(),
                 Settings.System.QS_PANEL_BG_ALPHA, 255,
                 UserHandle.USER_CURRENT);
 
-        Drawable bg = mBackground.getBackground();
-        if (bgAlpha < 255 ) {
-            mQsBackgroundAlpha = true;
-            bg.setAlpha(bgAlpha);
-            mBackground.setBackground(bg);
+        if (mQsBackGroundAlpha < 255 ) {
+            mBackground.setVisibility(View.INVISIBLE);
             mBackgroundGradient.setVisibility(View.INVISIBLE);
+            mQsBackGround.setAlpha(mQsBackGroundAlpha);
+            setBackground(mQsBackGround);
         } else {
-            mQsBackgroundAlpha = false;
-            bg.setAlpha(255);
-            mBackground.setBackground(bg);
+            mBackground.setVisibility(View.VISIBLE);
             mBackgroundGradient.setVisibility(View.VISIBLE);
         }
     }
