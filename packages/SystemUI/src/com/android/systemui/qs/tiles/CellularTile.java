@@ -104,7 +104,7 @@ public class CellularTile extends QSTileImpl<SignalState> {
 
     @Override
     public Intent getLongClickIntent() {
-        return new Intent(Settings.Panel.ACTION_MOBILE_DATA);
+        return getCellularSettingIntent();
     }
 
     @Override
