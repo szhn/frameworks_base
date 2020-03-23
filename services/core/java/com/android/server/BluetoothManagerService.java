@@ -842,6 +842,13 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
                 Slog.e(TAG, "onBluetoothServiceUp: mBluetooth is null!");
                 return;
             }
+            if (!mEnableExternal && !isBleAppPresent() && isAirplaneModeOn()) {
+                // Airplane mode is turned on while enabling BLE only mode, disable
+                // BLE now.
+                disableBleScanMode();
+                sendBrEdrDownCallback();
+                return;
+            }
             int st = mBluetooth.getState();
             if (st != BluetoothAdapter.STATE_BLE_ON) {
                 if (DBG) Slog.v(TAG, "onBluetoothServiceUp: state isn't BLE_ON: " +
