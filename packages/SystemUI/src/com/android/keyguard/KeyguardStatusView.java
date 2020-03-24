@@ -26,6 +26,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.RemoteException;
 import android.os.UserHandle;
+import android.provider.Settings;
 import android.text.Html;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
