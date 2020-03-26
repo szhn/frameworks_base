@@ -6168,6 +6168,9 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_CLOCK = "lockscreen_clock";
 
+        /** @hide */
+        private static final Validator LOCKSCREEN_CLOCK_VALIDATOR = BOOLEAN_VALIDATOR;
+
         /**
          * Whether to show the items underneath lockscreen clock
          * @hide
