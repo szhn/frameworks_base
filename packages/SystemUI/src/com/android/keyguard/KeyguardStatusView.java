@@ -116,7 +116,7 @@ public class KeyguardStatusView extends GridLayout implements
                 mClockView.refreshclocksize();
                 mKeyguardSlice.refreshdatesize();
                 refreshOwnerInfoSize();
-                refreshOwnerInfoFont();º
+                refreshOwnerInfoFont();
             }
         }
 
