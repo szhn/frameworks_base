@@ -58,5 +58,4 @@
         systemui:textAppearance="@style/TextAppearance.QS.Status"
         android:gravity="right|end"/>
 
-    </LinearLayout>
 </LinearLayout>

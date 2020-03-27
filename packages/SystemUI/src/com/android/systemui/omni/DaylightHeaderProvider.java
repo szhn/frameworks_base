@@ -374,7 +374,7 @@ public class DaylightHeaderProvider implements
 
     @Override
     public Drawable getCurrent(final Calendar now) {
-        if (!EvolutionUtils.isAvailableApp(mPackageName, mContext)) {
+        if (!TitaniumUtils.isAvailableApp(mPackageName, mContext)) {
             Log.w(TAG, "Header pack no longer available - loading default " + mPackageName);
             loadDefaultHeaderPackage();
         }

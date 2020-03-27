@@ -103,7 +103,7 @@ public class StaticHeaderProvider implements
         if (mRes == null) {
             return null;
         }
-        if (!EvolutionUtils.isAvailableApp(mPackageName, mContext)) {
+        if (!TitaniumUtils.isAvailableApp(mPackageName, mContext)) {
             Log.w(TAG, "Header pack image " + mImage + " no longer available");
             return null;
         }
