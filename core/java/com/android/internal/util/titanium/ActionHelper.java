@@ -14,7 +14,7 @@
 * limitations under the License.
 */
 
-package com.android.internal.util.evolution;
+package com.android.internal.util.titanium;
 
 import android.content.ContentResolver;
 import android.content.Context;
