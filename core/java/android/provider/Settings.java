@@ -5777,12 +5777,6 @@ public final class Settings {
         /** @hide */
         private static final Validator ASPECT_RATIO_APPS_ENABLED_VALIDATOR = BOOLEAN_VALIDATOR;
 
-        /**
-         * Enable\Disable Bluetooth Battery bar in quick settings
-         * @hide
-         */
-        public static final String BLUETOOTH_QS_SHOW_BATTERY = "bluetooth_qs_show_battery";
-
         /** @hide */
         private static final Validator FOD_ANIM_VALIDATOR =
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 18);
