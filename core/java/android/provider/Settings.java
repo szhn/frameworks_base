@@ -5488,6 +5488,15 @@ public final class Settings {
         public static final String STATUS_BAR_BATTERY_TEXT_CHARGING = "status_bar_battery_text_charging";
 
         /**
+         * Whether to display QS clock
+         * @hide
+         */
+        public static final String SHOW_QS_CLOCK = "show_qs_clock";
+
+        /** @hide */
+        private static final Validator SHOW_QS_CLOCK_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * Whether to pulse ambient on new music tracks
          * @hide
          */
@@ -6483,6 +6492,7 @@ public final class Settings {
             STATUS_BAR_CUSTOM_HEADER_HEIGHT,
             QS_PANEL_BG_USE_NEW_TINT,
             QS_HIDE_BATTERY,
+            SHOW_QS_CLOCK,
             // TitaniumOS Settings end
         };
 
@@ -6915,6 +6925,7 @@ public final class Settings {
             VALIDATORS.put(STATUS_BAR_CUSTOM_HEADER_HEIGHT, STATUS_BAR_CUSTOM_HEADER_HEIGHT_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_USE_NEW_TINT, QS_PANEL_BG_USE_NEW_TINT_VALIDATOR);
             VALIDATORS.put(QS_HIDE_BATTERY, QS_HIDE_BATTERY_VALIDATOR);
+            VALIDATORS.put(SHOW_QS_CLOCK, SHOW_QS_CLOCK_VALIDATOR);
             // TitaniumOS Settings end
         }
 

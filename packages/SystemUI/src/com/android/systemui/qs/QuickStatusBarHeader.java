@@ -24,7 +24,6 @@ import android.app.AlarmManager;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.ColorStateList;
@@ -36,9 +35,11 @@ import android.graphics.Rect;
 import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.UserHandle;
 import android.provider.AlarmClock;
 import android.provider.CalendarContract;
+import android.provider.DeviceConfig;
 import android.provider.Settings;
 import android.service.notification.ZenModeConfig;
 import android.text.format.DateUtils;
@@ -74,6 +75,8 @@ import com.android.systemui.statusbar.policy.DateView;
 import com.android.systemui.statusbar.policy.NextAlarmController;
 import com.android.systemui.statusbar.policy.ZenModeController;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -156,6 +159,9 @@ public class QuickStatusBarHeader extends RelativeLayout implements
                     this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System
                     .getUriFor(Settings.System.QS_HIDE_BATTERY), false,
+                    this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System
+                    .getUriFor(Settings.System.SHOW_QS_CLOCK), false,
                     this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System
                     .getUriFor(Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER), false,
@@ -410,6 +416,12 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mBatteryMeterView.updateVisibility();
     }
 
+    private void updateQSClock() {
+        int show = Settings.System.getInt(mContext.getContentResolver(),
+        Settings.System.SHOW_QS_CLOCK, 1);
+        mClockView.setClockVisibleByUser(show == 1);
+    }
+
     private void updateStatusIconAlphaAnimator() {
         mStatusIconsAlphaAnimator = new TouchAnimator.Builder()
                 .addFloat(mQuickQsStatusIcons, "alpha", 1, 0, 0)
@@ -528,9 +540,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         if (v == mClockView || v == mNextAlarmTextView) {
             mActivityStarter.postStartActivityDismissingKeyguard(new Intent(
                     AlarmClock.ACTION_SHOW_ALARMS), 0);
-        } else if (v == mBatteryMeterView) {
-            Dependency.get(ActivityStarter.class).postStartActivityDismissingKeyguard(new Intent(
-                    Intent.ACTION_POWER_USAGE_SUMMARY),0);
         } else if (v == mNextAlarmContainer && mNextAlarmContainer.isVisibleToUser()) {
             if (mNextAlarm.getShowIntent() != null) {
                 mActivityStarter.postStartActivityDismissingKeyguard(
@@ -543,6 +552,9 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         } else if (v == mRingerContainer && mRingerContainer.isVisibleToUser()) {
             mActivityStarter.postStartActivityDismissingKeyguard(new Intent(
                     Settings.ACTION_SOUND_SETTINGS), 0);
+        } else if (v == mBatteryMeterView) {
+            Dependency.get(ActivityStarter.class).postStartActivityDismissingKeyguard(new Intent(
+                    Intent.ACTION_POWER_USAGE_SUMMARY),0);
         } else if (v == mDateView) {
             Uri.Builder builder = CalendarContract.CONTENT_URI.buildUpon();
             builder.appendPath("time");
@@ -636,6 +648,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         updateHeaderImage();
         updateQSBatteryMode();
         updateSBBatteryStyle();
+        updateQSClock();
         updateResources();
         updateStatusbarProperties();
     }
