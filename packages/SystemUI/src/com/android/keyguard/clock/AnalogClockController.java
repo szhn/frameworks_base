@@ -96,7 +96,8 @@ public class AnalogClockController implements ClockPlugin {
      */
     public AnalogClockController(Resources res, LayoutInflater inflater,
             SysuiColorExtractor colorExtractor, Context context) {
-        mResources = res;        mLayoutInflater = inflater;
+        mResources = res;
+        mLayoutInflater = inflater;
         mColorExtractor = colorExtractor;
         mContext = context;
     }
