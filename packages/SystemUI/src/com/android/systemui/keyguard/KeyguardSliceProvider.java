@@ -217,8 +217,9 @@ public class KeyguardSliceProvider extends SliceProvider implements
             ListBuilder builder = new ListBuilder(getContext(), mSliceUri, ListBuilder.INFINITY);
             if (needsMediaLocked()) {
                 addMediaLocked(builder);
+            } else {
+                builder.addRow(new RowBuilder(mDateUri).setTitle(mLastText));
             }
-            builder.addRow(new RowBuilder(mDateUri).setTitle(mLastText));
             addNextAlarmLocked(builder);
             addZenModeLocked(builder);
             addPrimaryActionLocked(builder);
@@ -242,12 +243,21 @@ public class KeyguardSliceProvider extends SliceProvider implements
         if (TextUtils.isEmpty(mMediaTitle)) {
             return;
         }
-        ListBuilder.HeaderBuilder headerBuilder = new ListBuilder.HeaderBuilder(mHeaderUri);
-        headerBuilder.setTitle(mMediaTitle);
+        listBuilder.setHeader(new ListBuilder.HeaderBuilder(mHeaderUri).setTitle(mMediaTitle));
+
         if (!TextUtils.isEmpty(mMediaArtist)) {
-            headerBuilder.setSubtitle(mMediaArtist);
+            RowBuilder albumBuilder = new RowBuilder(mMediaUri);
+            albumBuilder.setTitle(mMediaArtist);
+
+            Icon mediaIcon = mMediaManager == null ? null : mMediaManager.getMediaIcon();
+            IconCompat mediaIconCompat = mediaIcon == null ? null
+                    : IconCompat.createFromIcon(getContext(), mediaIcon);
+            if (mediaIconCompat != null) {
+                albumBuilder.addEndItem(mediaIconCompat, ListBuilder.ICON_IMAGE);
+            }
+
+            listBuilder.addRow(albumBuilder);
         }
-        listBuilder.setHeader(headerBuilder);
     }
 
     protected void addPrimaryActionLocked(ListBuilder builder) {
