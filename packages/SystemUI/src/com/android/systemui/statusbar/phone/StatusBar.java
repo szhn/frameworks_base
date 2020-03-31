@@ -267,6 +267,8 @@ import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.InjectionInflationController;
 import com.android.systemui.volume.VolumeComponent;
 
+import com.google.android.systemui.smartspace.SmartSpaceController;
+
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -3214,6 +3216,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         if (mWallpaperSupported) {
             mWallpaperChangedReceiver.onReceive(mContext, null);
         }
+        SmartSpaceController.get(this.mContext).reloadData();
     }
 
     /**
@@ -5564,7 +5567,7 @@ public class StatusBar extends SystemUI implements DemoMode,
     }
 
     private void updateNavigationBar(@Nullable RegisterStatusBarResult result, boolean init) {
-        boolean showNavBar = EvolutionUtils.deviceSupportNavigationBar(mContext);
+        boolean showNavBar = TitaniumUtils.deviceSupportNavigationBar(mContext);
         if (init) {
             if (showNavBar) {
                 mNavigationBarController.createNavigationBars(true, result);
