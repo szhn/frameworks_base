@@ -84,7 +84,7 @@ import static android.view.WindowManager.TAKE_SCREENSHOT_SELECTED_REGION;
 import static android.view.WindowManagerGlobal.ADD_OKAY;
 import static android.view.WindowManagerGlobal.ADD_PERMISSION_DENIED;
 
-import static com.android.internal.util.evolution.hwkeys.DeviceKeysConstants.*;
+import static com.android.internal.util.titanium.hwkeys.DeviceKeysConstants.*;
 
 import static com.android.server.policy.WindowManagerPolicy.WindowManagerFuncs.CAMERA_LENS_COVERED;
 import static com.android.server.policy.WindowManagerPolicy.WindowManagerFuncs.CAMERA_LENS_COVER_ABSENT;
@@ -265,6 +265,7 @@ import java.io.PrintWriter;
 import java.util.HashSet;
 import java.lang.reflect.Constructor;
 import java.util.List;
+import java.util.ArrayList;
 
 /**
  * WindowManagerPolicy implementation for the Android phone UI.  This
@@ -716,6 +717,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     private int mPowerButtonSuppressionDelayMillis = POWER_BUTTON_SUPPRESSION_DELAY_DEFAULT_MILLIS;
 
+    private final List<DeviceKeyHandler> mDeviceKeyHandlers = new ArrayList<>();
 
     private AlternativeDeviceKeyHandler mAlternativeDeviceKeyHandler;
     // Power long press action saved on key down that should happen on key up

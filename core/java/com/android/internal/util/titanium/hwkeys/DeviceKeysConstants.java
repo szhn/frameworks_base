@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.internal.util.evolution.hwkeys;
+package com.android.internal.util.titanium.hwkeys;
 
 import android.content.ContentResolver;
 import android.os.UserHandle;
