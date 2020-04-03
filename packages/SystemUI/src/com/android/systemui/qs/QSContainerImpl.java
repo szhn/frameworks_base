@@ -74,12 +74,16 @@ public class QSContainerImpl extends FrameLayout implements
     private int mSideMargins;
     private boolean mQsDisabled;
 
+    private int mQsBackGroundAlpha;
+
     private boolean mHeaderImageEnabled;
     private ImageView mBackgroundImage;
     private StatusBarHeaderMachine mStatusBarHeaderMachine;
     private Drawable mCurrentBackground;
     private boolean mLandscape;
     private int mHeaderImageHeight;
+
+    private boolean mQsBackgroundAlpha;
 
     public QSContainerImpl(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -169,7 +173,6 @@ public class QSContainerImpl extends FrameLayout implements
         updateHeaderImageHeight();
         updateResources();
         updateStatusbarVisibility();
-    }
 
     Drawable bg = mBackground.getBackground();
         if (bgAlpha < 255 ) {
