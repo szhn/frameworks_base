@@ -74,9 +74,6 @@ public class QSContainerImpl extends FrameLayout implements
     private int mSideMargins;
     private boolean mQsDisabled;
 
-    private Drawable mQsBackGround;
-    private int mQsBackGroundAlpha;
-
     private boolean mHeaderImageEnabled;
     private ImageView mBackgroundImage;
     private StatusBarHeaderMachine mStatusBarHeaderMachine;
@@ -84,20 +81,8 @@ public class QSContainerImpl extends FrameLayout implements
     private boolean mLandscape;
     private int mHeaderImageHeight;
 
-    private boolean mQsBackgroundAlpha;
-    private int mQsBackGroundColor;
-    private int mQsBackGroundColorWall;
-    private int mCurrentColor;
-    private boolean mSetQsFromWall;
-    private boolean mSetQsFromResources;
-    private SysuiColorExtractor mColorExtractor;
-
-    private IOverlayManager mOverlayManager;
-
     public QSContainerImpl(Context context, AttributeSet attrs) {
         super(context, attrs);
-        mOverlayManager = IOverlayManager.Stub.asInterface(
-                ServiceManager.getService(Context.OVERLAY_SERVICE));
         Handler mHandler = new Handler();
         mStatusBarHeaderMachine = new StatusBarHeaderMachine(context);
         SettingsObserver settingsObserver = new SettingsObserver(mHandler);
@@ -116,11 +101,10 @@ public class QSContainerImpl extends FrameLayout implements
         mStatusBarBackground = findViewById(R.id.quick_settings_status_bar_background);
         mBackgroundGradient = findViewById(R.id.quick_settings_gradient_view);
         mSideMargins = getResources().getDimensionPixelSize(R.dimen.notification_side_paddings);
-        mQsBackGround = getContext().getDrawable(R.drawable.qs_background_primary);
         mBackgroundImage = findViewById(R.id.qs_header_image_view);
         mBackgroundImage.setClipToOutline(true);
-        mColorExtractor = Dependency.get(SysuiColorExtractor.class);
         updateSettings();
+        updateResources();
 
         setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_NO);
         setMargins();
@@ -164,24 +148,11 @@ public class QSContainerImpl extends FrameLayout implements
         }
 
         void observe() {
-            ContentResolver resolver = getContext().getContentResolver();
-            resolver.registerContentObserver(Settings.System.
-                    getUriFor(Settings.System.QS_PANEL_BG_ALPHA), false,
-                    this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.
-                    getUriFor(Settings.System.QS_PANEL_BG_COLOR), false,
-                    this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System
-                    .getUriFor(Settings.System.QS_PANEL_BG_COLOR_WALL), false,
-                    this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System
-                    .getUriFor(Settings.System.QS_PANEL_BG_USE_WALL), false,
-                    this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System
-                    .getUriFor(Settings.System.QS_PANEL_BG_USE_FW), false,
+            getContext().getContentResolver().registerContentObserver(Settings.System
+                    .getUriFor(Settings.System.QS_PANEL_BG_ALPHA), false,
                     this, UserHandle.USER_ALL);
             getContext().getContentResolver().registerContentObserver(Settings.System
-                            .getUriFor(Settings.System.STATUS_BAR_CUSTOM_HEADER_HEIGHT), false,
+                    .getUriFor(Settings.System.STATUS_BAR_CUSTOM_HEADER_HEIGHT), false,
                     this, UserHandle.USER_ALL);
         }
 
@@ -192,44 +163,26 @@ public class QSContainerImpl extends FrameLayout implements
     }
 
     private void updateSettings() {
-        ContentResolver resolver = getContext().getContentResolver();
-        int userQsWallColorSetting = Settings.System.getIntForUser(resolver,
-                    Settings.System.QS_PANEL_BG_USE_WALL, 0, UserHandle.USER_CURRENT);
-        mSetQsFromWall = userQsWallColorSetting == 1;
-        int userQsFwSetting = Settings.System.getIntForUser(resolver,
-                    Settings.System.QS_PANEL_BG_USE_FW, 1, UserHandle.USER_CURRENT);
-        mSetQsFromResources = userQsFwSetting == 1;
-        mQsBackGroundAlpha = Settings.System.getIntForUser(resolver,
+        int bgAlpha = Settings.System.getIntForUser(getContext().getContentResolver(),
                 Settings.System.QS_PANEL_BG_ALPHA, 255,
                 UserHandle.USER_CURRENT);
-        mQsBackGroundColor = Settings.System.getIntForUser(resolver,
-                Settings.System.QS_PANEL_BG_COLOR, Color.WHITE,
-                UserHandle.USER_CURRENT);
-        mQsBackGroundColorWall = Settings.System.getIntForUser(resolver,
-                Settings.System.QS_PANEL_BG_COLOR_WALL, Color.WHITE,
-                UserHandle.USER_CURRENT);
-        WallpaperColors systemColors = null;
-        if (mColorExtractor != null) {
-            systemColors = mColorExtractor.getWallpaperColors(WallpaperManager.FLAG_SYSTEM);
-        }
-        mCurrentColor = mSetQsFromWall ? mQsBackGroundColorWall : mQsBackGroundColor;
         updateHeaderImageHeight();
-        setQsBackground();
         updateResources();
         updateStatusbarVisibility();
     }
 
-    private void setQsBackground() {
-        if (mSetQsFromResources) {
-            mQsBackGround = getContext().getDrawable(R.drawable.qs_background_primary);
+    Drawable bg = mBackground.getBackground();
+        if (bgAlpha < 255 ) {
+            mQsBackgroundAlpha = true;
+            bg.setAlpha(bgAlpha);
+            mBackground.setBackground(bg);
+            mBackgroundGradient.setVisibility(View.INVISIBLE);
         } else {
-            if (mQsBackGround != null)
-                mQsBackGround.setColorFilter(mCurrentColor, PorterDuff.Mode.SRC_ATOP);
+            mQsBackgroundAlpha = false;
+            bg.setAlpha(255);
+            mBackground.setBackground(bg);
+            mBackgroundGradient.setVisibility(View.VISIBLE);
         }
-        if (mQsBackGround != null)
-            mQsBackGround.setAlpha(mQsBackGroundAlpha);
-        if (mQsBackGround != null && mBackground != null)
-            mBackground.setBackground(mQsBackGround);
     }
 
     @Override
@@ -320,11 +273,9 @@ public class QSContainerImpl extends FrameLayout implements
         mBackgroundGradient.setLayoutParams(mlp);
 
         if (mHeaderImageEnabled) {
-            mQsBackgroundAlpha = false;
             mStatusBarBackground.setBackgroundColor(Color.TRANSPARENT);
         } else {
-            mQsBackgroundAlpha = true;
-            mStatusBarBackground.setBackgroundColor(getResources().getColor(R.color.quick_settings_status_bar_background_color));
+            mStatusBarBackground.setBackgroundColor(Color.BLACK);
         }
     }
 
