@@ -55,7 +55,6 @@ import com.android.systemui.qs.tiles.NightDisplayTile;
 import com.android.systemui.qs.tiles.ReadingModeTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.ScreenRecordTile;
-import com.android.systemui.qs.tiles.RebootTile;
 import com.android.systemui.qs.tiles.ScreenshotTile;
 import com.android.systemui.qs.tiles.SoundSearchTile;
 import com.android.systemui.qs.tiles.SoundTile;
@@ -120,7 +119,6 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<FPSInfoTile> mFPSInfoTileProvider;
     private final Provider<ScreenStabilizationTile> mScreenStabilizationTileProvider;
     private final Provider<MonoToggleTile> mMonoToggleTileProvider;
-    private final Provider<RebootTile> mRebootTileProvider;
     private final Provider<DataSwitchTile> mDataSwitchTileProvider;
 
     private QSTileHost mHost;
@@ -166,7 +164,6 @@ public class QSFactoryImpl implements QSFactory {
             Provider<FPSInfoTile> fpsInfoTileProvider,
             Provider<ScreenStabilizationTile> screenStabilizationTileProvider,
             Provider<MonoToggleTile> monoToggleTileProvider,
-            Provider<RebootTile> rebootTileProvider,
             Provider<DataSwitchTile> dataSwitchTileProvider) {
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
@@ -209,7 +206,6 @@ public class QSFactoryImpl implements QSFactory {
         mFPSInfoTileProvider = fpsInfoTileProvider;
         mScreenStabilizationTileProvider = screenStabilizationTileProvider;
         mMonoToggleTileProvider = monoToggleTileProvider;
-        mRebootTileProvider = rebootTileProvider;
         mDataSwitchTileProvider = dataSwitchTileProvider;
     }
 
@@ -307,8 +303,6 @@ public class QSFactoryImpl implements QSFactory {
                 return mScreenStabilizationTileProvider.get();
             case "mono":
                 return mMonoToggleTileProvider.get();
-            case "reboot":
-                return mRebootTileProvider.get();
             case "dataswitch":
                 return mDataSwitchTileProvider.get();
         }
