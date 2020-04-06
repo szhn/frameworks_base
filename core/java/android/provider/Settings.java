@@ -6608,6 +6608,13 @@ public final class Settings {
         public static final String STATUS_BAR_LOGO_STYLE = "status_bar_logo_style";
 
         /**
+         * Setting to hold the current set overlay for color bucket.
+         *    overlay package name (String)
+         * @hide
+         */
+        public static final String COLOR_BUCKET_OVERLAY = "color_bucket_overlay";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -7006,6 +7013,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUS_BAR_TICKER_ANIMATION_MODE);
             PRIVATE_SETTINGS.add(STATUS_BAR_TICKER_TICK_DURATION);
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO);
+            PRIVATE_SETTINGS.add(COLOR_BUCKET_OVERLAY);
             //TitaniumOS Settings end
         }
 
