@@ -56,6 +56,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
+import com.android.internal.util.custom.popupcamera.PopUpCameraUtils;
+
 /**
  * CameraServiceProxy is the system_server analog to the camera service running in cameraserver.
  *
