@@ -313,4 +313,7 @@
     <java-symbol type="integer" name="config_longPressOnAppSwitchBehaviorHwKeys" />
     <java-symbol type="integer" name="config_longPressOnAssistBehaviorHwKeys" />
 
+    <!-- Whether to turn on the notification light when the state of the front camera changes -->
+    <java-symbol type="bool" name="config_popUpNotificationLight" />
+
 </resources>

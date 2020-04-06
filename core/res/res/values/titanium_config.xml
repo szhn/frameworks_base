@@ -332,4 +332,7 @@
     -->
     <integer name="config_longPressOnAssistBehaviorHwKeys">4</integer>
 
+    <!-- Whether to turn on the notification light when the state of the front camera changes -->
+    <bool name="config_popUpNotificationLight">false</bool>
+
 </resources>
