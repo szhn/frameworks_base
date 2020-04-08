@@ -21,7 +21,7 @@ import android.os.UserHandle;
 
 public class PopUpCameraUtils {
     public static String MANAGE_POPUP_CAMERA_SERVICE_PERMISSION =
-            "org.pixelexperience.device.MANAGE_POPUP_CAMERA_SERVICE";
+            "com.titanium.device.MANAGE_POPUP_CAMERA_SERVICE";
 
     public static boolean supportsLed(Context context) {
         return context.getResources().getBoolean(

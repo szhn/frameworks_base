@@ -316,8 +316,8 @@
     <!-- Whether to turn on the notification light when the state of the front camera changes -->
     <java-symbol type="bool" name="config_popUpNotificationLight" />
 
-    <!-- Whether to send camera status intent -->
-    <java-symbol type="bool" name="config_sendCameraStatusIntent" />
+    <!-- Component name of popup camera service -->
+    <java-symbol type="string" name="config_popUpCameraServiceComponentName" />
 
     <!-- Themes -->
     <java-symbol type="color" name="theme_generic_semi_transparent_color" />
