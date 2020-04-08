@@ -6068,26 +6068,6 @@ public final class Settings {
         private static final Validator TORCH_LONG_PRESS_POWER_TIMEOUT_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
 
-        /**
-        /** some devices have a extra hw button e.g. n3 on the back on the
-         * fingerprint sensor. allow mapping button to key
-         *
-         * @hide
-         */
-        public static final String BUTTON_EXTRA_KEY_MAPPING = "button_extra_mapping";
-        private static final Validator BUTTON_EXTRA_KEY_MAPPING_VALIDATOR =
-                ANY_STRING_VALIDATOR;
-
-        /**
-         * Enable proxi check for wake keys - must be implemented in a device
-         * KeyHandler
-         * @hide
-         */
-        public static final String DEVICE_PROXI_CHECK_ENABLED = "device_proxi_check_enabled";
-        /** @hide */
-        private static final Validator DEVICE_PROXI_CHECK_ENABLED_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
     /**
          * Whether the proximity sensor will adjust call to speaker
          */
@@ -6759,8 +6739,6 @@ public final class Settings {
             BACK_GESTURE_HAPTIC,
             TORCH_LONG_PRESS_POWER_GESTURE,
             TORCH_LONG_PRESS_POWER_TIMEOUT,
-            BUTTON_EXTRA_KEY_MAPPING,
-            DEVICE_PROXI_CHECK_ENABLED,
             LOCKSCREEN_CLOCK,
             LOCKSCREEN_INFO,
             TEXT_CLOCK_ALIGNMENT,
@@ -6987,8 +6965,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(BACK_GESTURE_HAPTIC);
             PRIVATE_SETTINGS.add(TORCH_LONG_PRESS_POWER_GESTURE);
             PRIVATE_SETTINGS.add(TORCH_LONG_PRESS_POWER_TIMEOUT);
-            PRIVATE_SETTINGS.add(BUTTON_EXTRA_KEY_MAPPING);
-            PRIVATE_SETTINGS.add(DEVICE_PROXI_CHECK_ENABLED);
             PRIVATE_SETTINGS.add(LOCKSCREEN_CLOCK);
             PRIVATE_SETTINGS.add(LOCKSCREEN_INFO);
             PRIVATE_SETTINGS.add(TEXT_CLOCK_ALIGNMENT);
@@ -7205,8 +7181,6 @@ public final class Settings {
             VALIDATORS.put(BACK_GESTURE_HAPTIC, BACK_GESTURE_HAPTIC_VALIDATOR);
             VALIDATORS.put(TORCH_LONG_PRESS_POWER_GESTURE, TORCH_LONG_PRESS_POWER_GESTURE_VALIDATOR);
             VALIDATORS.put(TORCH_LONG_PRESS_POWER_TIMEOUT, TORCH_LONG_PRESS_POWER_TIMEOUT_VALIDATOR);
-            VALIDATORS.put(BUTTON_EXTRA_KEY_MAPPING, BUTTON_EXTRA_KEY_MAPPING_VALIDATOR);
-            VALIDATORS.put(DEVICE_PROXI_CHECK_ENABLED, DEVICE_PROXI_CHECK_ENABLED_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_CLOCK, LOCKSCREEN_CLOCK_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_INFO, LOCKSCREEN_INFO_VALIDATOR);
             VALIDATORS.put(TEXT_CLOCK_ALIGNMENT, TEXT_CLOCK_ALIGNMENT_VALIDATOR);
