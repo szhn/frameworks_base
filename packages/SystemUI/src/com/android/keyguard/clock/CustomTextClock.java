@@ -46,13 +46,15 @@ import java.util.TimeZone;
 public class CustomTextClock extends TextView {
 
     private String mDescFormat;
-    private final String[] mHours;
+    private String[] mHours;
     private String[] mMinutes;
     private final Resources mResources;
     private final Calendar mTime = Calendar.getInstance(TimeZone.getDefault());
     private TimeZone mTimeZone;
 
+    private boolean h24;
     private int mAccentColor;
+    private int hours;
     private int mClockSize = 54;
     private SettingsObserver mSettingsObserver;
 
@@ -79,16 +81,25 @@ public class CustomTextClock extends TextView {
         super(context, attributeSet, defStyleAttr);
         mDescFormat = ((SimpleDateFormat) DateFormat.getTimeFormat(context)).toLocalizedPattern();
         mResources = context.getResources();
-        mHours = mResources.getStringArray(R.array.type_clock_hours);
+        h24 = DateFormat.is24HourFormat(getContext());
+        if (!h24) mHours = mResources.getStringArray(R.array.type_clock_hours_12);
+            else mHours = mResources.getStringArray(R.array.type_clock_hours_24);
         if (qpie()) mMinutes = mResources.getStringArray(R.array.type_clock_minutes);
             else mMinutes = mResources.getStringArray(R.array.type_clock_minutes_alt);
         mAccentColor = mResources.getColor(R.color.accent_device_default_light);
     }
 
     public void onTimeChanged() {
+        h24 = DateFormat.is24HourFormat(getContext());
         mTime.setTimeInMillis(System.currentTimeMillis());
         setContentDescription(DateFormat.format(mDescFormat, mTime));
-        int hours = mTime.get(Calendar.HOUR) % 12;
+        if (!h24) {
+             mHours = mResources.getStringArray(R.array.type_clock_hours_12);
+             hours = mTime.get(Calendar.HOUR) % 12;
+        } else {
+             mHours = mResources.getStringArray(R.array.type_clock_hours_24);
+             hours = mTime.get(Calendar.HOUR_OF_DAY);
+        }
         if (qpie()) mMinutes = mResources.getStringArray(R.array.type_clock_minutes);
             else mMinutes = mResources.getStringArray(R.array.type_clock_minutes_alt);
         final int minutes = mTime.get(Calendar.MINUTE) % 60;
@@ -157,7 +168,7 @@ public class CustomTextClock extends TextView {
 
     private int getLockClockFont() {
         return Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.LOCK_CLOCK_FONTS, 28);
+                Settings.System.LOCK_CLOCK_FONTS, 0);
     }
 
     private void refreshLockFont() {
@@ -520,7 +531,7 @@ public class CustomTextClock extends TextView {
 
         @Override
         public void onChange(boolean selfChange) {
-            updateClockSize();
+        updateClockSize();
         }
     }
 }

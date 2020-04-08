@@ -50,17 +50,17 @@
         <item>Diez</item>
         <item>Once</item>
         <item>Doce</item>
-        <item>Una</item>
-        <item>Dos</item>
-        <item>Tres</item>
-        <item>Cuatro</item>
-        <item>Cinco</item>
-        <item>Seis</item>
-        <item>Siete</item>
-        <item>Ocho</item>
-        <item>Nueve</item>
-        <item>Diez</item>
-        <item>Once</item>
+        <item>Trece</item>
+        <item>Catorce</item>
+        <item>Quince</item>
+        <item>Dieciseis</item>
+        <item>Diecisiete</item>
+        <item>Dieciocho</item>
+        <item>Diecinueve</item>
+        <item>Veinte</item>
+        <item>Veintiuno</item>
+        <item>Veintidos</item>
+        <item>Veintitres</item>
     </string-array>
 
     <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
