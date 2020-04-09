@@ -127,4 +127,68 @@
         <item>Cincuenta y Nueve</item>
     </string-array>
 
+    <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
+    <string-array name="type_clock_minutes_alt">
+        <item>En Punto</item>
+        <item>Uno</item>
+        <item>Dos</item>
+        <item>Tres</item>
+        <item>Cuatro</item>
+        <item>Cinco</item>
+        <item>Seis</item>
+        <item>Siete</item>
+        <item>Ocho</item>
+        <item>Nueve</item>
+        <item>Diez</item>
+        <item>Once</item>
+        <item>Doce</item>
+        <item>Trece</item>
+        <item>Catorce</item>
+        <item>Quince</item>
+        <item>Dieciseis</item>
+        <item>Diecisiete</item>
+        <item>Dieciocho</item>
+        <item>Diecinueve</item>
+        <item>Veinte</item>
+        <item>Veintiuno</item>
+        <item>Veintidos</item>
+        <item>Veintitres</item>
+        <item>Veinticuatro</item>
+        <item>Veinticinco</item>
+        <item>Veintiseis</item>
+        <item>Veintisiete</item>
+        <item>Veintiocho</item>
+        <item>Veintinueve</item>
+        <item>Treinta</item>
+        <item>Treinta y Uno</item>
+        <item>Treinta y Dos</item>
+        <item>Treinta y Tres</item>
+        <item>Treinta y Cuatro</item>
+        <item>Treinta y Cinco</item>
+        <item>Treinta y Seis</item>
+        <item>Treinta y Siete</item>
+        <item>Treinta y Ocho</item>
+        <item>Treinta y Nueve</item>
+        <item>Cuarenta</item>
+        <item>Cuarenta y Uno</item>
+        <item>Cuarenta y Dos</item>
+        <item>Cuarenta y Tres</item>
+        <item>Cuarenta y Cuatro</item>
+        <item>Cuarenta y Cinco</item>
+        <item>Cuarenta y Seis</item>
+        <item>Cuarenta y Siete</item>
+        <item>Cuarenta y Ocho</item>
+        <item>Cuarenta y Nueve</item>
+        <item>Cincuenta</item>
+        <item>Cincuenta y Uno</item>
+        <item>Cincuenta y Dos</item>
+        <item>Cincuenta y Tres</item>
+        <item>Cincuenta y Cuatro</item>
+        <item>Cincuenta y Cinco</item>
+        <item>Cincuenta y Seis</item>
+        <item>Cincuenta y Siete</item>
+        <item>Cincuenta y Ocho</item>
+        <item>Cincuenta y Nueve</item>
+    </string-array>
+
 </resources>
