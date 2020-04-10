@@ -129,13 +129,11 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
     private int mPressedIcon;
     private final int[] PRESSED_STYLES = {
-        R.drawable.fod_icon_pressed_miui_cyan_light,
-        R.drawable.fod_icon_pressed_miui_white_light,
+        R.drawable.fod_icon_pressed_miui_cyan,
+        R.drawable.fod_icon_pressed_miui_white,
         R.drawable.fod_icon_pressed_vivo_cyan,
-        R.drawable.fod_icon_pressed_vivo_cyan_shadow,
-        R.drawable.fod_icon_pressed_vivo_cyan_shadow_et713,
         R.drawable.fod_icon_pressed_vivo_green,
-        R.drawable.fod_icon_pressed_vivo_yellow_shadow
+        R.drawable.fod_icon_pressed_vivo_yellow
     };
 
     private IFingerprintInscreenCallback mFingerprintInscreenCallback =
