@@ -22,33 +22,31 @@ LOCAL_REQUIRED_MODULES := \
 	DisplayCutoutEmulationTallOverlay \
 	FontArbutusSourceOverlay \
 	FontArvoLatoOverlay \
-	FontGoogleSansOverlay \
-	FontRubikRubikOverlay \
 	FontCircularStdOverlay \
 	FontOnePlusSlateOverlay \
     FontAclonicaSourceOverlay \
 	FontAmaranteSourceOverlay \
+	FontAntipastoProSourceOverlay \
 	FontBariolSourceOverlay \
 	FontCagliostroSourceOverlay \
 	FontCoolstorySourceOverlay \
-	FontLGSmartGothicSourceOverlay \
-	FontNotoSerifSourceOverlay \
-	FontRosemarySourceOverlay \
-	FontSonySketchSourceOverlay \
-	FontSurferSourceOverlay \
-	FontHYCoffeeSourceOverlay \
+	FontEvolveSansSourceOverlay \
+	FontFucekSourceOverlay \
+	FontGoogleSansOverlay \
 	FontGoogleSansMediumOverlay \
-	FontSlateForOnePlusOverlay \
-	FontAclonicaSourceOverlay \
-	FontAmaranteSourceOverlay \
-	FontBariolSourceOverlay \
-	FontCagliostroSourceOverlay \
-	FontCoolstorySourceOverlay \
+	FontGoogleSansMediumSourceOverlay \
+	FontHYCoffeeSourceOverlay \
 	FontLGSmartGothicSourceOverlay \
+	FontLemonMilkSourceOverlay \
 	FontNotoSerifSourceOverlay \
+	FontOdudaSourceOverlay \
+	FontReemKufiSourceOverlay \
 	FontRosemarySourceOverlay \
+	FontRubikRubikOverlay \
+	FontSimpleDaySourceOverlay \
 	FontSonySketchSourceOverlay \
 	FontSurferSourceOverlay \
+	FontSlateForOnePlusOverlay \
 	IconPackCircularAndroidOverlay \
 	IconPackCircularPixelLauncherOverlay \
 	IconPackCircularPixelThemePickerOverlay \
