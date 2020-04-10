@@ -59,11 +59,8 @@ public class ScreenRecordDialog extends Activity {
     private static final int REQUEST_CODE_VIDEO_TAPS_LOW = 307;
     private static final int REQUEST_CODE_VIDEO_TAPS_DOT_LOW = 308;
 
-    private static final int REQUEST_CODE_VIDEO_TAPS_DOT_LOW = 308;
-
     private static final int REQUEST_CODE_VIDEO_AUDIO = 401;
     private static final int REQUEST_CODE_VIDEO_AUDIO_TAPS = 402;
-    private static final int REQUEST_CODE_VIDEO_AUDIO_DOT = 403;
     private static final int REQUEST_CODE_VIDEO_AUDIO_DOT = 403;
     private static final int REQUEST_CODE_VIDEO_AUDIO_TAPS_DOT = 404;
     private static final int REQUEST_CODE_VIDEO_AUDIO_LOW = 405;

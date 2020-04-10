@@ -6642,6 +6642,15 @@ public final class Settings {
         public static final String CUSTOM_AMBIENT_POCKETMODE_GESTURE = "custom_ambient_pocketmode_gesture";
 
         /**
+         * Color to change battery precentage text when charging
+         * @hide
+         */
+        public static final String STATUS_BAR_BATTERY_TEXT_CHARGING_COLOR = "status_bar_battery_text_charging_color";
+        /** @hide */
+        private static final Validator STATUS_BAR_BATTERY_TEXT_CHARGING_COLOR_VALIDATOR =
+                ANY_STRING_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6795,6 +6804,7 @@ public final class Settings {
             STATUS_BAR_SHOW_TICKER,
             STATUS_BAR_TICKER_ANIMATION_MODE,
             STATUS_BAR_TICKER_TICK_DURATION,
+            STATUS_BAR_BATTERY_TEXT_CHARGING_COLOR,
             // TitaniumOS Settings end
         };
 
@@ -7255,6 +7265,7 @@ public final class Settings {
             VALIDATORS.put(STATUS_BAR_TICKER_TICK_DURATION, STATUS_BAR_TICKER_TICK_DURATION_VALIDATOR);
             VALIDATORS.put(POPUP_CAMERA_LED_ENABLED, POPUP_CAMERA_LED_ENABLED_VALIDATOR);
             VALIDATORS.put(POPUP_CAMERA_BATTERY_LED_BLOCKED, POPUP_CAMERA_BATTERY_LED_BLOCKED_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_BATTERY_TEXT_CHARGING_COLOR, STATUS_BAR_BATTERY_TEXT_CHARGING_COLOR_VALIDATOR);
             // TitaniumOS Settings end
         }
 
