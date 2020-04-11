@@ -371,6 +371,10 @@
     -->
     <integer name="config_longPressOnAssistBehaviorHwKeys">4</integer>
 
+    <!-- Indicates that the device has Single-stage Camera key
+         (without "Focus" state) instead of Dual-stage. -->
+    <bool name="config_singleStageCameraKey">false</bool>
+
     <!-- Whether to turn on the notification light when the state of the front camera changes -->
     <bool name="config_popUpNotificationLight">false</bool>
 

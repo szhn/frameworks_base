@@ -19,7 +19,7 @@ import static android.view.Display.INVALID_DISPLAY;
 import static android.view.View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
 import static android.view.View.NAVIGATION_BAR_TRANSIENT;
 
-import static com.android.internal.util.evolution.hwkeys.DeviceKeysConstants.Action;
+import static com.android.internal.util.titanium.hwkeys.DeviceKeysConstants.Action;
 
 import android.content.Context;
 import android.content.pm.ParceledListSlice;

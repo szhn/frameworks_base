@@ -2325,7 +2325,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         mDeviceHardwareKeys = mContext.getResources().getInteger(
                 com.android.internal.R.integer.config_deviceHardwareKeys);
 
-        mHasNavigationBar = EvolutionUtils.deviceSupportNavigationBar(mContext);
+        mHasNavigationBar = TitaniumUtils.deviceSupportNavigationBar(mContext);
 
         updateKeyAssignments();
 
