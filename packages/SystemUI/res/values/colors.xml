@@ -222,4 +222,9 @@
    <color name="row_icon_dark">@color/ringer_icon_normal</color>
    <color name="row_icon_white">@android:color/white</color>
 
+    <!-- MIUI Slider -->
+    <color name="brightness_slider_progress">#FFFFFF</color>
+    <color name="brightness_slider_background">#99FFFFFF</color>
+    <color name="brightness_slider_icons">#00FFFFFF</color>
+
 </resources>

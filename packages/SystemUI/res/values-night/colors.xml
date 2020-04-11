@@ -91,4 +91,9 @@
 
     <color name="ringer_icon_mute">@android:color/white</color>
 
+    <!-- MIUI Slider -->
+    <color name="brightness_slider_progress">#9B9B9D</color>
+    <color name="brightness_slider_background">@android:color/black</color>
+    <color name="brightness_slider_icons">@android:color/white</color>
+
 </resources>
