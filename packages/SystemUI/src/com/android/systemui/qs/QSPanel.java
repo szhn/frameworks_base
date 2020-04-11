@@ -126,6 +126,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
 
     private int mBrightnessSlider = 1;
 
+    private boolean mBrightnessBottom;
     private boolean mQSBrightnessSlider;
 
     public QSPanel(Context context) {
@@ -894,5 +895,9 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
                     setAnimationTile(v);
             });
         }
+    }
+
+    public boolean isBrightnessViewBottom() {
+        return mBrightnessBottom;
     }
 }
