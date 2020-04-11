@@ -27,6 +27,7 @@ import static android.os.BatteryManager.EXTRA_HEALTH;
 import static android.os.BatteryManager.EXTRA_LEVEL;
 import static android.os.BatteryManager.EXTRA_MAX_CHARGING_CURRENT;
 import static android.os.BatteryManager.EXTRA_MAX_CHARGING_VOLTAGE;
+import static android.os.BatteryManager.EXTRA_OEM_FAST_CHARGER;
 import static android.os.BatteryManager.EXTRA_TEMPERATURE;
 import static android.os.BatteryManager.EXTRA_PLUGGED;
 import static android.os.BatteryManager.EXTRA_STATUS;
@@ -1099,11 +1100,13 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
                 } else {
                     maxChargingMicroWatt = -1;
                 }
+                final boolean oemFastChargeStatus = intent.getBooleanExtra(
+                        EXTRA_OEM_FAST_CHARGER, false);
                 final boolean dashChargeStatus = intent.getBooleanExtra(EXTRA_DASH_CHARGER, false);
                 final Message msg = mHandler.obtainMessage(
                         MSG_BATTERY_UPDATE, new BatteryStatus(status, level, plugged, health,
                                 maxChargingMicroAmp, maxChargingMicroVolt, maxChargingMicroWatt,
-                                temperature, dashChargeStatus));
+                                temperature, dashChargeStatus, oemFastChargeStatus));
                 mHandler.sendMessage(msg);
             } else if (TelephonyIntents.ACTION_SIM_STATE_CHANGED.equals(action)) {
                 SimData args = SimData.fromIntent(intent);
@@ -1350,11 +1353,12 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
         public final int maxChargingCurrent;
         public final int maxChargingVoltage;
         public final int maxChargingWattage;
+        public final boolean oemFastChargeStatus;
         public final float temperature;
         public final boolean dashChargeStatus;
         public BatteryStatus(int status, int level, int plugged, int health,
                 int maxChargingCurrent, int maxChargingVoltage, int maxChargingWattage,
-                float temperature, boolean dashChargeStatus) {
+                float temperature, boolean dashChargeStatus, boolean oemFastChargeStatus) {
             this.status = status;
             this.level = level;
             this.plugged = plugged;
@@ -1362,6 +1366,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
             this.maxChargingCurrent = maxChargingCurrent;
             this.maxChargingVoltage = maxChargingVoltage;
             this.maxChargingWattage = maxChargingWattage;
+            this.oemFastChargeStatus = oemFastChargeStatus;
             this.temperature = temperature;
             this.dashChargeStatus = dashChargeStatus;
         }
@@ -1404,7 +1409,10 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
         }
 
         public final int getChargingSpeed(int slowThreshold, int fastThreshold) {
-             return dashChargeStatus ? CHARGING_DASH :
+            if (oemFastChargeStatus) {
+                return CHARGING_FAST;
+            }
+            return dashChargeStatus ? CHARGING_DASH :
                     maxChargingWattage <= 0 ? CHARGING_UNKNOWN :
                     maxChargingWattage < slowThreshold ? CHARGING_SLOWLY :
                     maxChargingWattage > fastThreshold ? CHARGING_FAST :
@@ -2352,6 +2360,11 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
 
         // change in charging current while plugged in
         if (nowPluggedIn && current.maxChargingWattage != old.maxChargingWattage) {
+            return true;
+        }
+
+        // change in oem fast charging while plugged in
+        if (nowPluggedIn && current.oemFastChargeStatus != old.oemFastChargeStatus) {
             return true;
         }
 
