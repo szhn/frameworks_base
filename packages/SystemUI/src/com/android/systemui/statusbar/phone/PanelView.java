@@ -51,6 +51,7 @@ import com.android.systemui.statusbar.SysuiStatusBarStateController;
 import com.android.systemui.statusbar.VibratorHelper;
 import com.android.systemui.statusbar.policy.KeyguardMonitor;
 import com.android.systemui.statusbar.notification.stack.NotificationStackScrollLayout;
+import com.android.systemui.statusbar.phone.StatusBar;
 import android.util.BoostFramework;
 
 import java.io.FileDescriptor;
@@ -1269,7 +1270,7 @@ public abstract class PanelView extends FrameLayout {
     public void setLaunchingNotification(boolean launchingNotification) {
         mLaunchingNotification = launchingNotification;
         if (launchingNotification) {
-            NotificationStackScrollLayout.hideDismissAllOnCollapse();
+            StatusBar.setDismissAllVisible(false);
         }
     }
 
