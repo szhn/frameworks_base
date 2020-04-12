@@ -708,7 +708,7 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
         if (needsColorRefresh) {
             mBackgroundColor = mContext.getColor(R.color.recents_dismiss_all_background_color);
             mIconColor = mContext.getColor(R.color.recents_dismiss_all_icon_color);
-            StatusBar.updateDismissAllButton(mBackgroundColor, mIconColor);
+            StatusBar.updateDismissAllButton(mIconColor);
             needsColorRefresh = false;
         }
     }
@@ -818,7 +818,7 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
         updateBackgroundDimming();
         mShelf.onUiModeChanged();
         mSectionsManager.onUiModeChanged();
-        StatusBar.updateDismissAllButton(mBackgroundColor, mIconColor);
+        StatusBar.updateDismissAllButton(mIconColor);
     }
 
     @ShadeViewRefactor(RefactorComponent.DECORATOR)
