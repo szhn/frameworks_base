@@ -6630,26 +6630,6 @@ public final class Settings {
         public static final String STATUS_BAR_LOGO_STYLE = "status_bar_logo_style";
 
         /**
-         * Whether to turn on the notification light when the state of the front camera changes
-         * 0 = 0ff, 1 = on
-         */
-        public static final String POPUP_CAMERA_LED_ENABLED = "popup_camera_led_enabled";
-
-        /** @hide */
-        public static final Validator POPUP_CAMERA_LED_ENABLED_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
-         * Whether battery led is temporarily blocked
-         * 0 = 0ff, 1 = on
-         */
-        public static final String POPUP_CAMERA_BATTERY_LED_BLOCKED = "popup_camera_battery_led_blocked";
-
-        /** @hide */
-        public static final Validator POPUP_CAMERA_BATTERY_LED_BLOCKED_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
          * Adaptive playback
          * Automatically pause media when the volume is muted and
          * will resume automatically when volume is restored.
@@ -7104,8 +7084,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUS_BAR_TICKER_ANIMATION_MODE);
             PRIVATE_SETTINGS.add(STATUS_BAR_TICKER_TICK_DURATION);
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO);
-            PRIVATE_SETTINGS.add(POPUP_CAMERA_LED_ENABLED);
-            PRIVATE_SETTINGS.add(POPUP_CAMERA_BATTERY_LED_BLOCKED);
             PRIVATE_SETTINGS.add(BRIGHTNESS_SLIDER_QS_UNEXPANDED);
             //TitaniumOS Settings end
         }
@@ -7326,8 +7304,6 @@ public final class Settings {
             VALIDATORS.put(STATUS_BAR_SHOW_TICKER, STATUS_BAR_SHOW_TICKER_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_TICKER_ANIMATION_MODE, STATUS_BAR_TICKER_ANIMATION_MODE_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_TICKER_TICK_DURATION, STATUS_BAR_TICKER_TICK_DURATION_VALIDATOR);
-            VALIDATORS.put(POPUP_CAMERA_LED_ENABLED, POPUP_CAMERA_LED_ENABLED_VALIDATOR);
-            VALIDATORS.put(POPUP_CAMERA_BATTERY_LED_BLOCKED, POPUP_CAMERA_BATTERY_LED_BLOCKED_VALIDATOR);
             VALIDATORS.put(BRIGHTNESS_SLIDER_QS_UNEXPANDED, BRIGHTNESS_SLIDER_QS_UNEXPANDED_VALIDATOR);
             // TitaniumOS Settings end
         }

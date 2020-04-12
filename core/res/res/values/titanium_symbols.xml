@@ -315,11 +315,8 @@
     <!-- Camera key type -->
     <java-symbol type="bool" name="config_singleStageCameraKey" />
 
-    <!-- Whether to turn on the notification light when the state of the front camera changes -->
-    <java-symbol type="bool" name="config_popUpNotificationLight" />
-
-    <!-- Component name of popup camera service -->
-    <java-symbol type="string" name="config_popUpCameraServiceComponentName" />
+    <!-- Whether to send camera status intent -->
+    <java-symbol type="bool" name="config_sendCameraStatusIntent" />
 
     <!-- Themes -->
     <java-symbol type="color" name="theme_generic_semi_transparent_color" />

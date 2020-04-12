@@ -87,8 +87,6 @@ import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicReference;
 
-import com.android.internal.util.custom.popupcamera.PopUpCameraUtils;
-
 /**
  * <p>BatteryService monitors the charging status, and charge level of the device
  * battery.  When these values change this service broadcasts the new values
@@ -291,7 +289,6 @@ public final class BatteryService extends SystemService {
                 updateBatteryWarningLevelLocked();
             }
         } else if (phase == PHASE_BOOT_COMPLETED) {
-            PopUpCameraUtils.blockBatteryLed(mContext, false);
             SettingsObserver mObserver = new SettingsObserver(new Handler());
             mObserver.observe();
         }
@@ -322,9 +319,6 @@ public final class BatteryService extends SystemService {
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.BATTERY_LIGHT_LOW_BLINKING),
                     false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.POPUP_CAMERA_BATTERY_LED_BLOCKED),
-                    false, this, UserHandle.USER_ALL);
             if (mMultiColorLed) {
                 resolver.registerContentObserver(Settings.System.getUriFor(
                         Settings.System.BATTERY_LIGHT_LOW_COLOR),
@@ -352,9 +346,7 @@ public final class BatteryService extends SystemService {
             Resources res = mContext.getResources();
 
             // Battery light enabled
-            boolean batteryLightTempBlocked = Settings.System.getInt(resolver,
-                    Settings.System.POPUP_CAMERA_BATTERY_LED_BLOCKED, 0) == 1;
-            mLightEnabled =  !batteryLightTempBlocked && Settings.System.getInt(resolver,
+            mLightEnabled = Settings.System.getInt(resolver,
                     Settings.System.BATTERY_LIGHT_ENABLED, 1) != 0;
             mAllowBatteryLightOnDnd = Settings.System.getInt(resolver,
                     Settings.System.BATTERY_LIGHT_ALLOW_ON_DND, 0) == 1;
