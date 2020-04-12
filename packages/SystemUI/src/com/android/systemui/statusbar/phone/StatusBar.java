@@ -142,7 +142,7 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import android.widget.DateTimeView;
 import android.widget.FrameLayout;
-import android.widget.ImageButton
+import android.widget.ImageButton;
 import android.widget.ImageSwitcher;
 import android.widget.LinearLayout;
 import android.widget.ImageView;
