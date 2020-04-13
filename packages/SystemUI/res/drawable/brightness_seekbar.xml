@@ -30,11 +30,13 @@
                 <item android:state_enabled="false"
                     android:drawable="@android:color/transparent" />
                 <item>
-                    <shape android:shape="rectangle"
-                        android:tint="@color/accent_device_default_light">
+                    <shape android:shape="rectangle">
                         <corners android:radius="8dp"/>
                         <size android:height="42dp" />
-                        <solid android:color="@color/accent_device_default_light" />
+                        <gradient 
+                              android:startColor="@*android:color/gradient_start"
+                              android:endColor="@*android:color/gradient_end"
+                              android:angle="45" />
                     </shape>
                 </item>
             </selector>
