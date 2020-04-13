@@ -548,6 +548,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     boolean mAllowStartActivityForLongPressOnPowerDuringSetup;
     MetricsLogger mLogger;
     private HardkeyActionHandler mKeyHandler;
+    private DeviceKeyHandler mDeviceKeyHandler;
 
     private boolean mHandleVolumeKeysInWM;
 
@@ -2448,6 +2449,28 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         filter = new IntentFilter();
         filter.addAction(ACTION_TORCH_OFF);
         context.registerReceiver(torchReceiver, filter);
+
+        mScreenshotHelper = new ScreenshotHelper(mContext);
+
+        String deviceKeyHandlerLib = mContext.getResources().getString(
+                com.android.internal.R.string.config_deviceKeyHandlerLib);
+         String deviceKeyHandlerClass = mContext.getResources().getString(
+                com.android.internal.R.string.config_deviceKeyHandlerClass);
+         if (!deviceKeyHandlerLib.isEmpty() && !deviceKeyHandlerClass.isEmpty()) {
+            try {
+                PathClassLoader loader =  new PathClassLoader(deviceKeyHandlerLib,
+                        getClass().getClassLoader());
+                 Class<?> klass = loader.loadClass(deviceKeyHandlerClass);
+                Constructor<?> constructor = klass.getConstructor(Context.class);
+                mDeviceKeyHandler = (DeviceKeyHandler) constructor.newInstance(
+                        mContext);
+                if(localLOGV) Slog.d(TAG, "Device key handler loaded");
+            } catch (Exception e) {
+                Slog.w(TAG, "Could not instantiate device key handler "
+                        + deviceKeyHandlerClass + " from class "
+                        + deviceKeyHandlerLib, e);
+            }
+        }
     }
 
     private void enableSwipeThreeFingerGesture(boolean enable){
@@ -3759,15 +3782,15 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             return -1;
         }
 
-        // Alternative specific device key handling
-        if (mAlternativeDeviceKeyHandler != null) {
+        // Specific device key handling
+        if (mDeviceKeyHandler != null) {
             try {
                 // The device only will consume known keys.
-                if (mAlternativeDeviceKeyHandler.canHandleKeyEvent(event)) {
+                if (mDeviceKeyHandler.canHandleKeyEvent(event)) {
                     return -1;
                 }
             } catch (Exception e) {
-                Slog.w(TAG, "Could not dispatch event to alternative device key handler", e);
+                Slog.w(TAG, "Could not dispatch event to device key handler", e);
             }
         }
 
@@ -4566,17 +4589,17 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             }
         }
 
-        // Alternative specific device key handling
-        if (mAlternativeDeviceKeyHandler != null) {
+        // Specific device key handling
+        if (mDeviceKeyHandler != null) {
             try {
                 // The device says if we should ignore this event.
-                if (mAlternativeDeviceKeyHandler.isDisabledKeyEvent(event)) {
+                if (mDeviceKeyHandler.isDisabledKeyEvent(event)) {
                     result &= ~ACTION_PASS_TO_USER;
                     return result;
                 }
-                if (mAlternativeDeviceKeyHandler.isCameraLaunchEvent(event)) {
+                if (!interactive && mDeviceKeyHandler.isCameraLaunchEvent(event)) {
                     if (DEBUG_INPUT) {
-                        Slog.i(TAG, "isCameraLaunchEvent from AlternativeDeviceKeyHandler");
+                        Slog.i(TAG, "isCameraLaunchEvent from DeviceKeyHandler");
                     }
                     GestureLauncherService gestureService = LocalServices.getService(
                             GestureLauncherService.class);
@@ -4586,27 +4609,25 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     result &= ~ACTION_PASS_TO_USER;
                     return result;
                 }
-                if (!interactive && mAlternativeDeviceKeyHandler.isWakeEvent(event)) {
+                if (!interactive && mDeviceKeyHandler.isWakeEvent(event)) {
                     if (DEBUG_INPUT) {
-                        Slog.i(TAG, "isWakeEvent from AlternativeDeviceKeyHandler");
+                        Slog.i(TAG, "isWakeEvent from DeviceKeyHandler");
                     }
-                    wakeUp(event.getEventTime(), mAllowTheaterModeWakeFromKey,
-                            PowerManager.WAKE_REASON_WAKE_KEY, "android.policy:KEY");
+                    wakeUp(event.getEventTime(), mAllowTheaterModeWakeFromKey, PowerManager.WAKE_REASON_WAKE_KEY, "android.policy:KEY");
                     result &= ~ACTION_PASS_TO_USER;
                     return result;
                 }
-                final Intent eventLaunchActivity = mAlternativeDeviceKeyHandler.isActivityLaunchEvent(event);
+                final Intent eventLaunchActivity = mDeviceKeyHandler.isActivityLaunchEvent(event);
                 if (!interactive && eventLaunchActivity != null) {
                     if (DEBUG_INPUT) {
-                        Slog.i(TAG, "isActivityLaunchEvent from AlternativeDeviceKeyHandler " + eventLaunchActivity);
+                        Slog.i(TAG, "isActivityLaunchEvent from DeviceKeyHandler " + eventLaunchActivity);
                     }
-                    wakeUp(event.getEventTime(), mAllowTheaterModeWakeFromKey,
-                            PowerManager.WAKE_REASON_WAKE_KEY, "android.policy:KEY");
-                    launchKeyguardDismissIntent(mContext, UserHandle.CURRENT, eventLaunchActivity);
+                    wakeUp(event.getEventTime(), mAllowTheaterModeWakeFromKey, PowerManager.WAKE_REASON_WAKE_KEY, "android.policy:KEY");
+                    TitaniumUtils.launchKeyguardDismissIntent(mContext, UserHandle.CURRENT, eventLaunchActivity);
                     result &= ~ACTION_PASS_TO_USER;
                     return result;
                 }
-                if (mAlternativeDeviceKeyHandler.handleKeyEvent(event)) {
+                if (mDeviceKeyHandler.handleKeyEvent(event)) {
                     result &= ~ACTION_PASS_TO_USER;
                     return result;
                 }
