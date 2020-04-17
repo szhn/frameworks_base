@@ -16,6 +16,7 @@
 -->
 <resources>
 
+    <!-- Binary clock -->
     <color name="binary_clock_dot_color">#ffffff</color>
     <color name="binary_clock_empty_dot_color">#ffffff</color>
     <color name="binary_clock_ambient_dot_color">#ffffff</color>
@@ -25,11 +26,15 @@
     <color name="date_style_system_bg">@*android:color/background_material_dark</color>
     <color name="date_style_system_accent_follow">@*android:color/transparent</color>
 
-    <!-- Custom Analog clocks -->
+    <!-- Custom Analog clock colors -->
     <color name="analog_clock_hour_color">#ff0000</color>
     <color name="analog_clock_minute_color">#ffffff</color>
     <color name="analog_clock_bg_color">#303030</color>
     <color name="accent_device_default_light">#ff1a73e8</color>
     <color name="custom_text_clock_top_color">@*android:color/accent_device_default_light</color>
+    <color name="analog_clock_border_color">#212121</color>
+    <color name="analog_clock_face_color">#FFFFFF</color>
+    <color name="analog_clock_hand_hour_color">@*android:color/accent_device_default_light</color>
+    <color name="analog_clock_hand_minute_color">#212121</color>
 
 </resources>
