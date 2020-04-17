@@ -69,7 +69,7 @@ import java.util.regex.Pattern;
 
 
 public class MobileSignalController extends SignalController<
-        MobileSignalController.MobileState, MobileSignalController.MobileIconGroup> implements TunerService.Tunable {
+        MobileSignalController.MobileState, MobileSignalController.MobileIconGroup> {
 
     // The message to display Nr5G icon gracfully by CarrierConfig timeout
     private static final int MSG_DISPLAY_GRACE = 1;
@@ -115,7 +115,6 @@ public class MobileSignalController extends SignalController<
 
     private ImsManager mImsManager;
     private ImsManager.Connector mImsManagerConnector;
-    private boolean mVolteIcon = true;
     private boolean mDataDisabledIcon;
 
     // TODO: Reduce number of vars passed in, if we have the NetworkController, probably don't
@@ -138,7 +137,6 @@ public class MobileSignalController extends SignalController<
         mNetworkNameDefault = getStringIfExists(
                 com.android.internal.R.string.lockscreen_carrier_default).toString();
 
-        Dependency.get(TunerService.class).addTunable(this, "volte");
         mapIconSets();
 
         String networkName = info.getCarrierName() != null ? info.getCarrierName().toString()
@@ -238,13 +236,6 @@ public class MobileSignalController extends SignalController<
     @Override
     public void onTuningChanged(String key, String newValue) {
         switch (key) {
-            case "volte":
-                mVolteIcon =
-                    TunerService.parseIntegerSwitch(newValue, true);
-                    notifyListenersIfNecessary();
-            default:
-                break;
-
             case "data_disabled":
                      mDataDisabledIcon  =
                         TunerService.parseIntegerSwitch(newValue, true);
@@ -490,30 +481,30 @@ public class MobileSignalController extends SignalController<
                     break;
                 // VoLIT
                 case 3:
-                     resId = R.drawable.ic_volte3;
-                     break;
+                    resId = R.drawable.ic_volte3;
+                    break;
                 // Margarita VoLTE
                 case 4:
-                     resId = R.drawable.ic_volte4;
-                     break;
+                    resId = R.drawable.ic_volte4;
+                    break;
                 // OOS VoLTE
                 case 5:
-                     resId = R.drawable.ic_volte5;
-                     break;
+                    resId = R.drawable.ic_volte5;
+                    break;
                 // HD Icon
                 case 6:
-                     resId = R.drawable.ic_hd_volte;
-                     break;
+                    resId = R.drawable.ic_hd_volte;
+                    break;
                 // Android One HD icon
                 case 7:
-                     resId = R.drawable.ic_hd_volte1;
-                     break;
+                    resId = R.drawable.ic_hd_volte1;
+                    break;
                 case 8:
                     resId = R.drawable.ic_volte_miui;
                     break;
- 	        // TOS VoLTE
+ 	            // TOS VoLTE
                 case 0:
-                default:
+                    default:
                     resId = R.drawable.ic_volte;
                     break;
             }
