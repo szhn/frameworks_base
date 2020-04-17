@@ -115,6 +115,7 @@ public class MobileSignalController extends SignalController<
 
     private ImsManager mImsManager;
     private ImsManager.Connector mImsManagerConnector;
+    private int mCallState = TelephonyManager.CALL_STATE_IDLE;
     private boolean mDataDisabledIcon;
 
     // TODO: Reduce number of vars passed in, if we have the NetworkController, probably don't
@@ -946,6 +947,15 @@ public class MobileSignalController extends SignalController<
         public void onActiveDataSubscriptionIdChanged(int subId) {
             if (DEBUG) Log.d(mTag, "onActiveDataSubscriptionIdChanged: subId=" + subId);
             updateDataSim();
+            updateTelephony();
+        }
+
+        @Override
+        public void onCallStateChanged(int state, String phoneNumber) {
+            if (DEBUG) {
+                Log.d(mTag, "onCallStateChanged: state=" + state);
+            }
+            mCallState = state;
             updateTelephony();
         }
     };
