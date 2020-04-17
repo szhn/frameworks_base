@@ -104,6 +104,12 @@ public class MobileSignalController extends SignalController<
     // Some specific carriers have 5GE network which is special LTE CA network.
     private static final int NETWORK_TYPE_LTE_CA_5GE = TelephonyManager.MAX_NETWORK_TYPE + 1;
 
+    // Show 4G
+    private boolean mShow4gForLte;
+
+    // Volte Icon
+    private boolean mVoLTEicon;
+
     // Volte Icon Style
     private int mVoLTEstyle;
 
@@ -111,8 +117,6 @@ public class MobileSignalController extends SignalController<
     private ImsManager.Connector mImsManagerConnector;
     private boolean mVolteIcon = true;
     private boolean mDataDisabledIcon;
-
-    private boolean mShow4gForLte;
 
     // TODO: Reduce number of vars passed in, if we have the NetworkController, probably don't
     // need listener lists anymore.
@@ -195,9 +199,12 @@ public class MobileSignalController extends SignalController<
         void observe() {
             ContentResolver resolver = mContext.getContentResolver();
             resolver.registerContentObserver(
-                    Settings.System.getUriFor(Settings.System.SHOW_FOURG_ICON), false,
-                    this, UserHandle.USER_ALL);
-           resolver.registerContentObserver(
+                Settings.System.getUriFor(Settings.System.SHOW_FOURG_ICON), false,
+            this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(
+                Settings.System.getUriFor(Settings.System.SHOW_VOLTE_ICON), false,
+            this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(
 	            Settings.System.getUriFor(Settings.System.VOLTE_ICON_STYLE), false,
 		    this, UserHandle.USER_ALL);
             updateSettings();
@@ -217,6 +224,9 @@ public class MobileSignalController extends SignalController<
 
         mShow4gForLte = Settings.System.getIntForUser(resolver,
                 Settings.System.SHOW_FOURG_ICON, 0,
+                UserHandle.USER_CURRENT) == 1;
+        mVoLTEicon = Settings.System.getIntForUser(resolver,
+                Settings.System.SHOW_VOLTE_ICON, 0,
                 UserHandle.USER_CURRENT) == 1;
         mVoLTEstyle = Settings.System.getIntForUser(resolver,
                 Settings.System.VOLTE_ICON_STYLE, 0,
@@ -467,7 +477,7 @@ public class MobileSignalController extends SignalController<
     private int getVolteResId() {
         int resId = 0;
 
-        if ( mCurrentState.imsRegistered ) {
+        if ( mCurrentState.imsRegistered && mVoLTEicon) {
             resId = R.drawable.ic_volte;
             switch(mVoLTEstyle) {
                 // Asus Style VoLTE
@@ -554,8 +564,7 @@ public class MobileSignalController extends SignalController<
         showDataIcon &= mCurrentState.isDefault || dataDisabled;
 
         int typeIcon = (showDataIcon || mConfig.alwaysShowDataRatIcon) ? icons.mDataType : 0;
-        int volteIcon = mConfig.showVolteIcon && isVolteSwitchOn() && mVolteIcon
-                ? getVolteResId() : 0;
+        int volteIcon = isVolteSwitchOn() ? getVolteResId() : 0;
         callback.setMobileDataIndicators(statusIcon, qsIcon, typeIcon, qsTypeIcon,
                 activityIn, activityOut, volteIcon, dataContentDescription, dataContentDescriptionHtml,
                 description, icons.mIsWide, mSubscriptionInfo.getSubscriptionId(),
@@ -977,9 +986,7 @@ public class MobileSignalController extends SignalController<
     private final BroadcastReceiver mVolteSwitchObserver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
             Log.d(mTag, "action=" + intent.getAction());
-            if ( mConfig.showVolteIcon ) {
                 notifyListeners();
-            }
         }
     };
 
