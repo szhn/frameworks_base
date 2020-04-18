@@ -92,7 +92,7 @@ public class SpectrumClockController implements ClockPlugin {
 
     @Override
     public String getName() {
-        return "Spectrum";
+        return "spectrum";
     }
 
     @Override

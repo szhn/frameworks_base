@@ -16,13 +16,11 @@
 package com.android.keyguard.clock;
 
 import android.app.WallpaperManager;
-import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Paint.Style;
-import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -68,8 +66,6 @@ public class AnalogClockController implements ClockPlugin {
     private ClockLayout mBigClockView;
     private ImageClock mAnalogClock;
 
-    private final Context mContext;
-
     private int mHourColor;
     private int mMinuteColor;
     private int mBackgroundColor;
@@ -83,23 +79,9 @@ public class AnalogClockController implements ClockPlugin {
      */
     public AnalogClockController(Resources res, LayoutInflater inflater,
             SysuiColorExtractor colorExtractor) {
-        this(res, inflater, colorExtractor, null);
-    }
-
-    /**
-     * Create a BubbleClockController instance.
-     *
-     * @param res Resources contains title and thumbnail.
-     * @param inflater Inflater used to inflate custom clock views.
-     * @param colorExtractor Extracts accent color from wallpaper.
-     * @param context A context.
-     */
-    public AnalogClockController(Resources res, LayoutInflater inflater,
-            SysuiColorExtractor colorExtractor, Context context) {
         mResources = res;
         mLayoutInflater = inflater;
         mColorExtractor = colorExtractor;
-        mContext = context;
     }
 
     private void createViews() {
