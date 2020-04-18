@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The Android Open Source Project
+ * Copyright (C) 2020
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,11 +16,13 @@
 package com.android.keyguard.clock;
 
 import android.app.WallpaperManager;
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Paint.Style;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextClock;
@@ -53,6 +55,11 @@ public class BubbleClockController implements ClockPlugin {
     private final SysuiColorExtractor mColorExtractor;
 
     /**
+     * Computes preferred position of clock.
+     */
+    private final SmallClockPosition mClockPosition;
+
+    /**
      * Renders preview from clock view.
      */
     private final ViewPreviewer mRenderer = new ViewPreviewer();
@@ -67,6 +74,8 @@ public class BubbleClockController implements ClockPlugin {
      * Small clock shown on lock screen above stack scroller.
      */
     private View mLockClockContainer;
+    private TextClock mLockClock;
+
     private final Context mContext;
 
     /**
@@ -83,9 +92,24 @@ public class BubbleClockController implements ClockPlugin {
      */
     public BubbleClockController(Resources res, LayoutInflater inflater,
             SysuiColorExtractor colorExtractor) {
+        this(res, inflater, colorExtractor, null);
+    }
+
+    /**
+     * Create a BubbleClockController instance.
+     *
+     * @param res Resources contains title and thumbnail.
+     * @param inflater Inflater used to inflate custom clock views.
+     * @param colorExtractor Extracts accent color from wallpaper.
+     * @param context A context.
+     */
+    public BubbleClockController(Resources res, LayoutInflater inflater,
+            SysuiColorExtractor colorExtractor, Context context) {
         mResources = res;
         mLayoutInflater = inflater;
         mColorExtractor = colorExtractor;
+        mClockPosition = new SmallClockPosition(res);
+        mContext = context;
     }
 
     private void createViews() {
@@ -98,8 +122,10 @@ public class BubbleClockController implements ClockPlugin {
 
     @Override
     public void onDestroyView() {
+        mView = null;
         mAnalogClock = null;
         mLockClockContainer = null;
+        mLockClock = null;
     }
 
     @Override
@@ -144,12 +170,15 @@ public class BubbleClockController implements ClockPlugin {
 
     @Override
     public View getBigClockView() {
-        return null;
+        if (mView == null) {
+            createViews();
+        }
+        return mView;
     }
 
     @Override
     public int getPreferredY(int totalHeight) {
-        return totalHeight / 2;
+        return mClockPosition.getPreferredY();
     }
 
     @Override
@@ -166,12 +195,13 @@ public class BubbleClockController implements ClockPlugin {
     private void updateColor() {
         final int primary = mPalette.getPrimaryColor();
         final int secondary = mPalette.getSecondaryColor();
-        //mAnalogClock.setClockColors(primary, secondary);
+        mAnalogClock.setClockColors(primary, secondary);
     }
 
     @Override
     public void setDarkAmount(float darkAmount) {
         mPalette.setDarkAmount(darkAmount);
+        mClockPosition.setDarkAmount(darkAmount);
         mView.setDarkAmount(darkAmount);
     }
 
@@ -179,6 +209,7 @@ public class BubbleClockController implements ClockPlugin {
     public void onTimeTick() {
         mAnalogClock.onTimeChanged();
         mView.onTimeChanged();
+        mLockClock.refresh();
     }
 
     @Override
@@ -188,8 +219,7 @@ public class BubbleClockController implements ClockPlugin {
 
     @Override
     public boolean shouldShowStatusArea() {
-        if (mContext == null) return true;
-        return Settings.System.getInt(mContext.getContentResolver(), Settings.System.CLOCK_SHOW_STATUS_AREA, 1) == 1;
+        return true;
     }
 
     @Override
