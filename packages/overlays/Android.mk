@@ -17,39 +17,39 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := frameworks-base-overlays
 LOCAL_REQUIRED_MODULES := \
-	DisplayCutoutEmulationCornerOverlay \
+    DisplayCutoutEmulationCornerOverlay \
     DisplayCutoutEmulationDoubleOverlay \
-	DisplayCutoutEmulationTallOverlay \
-	FontArbutusSourceOverlay \
-	FontArvoLatoOverlay \
-	FontCircularStdOverlay \
-	FontOnePlusSlateOverlay \
+    DisplayCutoutEmulationTallOverlay \
+    FontArbutusSourceOverlay \
+    FontArvoLatoOverlay \
+    FontCircularStdOverlay \
+    FontOnePlusSlateOverlay \
     FontAclonicaSourceOverlay \
-	FontAmaranteSourceOverlay \
-	FontAntipastoProSourceOverlay \
-	FontBariolSourceOverlay \
-	FontCagliostroSourceOverlay \
-	FontCoolstorySourceOverlay \
-	FontEvolveSansSourceOverlay \
-	FontFiraSansSourceOverlay \
-	FontFucekSourceOverlay \
-	FontGoogleSansOverlay \
-	FontGoogleSansMediumOverlay \
-	FontGoogleSansMediumSourceOverlay \
-	FontHYCoffeeSourceOverlay \
-	FontLGSmartGothicSourceOverlay \
-	FontLemonMilkSourceOverlay \
-	FontNotoSerifSourceOverlay \
-	FontOdudaSourceOverlay \
-	FontReemKufiSourceOverlay \
-	FontRosemarySourceOverlay \
-	FontRubikRubikOverlay \
-	FontSamsungOneSourceOverlay \
-	FontSimpleDaySourceOverlay \
-	FontSFProOverlay \
-	FontSlateForOnePlusOverlay \
-	FontSonySketchSourceOverlay \
-	FontSurferSourceOverlay \
+    FontAmaranteSourceOverlay \
+    FontAntipastoProSourceOverlay \
+    FontBariolSourceOverlay \
+    FontCagliostroSourceOverlay \
+    FontCoolstorySourceOverlay \
+    FontEvolveSansSourceOverlay \
+    FontFiraSansSourceOverlay \
+    FontFucekSourceOverlay \
+    FontGoogleSansOverlay \
+    FontGoogleSansMediumOverlay \
+    FontGoogleSansMediumSourceOverlay \
+    FontHYCoffeeSourceOverlay \
+    FontLGSmartGothicSourceOverlay \
+    FontLemonMilkSourceOverlay \
+    FontNotoSerifSourceOverlay \
+    FontOdudaSourceOverlay \
+    FontReemKufiSourceOverlay \
+    FontRosemarySourceOverlay \
+    FontRubikRubikOverlay \
+    FontSamsungOneSourceOverlay \
+    FontSimpleDaySourceOverlay \
+    FontSFProOverlay \
+    FontSlateForOnePlusOverlay \
+    FontSonySketchSourceOverlay \
+    FontSurferSourceOverlay \
     FontAnaheim \
     FontBigNoodle \
     FontBikoHanken \
@@ -74,38 +74,38 @@ LOCAL_REQUIRED_MODULES := \
     FontSofiaSansSemiCondensed \
     FontTinkerbell \
     Font20SevenSourceOverlay \
-	FontRoadRageSourceOverlay \
+    FontRoadRageSourceOverlay \
     IconPackCircularAndroidOverlay \
-	IconPackCircularPixelLauncherOverlay \
-	IconPackCircularPixelThemePickerOverlay \
-	IconPackCircularSettingsOverlay \
-	IconPackCircularSystemUIOverlay \
-	IconPackFilledAndroidOverlay \
-	IconPackFilledPixelLauncherOverlay \
-	IconPackFilledPixelThemePickerOverlay \
-	IconPackFilledSettingsOverlay \
-	IconPackFilledSystemUIOverlay \
-	IconPackRoundedAndroidOverlay \
-	IconPackRoundedPixelLauncherOverlay \
-	IconPackRoundedPixelThemePickerOverlay \
-	IconPackRoundedSettingsOverlay \
-	IconPackRoundedSystemUIOverlay \
-	IconShapeCylinderOverlay \
-	IconShapeHexagonOverlay \
-	IconShapeRoundedRectOverlay \
-	IconShapeSquareOverlay \
-	IconShapeSquircleOverlay \
-	IconShapeTeardropOverlay \
-	NavigationBarMode3ButtonOverlay \
-	NavigationBarMode2ButtonOverlay \
-	NavigationBarModeGesturalOverlay \
-	NavigationBarModeGesturalOverlayNarrowBack \
-	NavigationBarModeGesturalOverlayWideBack \
-	NavigationBarModeGesturalOverlayExtraWideBack \
-	NavigationBarModeGesturalOverlayNoPill \
-	NavigationBarModeGesturalOverlayNarrowBackNoPill \
-	NavigationBarModeGesturalOverlayWideBackNoPill \
-	NavigationBarModeGesturalOverlayExtraWideBackNoPill
+    IconPackCircularPixelLauncherOverlay \
+    IconPackCircularPixelThemePickerOverlay \
+    IconPackCircularSettingsOverlay \
+    IconPackCircularSystemUIOverlay \
+    IconPackFilledAndroidOverlay \
+    IconPackFilledPixelLauncherOverlay \
+    IconPackFilledPixelThemePickerOverlay \
+    IconPackFilledSettingsOverlay \
+    IconPackFilledSystemUIOverlay \
+    IconPackRoundedAndroidOverlay \
+    IconPackRoundedPixelLauncherOverlay \
+    IconPackRoundedPixelThemePickerOverlay \
+    IconPackRoundedSettingsOverlay \
+    IconPackRoundedSystemUIOverlay \
+    IconShapeCylinderOverlay \
+    IconShapeHexagonOverlay \
+    IconShapeRoundedRectOverlay \
+    IconShapeSquareOverlay \
+    IconShapeSquircleOverlay \
+    IconShapeTeardropOverlay \
+    NavigationBarMode3ButtonOverlay \
+    NavigationBarMode2ButtonOverlay \
+    NavigationBarModeGesturalOverlay \
+    NavigationBarModeGesturalOverlayNarrowBack \
+    NavigationBarModeGesturalOverlayWideBack \
+    NavigationBarModeGesturalOverlayExtraWideBack \
+    NavigationBarModeGesturalOverlayNoPill \
+    NavigationBarModeGesturalOverlayNarrowBackNoPill \
+    NavigationBarModeGesturalOverlayWideBackNoPill \
+    NavigationBarModeGesturalOverlayExtraWideBackNoPill
 
 include $(BUILD_PHONY_PACKAGE)
 include $(CLEAR_VARS)
