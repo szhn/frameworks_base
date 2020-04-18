@@ -87,12 +87,4 @@ public class NotificationUtils {
         }
         return sUseNewInterruptionModel;
     }
-
-
-    /**
-     * Returns visibility status of gentle notification section header.
-     */
-    public static boolean showGentleHeader() {
-        return false;
-    }
 }
