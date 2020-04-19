@@ -20,42 +20,30 @@ LOCAL_REQUIRED_MODULES := \
     DisplayCutoutEmulationCornerOverlay \
     DisplayCutoutEmulationDoubleOverlay \
     DisplayCutoutEmulationTallOverlay \
+    FontAntipastoProSourceOverlay \
     FontArbutusSourceOverlay \
     FontArvoLatoOverlay \
-    FontCircularStdOverlay \
-    FontOnePlusSlateOverlay \
-    FontAclonicaSourceOverlay \
-    FontAmaranteSourceOverlay \
-    FontAntipastoProSourceOverlay \
     FontBariolSourceOverlay \
     FontCagliostroSourceOverlay \
-    FontCoolstorySourceOverlay \
+    FontCircularStdOverlay \
+    FontComfortaaSourceOverlay \
     FontEvolveSansSourceOverlay \
+    FontExotwoSourceOverlay \
     FontFiraSansSourceOverlay \
     FontFucekSourceOverlay \
     FontGoogleSansMediumOverlay \
     FontHYCoffeeSourceOverlay \
     FontLGSmartGothicSourceOverlay \
     FontLemonMilkSourceOverlay \
-    FontNotoSerifSourceOverlay \
-    FontOdudaSourceOverlay \
+    FontNokiaPureSourceOverlay \
+    FontQuandoSourceOverlay \
     FontReemKufiSourceOverlay \
     FontRosemarySourceOverlay \
     FontRubikRubikOverlay \
     FontSamsungOneSourceOverlay \
     FontSimpleDaySourceOverlay \
-    FontSFProOverlay \
     FontSlateForOnePlusOverlay \
-    FontSonySketchSourceOverlay \
-    FontSurferSourceOverlay \
-    FontAnaheim \
-    FontTinkerbell \
-    FontCoconSourceOverlay \
-    FontQuandoSourceOverlay \
-    FontComfortaaSourceOverlay \
-    FontExotwoSourceOverlay \
     FontUbuntuSourceOverlay \
-    FontNokiaPureSourceOverlay \
     IconPackCircularAndroidOverlay \
     IconPackCircularLauncherOverlay \
     IconPackCircularSettingsOverlay \

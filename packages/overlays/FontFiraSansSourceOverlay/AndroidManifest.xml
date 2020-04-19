@@ -26,6 +26,6 @@
     <application android:label="@string/font_firasans_source_overlay" android:hasCode="false">
         <meta-data
             android:name="android.theme.customization.REQUIRED_SYSTEM_FONTS"
-            android:value="firasans,firasans-medium,firasans-semi-bold,firasans-bold" />
+            android:value="firasans,firasans-semi-bold,firasans-bold" />
     </application>
 </manifest>
