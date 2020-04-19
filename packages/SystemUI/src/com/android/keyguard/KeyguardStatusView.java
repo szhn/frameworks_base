@@ -459,139 +459,73 @@ public class KeyguardStatusView extends GridLayout implements
                 mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
                 break;
             case 3:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
+                mKeyguardSlice.setViewsTypeface(Typeface.create("antipastopro", Typeface.NORMAL));
                 break;
             case 4:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
+                mKeyguardSlice.setViewsTypeface(Typeface.create("arbutussource", Typeface.NORMAL));
                 break;
             case 5:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
+                mKeyguardSlice.setViewsTypeface(Typeface.create("arvolato", Typeface.NORMAL));
                 break;
             case 6:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
+                mKeyguardSlice.setViewsTypeface(Typeface.create("bariolsource", Typeface.NORMAL));
                 break;
             case 7:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
+                mKeyguardSlice.setViewsTypeface(Typeface.create("cagliostrosource", Typeface.NORMAL));
                 break;
             case 8:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
+                mKeyguardSlice.setViewsTypeface(Typeface.create("circularstd", Typeface.NORMAL));
                 break;
             case 9:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
+                mKeyguardSlice.setViewsTypeface(Typeface.create("comfortaa", Typeface.NORMAL));
                 break;
             case 10:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
+                mKeyguardSlice.setViewsTypeface(Typeface.create("evolvesans", Typeface.NORMAL));
                 break;
             case 11:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
+                mKeyguardSlice.setViewsTypeface(Typeface.create("exotwo", Typeface.NORMAL));
                 break;
             case 12:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+                mKeyguardSlice.setViewsTypeface(Typeface.create("firasans", Typeface.NORMAL));
                 break;
             case 13:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
+                mKeyguardSlice.setViewsTypeface(Typeface.create("fucek", Typeface.NORMAL));
                 break;
             case 14:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-condensed-light", Typeface.NORMAL));
-                break;
-            case 15:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-condensed-light", Typeface.ITALIC));
-                break;
-            case 16:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-black", Typeface.NORMAL));
-                break;
-            case 17:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-black", Typeface.ITALIC));
-                break;
-            case 18:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("cursive", Typeface.NORMAL));
-                break;
-            case 19:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("cursive", Typeface.BOLD));
-                break;
-            case 20:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("casual", Typeface.NORMAL));
-                break;
-            case 21:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("serif", Typeface.NORMAL));
-                break;
-            case 22:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("serif", Typeface.ITALIC));
-                break;
-            case 23:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("serif", Typeface.BOLD));
-                break;
-            case 24:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("serif", Typeface.BOLD_ITALIC));
-                break;
-            case 25:
                 mKeyguardSlice.setViewsTypeface(Typeface.create("gobold-light-sys", Typeface.NORMAL));
                 break;
-            case 26:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("roadrage-sys", Typeface.NORMAL));
+            case 15:
+                mKeyguardSlice.setViewsTypeface(Typeface.create("googlesansmedium", Typeface.NORMAL));
                 break;
-            case 27:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("snowstorm-sys", Typeface.NORMAL));
+            case 16:
+                mKeyguardSlice.setViewsTypeface(Typeface.create("lemonmilk", Typeface.NORMAL));
                 break;
-            case 28:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("googlesans-sys", Typeface.NORMAL));
+            case 17:
+                mKeyguardSlice.setViewsTypeface(Typeface.create("nokiapure", Typeface.NORMAL));
                 break;
-            case 29:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("neoneon-sys", Typeface.NORMAL));
+            case 18:
+                mKeyguardSlice.setViewsTypeface(Typeface.create("quando", Typeface.NORMAL));
                 break;
-            case 30:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("themeable-sys", Typeface.NORMAL));
+            case 19:
+                mKeyguardSlice.setViewsTypeface(Typeface.create("reemkufi", Typeface.NORMAL));
                 break;
-            case 31:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("samsung-sys", Typeface.NORMAL));
+            case 20:
+                mKeyguardSlice.setViewsTypeface(Typeface.create("rosemarysource", Typeface.NORMAL));
                 break;
-            case 32:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("mexcellent-sys", Typeface.NORMAL));
+            case 21:
+                mKeyguardSlice.setViewsTypeface(Typeface.create("rubikrubik", Typeface.NORMAL));
                 break;
-            case 33:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("burnstown-sys", Typeface.NORMAL));
+            case 22:
+                mKeyguardSlice.setViewsTypeface(Typeface.create("samsungone", Typeface.NORMAL));
                 break;
-            case 34:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("dumbledor-sys", Typeface.NORMAL));
+            case 23:
+                mKeyguardSlice.setViewsTypeface(Typeface.create("simpleday", Typeface.NORMAL));
                 break;
-            case 35:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("phantombold-sys", Typeface.NORMAL));
+            case 24:
+                mKeyguardSlice.setViewsTypeface(Typeface.create("slateforoneplus", Typeface.NORMAL));
                 break;
-            case 36:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sourcesanspro-sys", Typeface.NORMAL));
-                break;
-            case 37:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("circularstd-sys", Typeface.NORMAL));
-                break;
-            case 38:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("oneplusslate-sys", Typeface.NORMAL));
-                break;
-            case 39:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("aclonica-sys", Typeface.NORMAL));
-                break;
-            case 40:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("amarante-sys", Typeface.NORMAL));
-                break;
-            case 41:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("bariol-sys", Typeface.NORMAL));
-                break;
-            case 42:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("cagliostro-sys", Typeface.NORMAL));
-                break;
-            case 43:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("coolstory-sys", Typeface.NORMAL));
-                break;
-            case 44:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("lgsmartgothic-sys", Typeface.NORMAL));
-                break;
-            case 45:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("rosemary-sys", Typeface.NORMAL));
-                break;
-            case 46:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sonysketch-sys", Typeface.NORMAL));
-                break;
-            case 47:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("surfer-sys", Typeface.NORMAL));
+            case 25:
+                mKeyguardSlice.setViewsTypeface(Typeface.create("ubuntu", Typeface.NORMAL));
                 break;
         }
     }
@@ -781,142 +715,76 @@ public class KeyguardStatusView extends GridLayout implements
                 mOwnerInfo.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
                 break;
             case 3:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
+                mOwnerInfo.setTypeface(Typeface.create("antipastopro", Typeface.NORMAL));
                 break;
             case 4:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
+                mOwnerInfo.setTypeface(Typeface.create("arbutussource", Typeface.NORMAL));
                 break;
             case 5:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
+                mOwnerInfo.setTypeface(Typeface.create("arvolato", Typeface.NORMAL));
                 break;
             case 6:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
+                mOwnerInfo.setTypeface(Typeface.create("bariolsource", Typeface.NORMAL));
                 break;
             case 7:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
+                mOwnerInfo.setTypeface(Typeface.create("cagliostrosource", Typeface.NORMAL));
                 break;
             case 8:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
+                mOwnerInfo.setTypeface(Typeface.create("circularstd", Typeface.NORMAL));
                 break;
             case 9:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
+                mOwnerInfo.setTypeface(Typeface.create("comfortaa", Typeface.NORMAL));
                 break;
             case 10:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
+                mOwnerInfo.setTypeface(Typeface.create("evolvesans", Typeface.NORMAL));
                 break;
             case 11:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
+                mOwnerInfo.setTypeface(Typeface.create("exotwo", Typeface.NORMAL));
                 break;
             case 12:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+                mOwnerInfo.setTypeface(Typeface.create("firasans", Typeface.NORMAL));
                 break;
             case 13:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
+                mOwnerInfo.setTypeface(Typeface.create("fucek", Typeface.NORMAL));
                 break;
             case 14:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.NORMAL));
-                break;
-            case 15:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.ITALIC));
-                break;
-            case 16:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-black", Typeface.NORMAL));
-                break;
-            case 17:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-black", Typeface.ITALIC));
-                break;
-            case 18:
-                mOwnerInfo.setTypeface(Typeface.create("cursive", Typeface.NORMAL));
-                break;
-            case 19:
-                mOwnerInfo.setTypeface(Typeface.create("cursive", Typeface.BOLD));
-                break;
-            case 20:
-                mOwnerInfo.setTypeface(Typeface.create("casual", Typeface.NORMAL));
-                break;
-            case 21:
-                mOwnerInfo.setTypeface(Typeface.create("serif", Typeface.NORMAL));
-                break;
-            case 22:
-                mOwnerInfo.setTypeface(Typeface.create("serif", Typeface.ITALIC));
-                break;
-            case 23:
-                mOwnerInfo.setTypeface(Typeface.create("serif", Typeface.BOLD));
-                break;
-            case 24:
-                mOwnerInfo.setTypeface(Typeface.create("serif", Typeface.BOLD_ITALIC));
-                break;
-            case 25:
                 mOwnerInfo.setTypeface(Typeface.create("gobold-light-sys", Typeface.NORMAL));
                 break;
-            case 26:
-                mOwnerInfo.setTypeface(Typeface.create("roadrage-sys", Typeface.NORMAL));
+            case 15:
+                mOwnerInfo.setTypeface(Typeface.create("googlesansmedium", Typeface.NORMAL));
                 break;
-            case 27:
-                mOwnerInfo.setTypeface(Typeface.create("snowstorm-sys", Typeface.NORMAL));
+            case 16:
+                mOwnerInfo.setTypeface(Typeface.create("lemonmilk", Typeface.NORMAL));
                 break;
-            case 28:
-                mOwnerInfo.setTypeface(Typeface.create("googlesans-sys", Typeface.NORMAL));
+            case 17:
+                mOwnerInfo.setTypeface(Typeface.create("nokiapure", Typeface.NORMAL));
                 break;
-            case 29:
-                mOwnerInfo.setTypeface(Typeface.create("neoneon-sys", Typeface.NORMAL));
+            case 18:
+                mOwnerInfo.setTypeface(Typeface.create("quando", Typeface.NORMAL));
                 break;
-            case 30:
-                mOwnerInfo.setTypeface(Typeface.create("themeable-sys", Typeface.NORMAL));
+            case 19:
+                mOwnerInfo.setTypeface(Typeface.create("reemkufi", Typeface.NORMAL));
                 break;
-            case 31:
-                mOwnerInfo.setTypeface(Typeface.create("samsung-sys", Typeface.NORMAL));
+            case 20:
+                mOwnerInfo.setTypeface(Typeface.create("rosemarysource", Typeface.NORMAL));
                 break;
-            case 32:
-                mOwnerInfo.setTypeface(Typeface.create("mexcellent-sys", Typeface.NORMAL));
+            case 21:
+                mOwnerInfo.setTypeface(Typeface.create("rubikrubik", Typeface.NORMAL));
                 break;
-            case 33:
-                mOwnerInfo.setTypeface(Typeface.create("burnstown-sys", Typeface.NORMAL));
+            case 22:
+                mOwnerInfo.setTypeface(Typeface.create("samsungone", Typeface.NORMAL));
                 break;
-            case 34:
-                mOwnerInfo.setTypeface(Typeface.create("dumbledor-sys", Typeface.NORMAL));
+            case 23:
+                mOwnerInfo.setTypeface(Typeface.create("simpleday", Typeface.NORMAL));
                 break;
-            case 35:
-                mOwnerInfo.setTypeface(Typeface.create("phantombold-sys", Typeface.NORMAL));
+            case 24:
+                mOwnerInfo.setTypeface(Typeface.create("slateforoneplus", Typeface.NORMAL));
                 break;
-            case 36:
-                mOwnerInfo.setTypeface(Typeface.create("sourcesanspro-sys", Typeface.NORMAL));
-                break;
-            case 37:
-                mOwnerInfo.setTypeface(Typeface.create("circularstd-sys", Typeface.NORMAL));
-                break;
-            case 38:
-                mOwnerInfo.setTypeface(Typeface.create("oneplusslate-sys", Typeface.NORMAL));
-                break;
-            case 39:
-                mOwnerInfo.setTypeface(Typeface.create("aclonica-sys", Typeface.NORMAL));
-                break;
-            case 40:
-                mOwnerInfo.setTypeface(Typeface.create("amarante-sys", Typeface.NORMAL));
-                break;
-            case 41:
-                mOwnerInfo.setTypeface(Typeface.create("bariol-sys", Typeface.NORMAL));
-                break;
-            case 42:
-                mOwnerInfo.setTypeface(Typeface.create("cagliostro-sys", Typeface.NORMAL));
-                break;
-            case 43:
-                mOwnerInfo.setTypeface(Typeface.create("coolstory-sys", Typeface.NORMAL));
-                break;
-            case 44:
-                mOwnerInfo.setTypeface(Typeface.create("lgsmartgothic-sys", Typeface.NORMAL));
-                break;
-            case 45:
-                mOwnerInfo.setTypeface(Typeface.create("rosemary-sys", Typeface.NORMAL));
-                break;
-            case 46:
-                mOwnerInfo.setTypeface(Typeface.create("sonysketch-sys", Typeface.NORMAL));
-                break;
-            case 47:
-                mOwnerInfo.setTypeface(Typeface.create("surfer-sys", Typeface.NORMAL));
+            case 25:
+                mOwnerInfo.setTypeface(Typeface.create("ubuntu", Typeface.NORMAL));
                 break;
             default:
-                mOwnerInfo.setTypeface(Typeface.create("googlesans-sys", Typeface.NORMAL));
+                mOwnerInfo.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
                 break;
         }
     }
