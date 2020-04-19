@@ -17,7 +17,7 @@
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
-LOCAL_RRO_THEME := FontRubikRubik
+LOCAL_RRO_THEME := FontRubikRubikOverlay
 
 LOCAL_PRODUCT_MODULE := true
 

@@ -17,7 +17,7 @@
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
-LOCAL_RRO_THEME := FontArvoLato
+LOCAL_RRO_THEME := FontArvoLatoOverlay
 
 LOCAL_PRODUCT_MODULE := true
 

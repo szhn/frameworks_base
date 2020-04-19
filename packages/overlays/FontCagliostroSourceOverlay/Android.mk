@@ -17,7 +17,7 @@
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
-LOCAL_RRO_THEME := FontCagliostroSource
+LOCAL_RRO_THEME := FontCagliostroSourceOverlay
 LOCAL_CERTIFICATE := platform
 LOCAL_PRODUCT_MODULE := true
 

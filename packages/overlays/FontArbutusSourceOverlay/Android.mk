@@ -17,7 +17,7 @@
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
-LOCAL_RRO_THEME := FontArbutusSource
+LOCAL_RRO_THEME := FontArbutusSourceOverlay
 
 LOCAL_PRODUCT_MODULE := true
 

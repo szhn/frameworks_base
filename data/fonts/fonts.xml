@@ -117,7 +117,7 @@
     <alias name="fantasy" to="arvolato" />
     <alias name="ITC Stone Serif" to="arvolato" />
 
-    <family name="bariolsourcesource">
+    <family name="bariolsource">
         <font weight="300" style="normal">Bariol-Regular.ttf</font>
     </family>
     <alias name="bariolsource-semi-bold" to="bariolsource" weight="500" />
@@ -131,19 +131,19 @@
     <alias name="fantasy" to="bariolsource" />
     <alias name="ITC Stone Serif" to="bariolsource" />
 
-    <family name="cagliostro">
+    <family name="cagliostrosource">
         <font weight="300" style="normal">Cagliostro-Regular.ttf</font>
     </family>
-    <alias name="cagliostro-semi-bold" to="cagliostro" weight="500" />
-    <alias name="cagliostro-bold" to="cagliostro" weight="700" />
-    <alias name="times" to="cagliostro" />
-    <alias name="times new roman" to="cagliostro" />
-    <alias name="palatino" to="cagliostro" />
-    <alias name="georgia" to="cagliostro" />
-    <alias name="baskerville" to="cagliostro" />
-    <alias name="goudy" to="cagliostro" />
-    <alias name="fantasy" to="cagliostro" />
-    <alias name="ITC Stone Serif" to="cagliostro" />
+    <alias name="cagliostrosource-semi-bold" to="cagliostrosource" weight="500" />
+    <alias name="cagliostrosource-bold" to="cagliostrosource" weight="700" />
+    <alias name="times" to="cagliostrosource" />
+    <alias name="times new roman" to="cagliostrosource" />
+    <alias name="palatino" to="cagliostrosource" />
+    <alias name="georgia" to="cagliostrosource" />
+    <alias name="baskerville" to="cagliostrosource" />
+    <alias name="goudy" to="cagliostrosource" />
+    <alias name="fantasy" to="cagliostrosource" />
+    <alias name="ITC Stone Serif" to="cagliostrosource" />
 
     <family name="circularstd">
         <font weight="300" style="normal">CircularStd.ttf</font>
@@ -243,20 +243,6 @@
     <alias name="fantasy" to="googlesansmedium" />
     <alias name="ITC Stone Serif" to="googlesansmedium" />
 
-    <family name="hycoffee">
-        <font weight="300" style="normal">HYCoffee.ttf</font>
-    </family>
-    <alias name="hycoffee-semi-bold" to="hycoffee" weight="500" />
-    <alias name="hycoffee-bold" to="hycoffee" weight="700" />
-    <alias name="times" to="hycoffee" />
-    <alias name="times new roman" to="hycoffee" />
-    <alias name="palatino" to="hycoffee" />
-    <alias name="georgia" to="hycoffee" />
-    <alias name="baskerville" to="hycoffee" />
-    <alias name="goudy" to="hycoffee" />
-    <alias name="fantasy" to="hycoffee" />
-    <alias name="ITC Stone Serif" to="hycoffee" />
-
     <family name="lemonmilk">
         <font weight="300" style="normal">LemonMilk.ttf</font>
     </family>
@@ -270,20 +256,6 @@
     <alias name="goudy" to="lemonmilk" />
     <alias name="fantasy" to="lemonmilk" />
     <alias name="ITC Stone Serif" to="lemonmilk" />
-
-    <family name="lgsmartgothic">
-        <font weight="300" style="normal">LGSmartGothic.ttf</font>
-    </family>
-    <alias name="lgsmartgothic-semi-bold" to="lgsmartgothic" weight="500" />
-    <alias name="lgsmartgothic-bold" to="lgsmartgothic" weight="700" />
-    <alias name="times" to="lgsmartgothic" />
-    <alias name="times new roman" to="lgsmartgothic" />
-    <alias name="palatino" to="lgsmartgothic" />
-    <alias name="georgia" to="lgsmartgothic" />
-    <alias name="baskerville" to="lgsmartgothic" />
-    <alias name="goudy" to="lgsmartgothic" />
-    <alias name="fantasy" to="lgsmartgothic" />
-    <alias name="ITC Stone Serif" to="lgsmartgothic" />
 
     <family name="nokiapure">
         <font weight="300" style="normal">Nokia_Pure.ttf</font>
@@ -328,7 +300,7 @@
     <alias name="ITC Stone Serif" to="reemkufi" />
 
     <family name="rosemarysource">
-        <font weight="300" style="normal">rosemarysource-Regular.ttf</font>
+        <font weight="300" style="normal">Rosemary-Regular.ttf</font>
     </family>
     <alias name="rosemarysource-semi-bold" to="rosemarysource" weight="500" />
     <alias name="rosemarysource-bold" to="rosemarysource" weight="700" />
@@ -498,14 +470,14 @@
     <family name="bariol-sys">
         <font weight="300" style="normal">Bariol-Regular.ttf</font>
     </family>
-    <family name="cagliostro-sys">
+    <family name="cagliostrosource-sys">
         <font weight="300" style="normal">Cagliostro-Regular.ttf</font>
     </family>
     <family name="coolstory-sys">
         <font weight="300" style="normal">Coolstory-Regular.ttf</font>
     </family>
-    <family name="lgsmartgothic-sys">
-        <font weight="300" style="normal">LGSmartGothic.ttf</font>
+    <family name="lgsmartsourcegothic-sys">
+        <font weight="300" style="normal">LGSmart-Regular.ttf</font>
     </family>
     <family name="rosemarysource-sys">
         <font weight="300" style="normal">Rosemary-Regular.ttf</font>

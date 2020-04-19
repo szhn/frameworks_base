@@ -17,7 +17,7 @@
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
-LOCAL_RRO_THEME := FontGoogleSansMedium
+LOCAL_RRO_THEME := FontGoogleSansMediumOverlay
 
 LOCAL_PRODUCT_MODULE := true
 

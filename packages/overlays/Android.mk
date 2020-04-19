@@ -32,9 +32,7 @@ LOCAL_REQUIRED_MODULES := \
     FontFiraSansSourceOverlay \
     FontFucekSourceOverlay \
     FontGoogleSansMediumOverlay \
-    FontHYCoffeeSourceOverlay \
-    FontLGSmartGothicSourceOverlay \
-    FontLemonMilkSourceOverlay \
+    FontLGSmartSourceOverlay \
     FontNokiaPureSourceOverlay \
     FontQuandoSourceOverlay \
     FontReemKufiSourceOverlay \
@@ -59,6 +57,7 @@ LOCAL_REQUIRED_MODULES := \
     IconPackRoundedThemePickerOverlay \
     IconPackRoundedSettingsOverlay \
     IconPackRoundedSystemUIOverlay \
+    IconShapeCookieOverlay \
     IconShapeCylinderOverlay \
     IconShapeHexagonOverlay \
     IconShapeRoundedRectOverlay \
