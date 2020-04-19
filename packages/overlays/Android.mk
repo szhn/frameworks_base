@@ -33,9 +33,7 @@ LOCAL_REQUIRED_MODULES := \
     FontEvolveSansSourceOverlay \
     FontFiraSansSourceOverlay \
     FontFucekSourceOverlay \
-    FontGoogleSansOverlay \
     FontGoogleSansMediumOverlay \
-    FontGoogleSansMediumSourceOverlay \
     FontHYCoffeeSourceOverlay \
     FontLGSmartGothicSourceOverlay \
     FontLemonMilkSourceOverlay \
@@ -51,39 +49,13 @@ LOCAL_REQUIRED_MODULES := \
     FontSonySketchSourceOverlay \
     FontSurferSourceOverlay \
     FontAnaheim \
-    FontBigNoodle \
-    FontBikoHanken \
-    FontComicNeue \
-    FontExo2 \
-    FontFinlandica \
-    FontGoodlight \
-    FontGravity \
-    FontInter \
-    FontLeagueMonoNarrow \
-    FontLeonSans \
-    FontMescla \
-    FontMittelschrift \
-    FontOdibee \
-    FontPanamericana \
-    FontPissel \
-    FontPTSansMono \
-    FontRoboto \
-    FontRouterGothicNarrow \
-    FontRoutedGothicRobotoCondensed \
-    FontSofiaSans \
-    FontSofiaSansSemiCondensed \
     FontTinkerbell \
-    Font20SevenSourceOverlay \
     FontCoconSourceOverlay \
     FontQuandoSourceOverlay \
     FontComfortaaSourceOverlay \
     FontExotwoSourceOverlay \
-    FontStoropiaSourceOverlay \
     FontUbuntuSourceOverlay \
     FontNokiaPureSourceOverlay \
-    FontFifa2018SourceOverlay \
-    FontGrandHotelSourceOverlay \
-    FontRedressedSourceOverlay \
     IconPackCircularAndroidOverlay \
     IconPackCircularLauncherOverlay \
     IconPackCircularSettingsOverlay \
