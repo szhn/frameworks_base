@@ -475,7 +475,7 @@ public class TitaniumUtils {
         int resid;
         int resourceId = context.getResources().getIdentifier(
                 "status_bar_height", "dimen", "android");
-        resid = context.getResources().getIdentifier("config_fillMainBuiltInDisplayCutout",
+        resid = context.getResources().getIdentifier("config_physicalDisplayCutout",
                 "bool", "android");
         if (resid > 0) {
             return context.getResources().getBoolean(resid);
