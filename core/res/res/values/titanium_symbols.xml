@@ -304,9 +304,12 @@
     <java-symbol type="color" name="gradient_start" />
     <java-symbol type="color" name="gradient_end" />
 
-    <!-- Light / Regular style fonts -->
+      <!-- Fonts -->
     <java-symbol type="string" name="config_lightFontFamily" />
     <java-symbol type="string" name="config_regularFontFamily" />
+    <java-symbol type="string" name="config_headlineFontFamilyMedium" />
+    <java-symbol type="string" name="config_bodyFontFamily" />
+    <java-symbol type="string" name="config_bodyFontFamilyMedium" />
 
     <!-- Device keys user-customisable behavior -->
     <java-symbol type="integer" name="config_longPressOnHomeBehaviorHwKeys" />
