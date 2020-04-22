@@ -509,8 +509,8 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
     private float mLastSentAppear;
     private float mLastSentExpandedHeight;
     private boolean mWillExpand;
+    private final boolean mShowGentleHeader;
     private boolean needsColorRefresh = true;
-    private boolean mShowHeaders;
 
     @Inject
     public NotificationStackScrollLayout(
@@ -541,8 +541,7 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
         mKeyguardBypassController = keyguardBypassController;
         mFalsingManager = falsingManager;
 
-        mShowHeaders = Settings.System.getIntForUser(getContext().getContentResolver(),
-                Settings.System.NOTIFICATION_HEADERS, 1, UserHandle.USER_CURRENT) == 1;
+        mShowGentleHeader = NotificationUtils.showGentleHeader();
 
         mSectionsManager =
                 new NotificationSectionsManager(
@@ -551,8 +550,13 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
                         statusBarStateController,
                         configurationController,
                         NotificationUtils.useNewInterruptionModel(context),
-                        mShowHeaders);
+                        mShowGentleHeader);
         mSectionsManager.initialize(LayoutInflater.from(context));
+        mSectionsManager.setOnClearGentleNotifsClickListener(v -> {
+            // Leave the shade open if there will be other notifs left over to clear
+            final boolean closeShade = !hasActiveClearableNotifications(ROWS_HIGH_PRIORITY);
+            clearNotifications(ROWS_GENTLE, closeShade, false/*forceToLeft*/);
+        });
 
         mAmbientState = new AmbientState(context, mSectionsManager, mHeadsUpManager);
         mBgColor = context.getColor(R.color.notification_shade_background_color);
@@ -816,6 +820,7 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
         mIconColor = mContext.getColor(R.color.recents_dismiss_all_icon_color);
         updateBackgroundDimming();
         mShelf.onUiModeChanged();
+        mSectionsManager.onUiModeChanged();
         StatusBar.updateDismissAllButton(mIconColor);
     }
 
@@ -5501,7 +5506,7 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
 
     @ShadeViewRefactor(RefactorComponent.SHADE_VIEW)
     public void manageNotifications(View v) {
-        Intent intent = new Intent(mShowHeaders ? Settings.ACTION_ALL_APPS_NOTIFICATION_SETTINGS :
+                Intent intent = new Intent(mShowGentleHeader ? Settings.ACTION_ALL_APPS_NOTIFICATION_SETTINGS :
                 Settings.ACTION_NOTIFICATION_SETTINGS);
         mStatusBar.startActivity(intent, true, true, Intent.FLAG_ACTIVITY_SINGLE_TOP);
     }
