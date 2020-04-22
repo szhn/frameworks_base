@@ -743,8 +743,6 @@ public class StatusBar extends SystemUI implements DemoMode,
     private boolean mIsLauncherShowing;
     private ComponentName mTaskComponentName = null;
 
-    private boolean mShowNavBar;
-
     @Override
     public void onActiveStateChanged(int code, int uid, String packageName, boolean active) {
         Dependency.get(MAIN_HANDLER).post(() -> {
@@ -1065,7 +1063,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         mNotificationLogger.setHeadsUpManager(mHeadsUpManager);
         putComponent(HeadsUpManager.class, mHeadsUpManager);
 
-       updateNavigationBar(true);
+       updateNavigationBar(result, true);
 
         if (ENABLE_LOCKSCREEN_WALLPAPER && mWallpaperSupported) {
             mLockscreenWallpaper = new LockscreenWallpaper(mContext, this, mHandler);
@@ -4622,7 +4620,6 @@ public class StatusBar extends SystemUI implements DemoMode,
             setHapticFeedbackForBackGesture();
             updateKeyguardStatusSettings();
             setMediaHeadsup();
-            updateNavigationBar(false);
         }
     }
 
