@@ -6618,12 +6618,6 @@ public final class Settings {
         public static final String CUSTOM_AMBIENT_POCKETMODE_GESTURE = "custom_ambient_pocketmode_gesture";
 
         /**
-         * Bottom brightness slider
-         * @hide
-         */
-        public static final String QS_BOTTOM_BRIGHTNESS = "qs_bottom_brightness";
-
-        /**
          * Display cutout
          * @hide
          */
