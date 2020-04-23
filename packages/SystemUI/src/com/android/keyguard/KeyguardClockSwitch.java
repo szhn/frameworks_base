@@ -489,7 +489,7 @@ public class KeyguardClockSwitch extends RelativeLayout {
     public void refreshLockFont() {
         final Resources res = getContext().getResources();
         boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
-        int lockClockFont = isPrimary ? getLockClockFont() : 0;
+        int lockClockFont = isPrimary ? getLockClockFont() : 26;
 
         switch (lockClockFont) {
             case 0:
@@ -595,6 +595,11 @@ public class KeyguardClockSwitch extends RelativeLayout {
             case 25:
                 mClockView.setTypeface(Typeface.create("ubuntu", Typeface.NORMAL));
                 mClockViewBold.setTypeface(Typeface.create("ubuntu", Typeface.NORMAL));
+                break;
+            case 26:
+            default:
+                mClockView.setTypeface(Typeface.create("themeable", Typeface.NORMAL));
+                mClockViewBold.setTypeface(Typeface.create("themeable", Typeface.NORMAL));
                 break;
         }
     }

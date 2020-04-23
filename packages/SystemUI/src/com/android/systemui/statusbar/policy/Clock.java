@@ -115,7 +115,7 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
     public static final int STYLE_DATE_LEFT = 0;
     public static final int STYLE_DATE_RIGHT = 1;
 
-    private int mClockFontStyle = FONT_NORMAL;
+    private int mClockFontStyle = THEMEABLE;
     public static final int FONT_NORMAL = 0;
     public static final int FONT_ITALIC = 1;
     public static final int FONT_BOLD = 2;
@@ -142,6 +142,7 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
     public static final int SIMPLEDAY = 23;
     public static final int SLATEFORONEPLUS = 24;
     public static final int UBUNTU = 25;
+    public static final int THEMEABLE = 26;
     public int DEFAULT_CLOCK_SIZE = 14;
     public int DEFAULT_CLOCK_COLOR = 0xffffffff;
 
@@ -794,7 +795,7 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
 
     private void updateClockFontStyle() {
         mClockFontStyle = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.STATUS_BAR_CLOCK_FONT_STYLE, FONT_NORMAL,
+                Settings.System.STATUS_BAR_CLOCK_FONT_STYLE, THEMEABLE,
         	UserHandle.USER_CURRENT);
         getClockFontStyle(mClockFontStyle);
         updateClock();
@@ -803,7 +804,6 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
     public void getClockFontStyle(int font) {
         switch (font) {
             case FONT_NORMAL:
-            default:
                 setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
                 break;
             case FONT_ITALIC:
@@ -880,6 +880,10 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
                 break;
             case UBUNTU:
                 setTypeface(Typeface.create("ubuntu", Typeface.NORMAL));
+                break;
+            case THEMEABLE:
+            default:
+                setTypeface(Typeface.create("themeable", Typeface.NORMAL));
                 break;
         }
     }

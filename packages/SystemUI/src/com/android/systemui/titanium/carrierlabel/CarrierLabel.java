@@ -58,7 +58,7 @@ public class CarrierLabel extends TextView implements DarkReceiver {
     private int mCarrierColor = 0xffffffff;
     private int mTintColor = Color.WHITE;
 
-    private int mCarrierLabelFontStyle = FONT_NORMAL;
+    private int mCarrierLabelFontStyle = THEMEABLE;
     public static final int FONT_NORMAL = 0;
     public static final int FONT_ITALIC = 1;
     public static final int FONT_BOLD = 2;
@@ -85,6 +85,7 @@ public class CarrierLabel extends TextView implements DarkReceiver {
     public static final int SIMPLEDAY = 23;
     public static final int SLATEFORONEPLUS = 24;
     public static final int UBUNTU = 25;
+    public static final int THEMEABLE = 26;
 
     Handler mHandler;
 
@@ -229,7 +230,6 @@ public class CarrierLabel extends TextView implements DarkReceiver {
     public void getFontStyle(int font) {
         switch (font) {
             case FONT_NORMAL:
-            default:
                 setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
                 break;
             case FONT_ITALIC:
@@ -307,6 +307,10 @@ public class CarrierLabel extends TextView implements DarkReceiver {
             case UBUNTU:
                 setTypeface(Typeface.create("ubuntu", Typeface.NORMAL));
                 break;
+            case THEMEABLE:
+            default:
+                setTypeface(Typeface.create("themeable", Typeface.NORMAL));
+                break;
         }
     }
 
@@ -328,7 +332,7 @@ public class CarrierLabel extends TextView implements DarkReceiver {
 
     private void updateStyle() {
         mCarrierLabelFontStyle = Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.STATUS_BAR_CARRIER_FONT_STYLE, FONT_NORMAL);
+                Settings.System.STATUS_BAR_CARRIER_FONT_STYLE, THEMEABLE);
         getFontStyle(mCarrierLabelFontStyle);
     }
 }

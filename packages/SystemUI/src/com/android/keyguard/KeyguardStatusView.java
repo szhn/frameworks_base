@@ -447,7 +447,7 @@ public class KeyguardStatusView extends GridLayout implements
     private void refreshLockDateFont() {
         final Resources res = getContext().getResources();
         boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
-        int lockDateFont = isPrimary ? getLockDateFont() : 0;
+        int lockDateFont = isPrimary ? getLockDateFont() : 26;
         switch (lockDateFont) {
             case 0:
                 mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
@@ -526,6 +526,10 @@ public class KeyguardStatusView extends GridLayout implements
                 break;
             case 25:
                 mKeyguardSlice.setViewsTypeface(Typeface.create("ubuntu", Typeface.NORMAL));
+                break;
+            case 26:
+            default:
+                mKeyguardSlice.setViewsTypeface(Typeface.create("themeable", Typeface.NORMAL));
                 break;
         }
     }
@@ -702,7 +706,7 @@ public class KeyguardStatusView extends GridLayout implements
     private void refreshOwnerInfoFont() {
         final Resources res = getContext().getResources();
         boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
-        int ownerinfoFont = isPrimary ? getOwnerInfoFont() : 0;
+        int ownerinfoFont = isPrimary ? getOwnerInfoFont() : 26;
 
         switch (ownerinfoFont) {
             case 0:
@@ -783,8 +787,9 @@ public class KeyguardStatusView extends GridLayout implements
             case 25:
                 mOwnerInfo.setTypeface(Typeface.create("ubuntu", Typeface.NORMAL));
                 break;
+            case 26:
             default:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
+                mOwnerInfo.setTypeface(Typeface.create("themeable", Typeface.NORMAL));
                 break;
         }
     }

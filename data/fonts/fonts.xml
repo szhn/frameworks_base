@@ -422,38 +422,8 @@
     <family name="gobold-light-sys">
         <font weight="300" style="normal">GoboldThinLight.ttf</font>
     </family>
-    <family name="roadrage-sys">
-        <font weight="300" style="normal">RoadRage-Regular.ttf</font>
-    </family>
-    <family name="snowstorm-sys">
-        <font weight="300" style="normal">Snowstorm-Regular.ttf</font>
-    </family>
-    <family name="googlesans-sys">
-        <font weight="300" style="normal">GoogleSans-Medium.ttf</font>
-    </family>
-    <family name="neoneon-sys">
-        <font weight="300" style="normal">Neoneon-Regular.ttf</font>
-    </family>
-    <family name="themeable-sys">
+    <family name="themeable">
         <font weight="300" style="normal">ThemeableFont-Regular.ttf</font>
-    </family>
-    <family name="samsung-sys">
-    <font weight="300" style="normal">Shamshung.ttf</font>
-    </family>
-    <family name="mexcellent-sys">
-        <font weight="300" style="normal">Mexcellent-Regular.ttf</font>
-    </family>
-    <family name="burnstown-sys">
-        <font weight="300" style="normal">Burnstown-Regular.ttf</font>
-    </family>
-    <family name="dumbledor-sys">
-        <font weight="300" style="normal">Dumbledor-Regular.ttf</font>
-    </family>
-    <family name="phantombold-sys">
-        <font weight="300" style="normal">PhantomBold-Regular.ttf</font>
-    </family>
-    <family name="sourcesanspro-sys">
-        <font weight="400" style="normal">SourceSansPro-Regular.ttf</font>
     </family>
     <family name="circularstd-sys">
         <font weight="400" style="normal">CircularStd.ttf</font>
@@ -461,32 +431,8 @@
     <family name="oneplusslate-sys">
         <font weight="400" style="normal">SlateForOnePlus-Regular.ttf</font>
     </family>
-    <family name="aclonica-sys">
-        <font weight="300" style="normal">Aclonica.ttf</font>
-    </family>
-    <family name="amarante-sys">
-        <font weight="300" style="normal">Amarante.ttf</font>
-    </family>
-    <family name="bariol-sys">
-        <font weight="300" style="normal">Bariol-Regular.ttf</font>
-    </family>
-    <family name="cagliostrosource-sys">
-        <font weight="300" style="normal">Cagliostro-Regular.ttf</font>
-    </family>
-    <family name="coolstory-sys">
-        <font weight="300" style="normal">Coolstory-Regular.ttf</font>
-    </family>
-    <family name="lgsmartsourcegothic-sys">
-        <font weight="300" style="normal">LGSmart-Regular.ttf</font>
-    </family>
     <family name="rosemarysource-sys">
         <font weight="300" style="normal">Rosemary-Regular.ttf</font>
-    </family>
-    <family name="sonysketch-sys">
-        <font weight="300" style="normal">SonySketch.ttf</font>
-    </family>
-    <family name="surfer-sys">
-        <font weight="300" style="normal">Surfer.ttf</font>
     </family>
 
     <!-- fallback fonts -->
