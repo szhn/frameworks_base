@@ -4337,12 +4337,6 @@ public final class Settings {
         public static final Validator POINTER_LOCATION_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
-         * Enable FC Notifications
-         * @hide
-         */
-        public static final String ENABLE_FC_NOTIFICATIONS = "enable_fc_notifications";
-
-        /**
          * Show touch positions on screen?
          * 0 = no
          * 1 = yes
@@ -4912,12 +4906,6 @@ public final class Settings {
          * @hide
          */
         public static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
-
-        /**
-         * Whether to allow one finger quick settings expansion on the right side of the statusbar.
-         * @hide
-         */
-        public static final String STATUS_BAR_QUICK_QS_PULLDOWN = "status_bar_quick_qs_pulldown";
 
         /**
          * IMPORTANT: If you add a new public settings you also have to add it to
