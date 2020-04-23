@@ -249,7 +249,7 @@
     <dimen name="notification_header_background_height">49.5dp</dimen>
 
     <!-- The top padding for the notification header -->
-    <dimen name="notification_header_padding_top">14dp</dimen>
+    <dimen name="notification_header_padding_top">16dp</dimen>
 
     <!-- The bottom padding for the notification header -->
     <dimen name="notification_header_padding_bottom">16dp</dimen>
@@ -776,6 +776,6 @@
     <dimen name="extra_qs_footer_height">48dp</dimen>
     <dimen name="qs_background_inset">0dp</dimen>
     <dimen name="qs_drag_handle_margin_bottom">-12dp</dimen>
-    <dimen name="qs_notification_padding">-2dp</dimen>
+    <dimen name="qs_notification_padding">4dp</dimen>
 
 </resources>
