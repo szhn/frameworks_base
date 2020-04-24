@@ -840,7 +840,7 @@ public class KeyguardStatusView extends GridLayout implements
         mTextClock = findViewById(R.id.custom_text_clock_view);
 
         if (mClockSelection >= 5 && mClockSelection <= 9)
-            mDefaultClockView.setLineSpacing(0, 1.2f);
+            mDefaultClockView.setLineSpacing(0, 1.0f);
 
         if (mClockSelection != 10 && mClockSelection != 11) {
             mTextClock.setVisibility(View.GONE);
