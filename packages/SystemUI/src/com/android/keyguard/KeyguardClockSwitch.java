@@ -489,7 +489,7 @@ public class KeyguardClockSwitch extends RelativeLayout {
     public void refreshLockFont() {
         final Resources res = getContext().getResources();
         boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
-        int lockClockFont = isPrimary ? getLockClockFont() : 26;
+        int lockClockFont = isPrimary ? getLockClockFont() : 0;
 
         switch (lockClockFont) {
             case 0:
@@ -597,9 +597,28 @@ public class KeyguardClockSwitch extends RelativeLayout {
                 mClockViewBold.setTypeface(Typeface.create("ubuntu", Typeface.NORMAL));
                 break;
             case 26:
-            default:
-                mClockView.setTypeface(Typeface.create("themeable", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("themeable", Typeface.NORMAL));
+                mClockView.setTypeface(Typeface.create("aclonica-sys", Typeface.NORMAL));
+                mClockViewBold.setTypeface(Typeface.create("aclonica-sys", Typeface.NORMAL));
+                break;
+            case 27:
+                mClockView.setTypeface(Typeface.create("amarante-sys", Typeface.NORMAL));
+                mClockViewBold.setTypeface(Typeface.create("amarante-sys", Typeface.NORMAL));
+                break;
+            case 28:
+                mClockView.setTypeface(Typeface.create("coolstory-sys", Typeface.NORMAL));
+                mClockViewBold.setTypeface(Typeface.create("coolstory-sys", Typeface.NORMAL));
+                break;
+            case 29:
+                mClockView.setTypeface(Typeface.create("sonysketch-sys", Typeface.NORMAL));
+                mClockViewBold.setTypeface(Typeface.create("sonysketch-sys", Typeface.NORMAL));
+                break;
+            case 30:
+                mClockView.setTypeface(Typeface.create("surfer-sys", Typeface.NORMAL));
+                mClockViewBold.setTypeface(Typeface.create("surfer-sys", Typeface.NORMAL));
+                break;
+            case 31:
+                mClockView.setTypeface(Typeface.create("themeable-sys", Typeface.NORMAL));
+                mClockViewBold.setTypeface(Typeface.create("themeable-sys", Typeface.NORMAL));
                 break;
         }
     }

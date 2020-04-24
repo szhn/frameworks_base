@@ -58,7 +58,7 @@ public class CarrierLabel extends TextView implements DarkReceiver {
     private int mCarrierColor = 0xffffffff;
     private int mTintColor = Color.WHITE;
 
-    private int mCarrierLabelFontStyle = THEMEABLE;
+    private int mCarrierLabelFontStyle = FONT_NORMAL;
     public static final int FONT_NORMAL = 0;
     public static final int FONT_ITALIC = 1;
     public static final int FONT_BOLD = 2;
@@ -85,7 +85,12 @@ public class CarrierLabel extends TextView implements DarkReceiver {
     public static final int SIMPLEDAY = 23;
     public static final int SLATEFORONEPLUS = 24;
     public static final int UBUNTU = 25;
-    public static final int THEMEABLE = 26;
+    public static final int ACLONICA = 26;
+    public static final int AMARANTE = 27;
+    public static final int COOLSTORY = 28;
+    public static final int SONYSKETCH = 29;
+    public static final int SURFER = 30;
+    public static final int THEMEABLE = 31;
 
     Handler mHandler;
 
@@ -307,9 +312,23 @@ public class CarrierLabel extends TextView implements DarkReceiver {
             case UBUNTU:
                 setTypeface(Typeface.create("ubuntu", Typeface.NORMAL));
                 break;
+            case ACLONICA:
+                setTypeface(Typeface.create("aclonica-sys", Typeface.NORMAL));
+                break;
+            case AMARANTE:
+                setTypeface(Typeface.create("amarante-sys", Typeface.NORMAL));
+                break;
+            case COOLSTORY:
+                setTypeface(Typeface.create("coolstory-sys", Typeface.NORMAL));
+                break;
+            case SONYSKETCH:
+                setTypeface(Typeface.create("sonysketch-sys", Typeface.NORMAL));
+                break;
+            case SURFER:
+                setTypeface(Typeface.create("surfer-sys", Typeface.NORMAL));
+                break;
             case THEMEABLE:
-            default:
-                setTypeface(Typeface.create("themeable", Typeface.NORMAL));
+                setTypeface(Typeface.create("themeable-sys", Typeface.NORMAL));
                 break;
         }
     }
@@ -332,7 +351,7 @@ public class CarrierLabel extends TextView implements DarkReceiver {
 
     private void updateStyle() {
         mCarrierLabelFontStyle = Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.STATUS_BAR_CARRIER_FONT_STYLE, THEMEABLE);
+                Settings.System.STATUS_BAR_CARRIER_FONT_STYLE, FONT_NORMAL);
         getFontStyle(mCarrierLabelFontStyle);
     }
 }

@@ -419,20 +419,23 @@
     <alias name="source-sans-pro-semi-bold" to="source-sans-pro" weight="600" />
 
     <!-- Lockscreen Fonts -->
-    <family name="gobold-light-sys">
-        <font weight="300" style="normal">GoboldThinLight.ttf</font>
+    <family name="aclonica-sys">
+        <font weight="400" style="normal">Aclonica.ttf</font>
     </family>
-    <family name="themeable">
-        <font weight="300" style="normal">ThemeableFont-Regular.ttf</font>
+    <family name="amarante-sys">
+        <font weight="400" style="normal">Amarante.ttf</font>
     </family>
-    <family name="circularstd-sys">
-        <font weight="400" style="normal">CircularStd.ttf</font>
+    <family name="coolstory-sys">
+        <font weight="400" style="normal">Coolstory.ttf</font>
     </family>
-    <family name="oneplusslate-sys">
-        <font weight="400" style="normal">SlateForOnePlus-Regular.ttf</font>
+    <family name="sonysketch-sys">
+        <font weight="400" style="normal">SonySketch.ttf</font>
     </family>
-    <family name="rosemarysource-sys">
-        <font weight="300" style="normal">Rosemary-Regular.ttf</font>
+    <family name="surfer-sys">
+        <font weight="400" style="normal">Surfer.ttf</font>
+    </family>
+    <family name="themeable-sys">
+        <font weight="400" style="normal">Themeable.ttf</font>
     </family>
 
     <!-- fallback fonts -->

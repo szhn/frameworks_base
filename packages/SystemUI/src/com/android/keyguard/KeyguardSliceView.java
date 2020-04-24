@@ -201,7 +201,7 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
 
     private int getLockDateFont() {
         return Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.LOCK_DATE_FONTS, 26);
+                Settings.System.LOCK_DATE_FONTS, 0);
     }
 
     /**
@@ -597,7 +597,7 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
     private void refreshLockDateFont(KeyguardSliceButton button) {
         final Resources res = getContext().getResources();
         boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
-        int lockDateFont = isPrimary ? getLockDateFont() : 26;
+        int lockDateFont = isPrimary ? getLockDateFont() : 0;
         switch (lockDateFont) {
             case 0:
                 button.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
@@ -678,8 +678,22 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
                 button.setTypeface(Typeface.create("ubuntu", Typeface.NORMAL));
                 break;
             case 26:
-            default:
-                button.setTypeface(Typeface.create("themeable", Typeface.NORMAL));
+                button.setTypeface(Typeface.create("aclonica-sys", Typeface.NORMAL));
+                break;
+            case 27:
+                button.setTypeface(Typeface.create("amarante-sys", Typeface.NORMAL));
+                break;
+            case 28:
+                button.setTypeface(Typeface.create("coolstory-sys", Typeface.NORMAL));
+                break;
+            case 29:
+                button.setTypeface(Typeface.create("sonysketch-sys", Typeface.NORMAL));
+                break;
+            case 30:
+                button.setTypeface(Typeface.create("surfer-sys", Typeface.NORMAL));
+                break;
+            case 31:
+                button.setTypeface(Typeface.create("themeable-sys", Typeface.NORMAL));
                 break;
         }
     }

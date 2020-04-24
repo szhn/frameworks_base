@@ -447,7 +447,7 @@ public class KeyguardStatusView extends GridLayout implements
     private void refreshLockDateFont() {
         final Resources res = getContext().getResources();
         boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
-        int lockDateFont = isPrimary ? getLockDateFont() : 26;
+        int lockDateFont = isPrimary ? getLockDateFont() : 0;
         switch (lockDateFont) {
             case 0:
                 mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
@@ -528,8 +528,22 @@ public class KeyguardStatusView extends GridLayout implements
                 mKeyguardSlice.setViewsTypeface(Typeface.create("ubuntu", Typeface.NORMAL));
                 break;
             case 26:
-            default:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("themeable", Typeface.NORMAL));
+                mKeyguardSlice.setViewsTypeface(Typeface.create("aclonica-sys", Typeface.NORMAL));
+                break;
+            case 27:
+                mKeyguardSlice.setViewsTypeface(Typeface.create("amarante-sys", Typeface.NORMAL));
+                break;
+            case 28:
+                mKeyguardSlice.setViewsTypeface(Typeface.create("coolstory-sys", Typeface.NORMAL));
+                break;
+            case 29:
+                mKeyguardSlice.setViewsTypeface(Typeface.create("sonysketch-sys", Typeface.NORMAL));
+                break;
+            case 30:
+                mKeyguardSlice.setViewsTypeface(Typeface.create("surfer-sys", Typeface.NORMAL));
+                break;
+            case 31:
+                mKeyguardSlice.setViewsTypeface(Typeface.create("themeable-sys", Typeface.NORMAL));
                 break;
         }
     }
@@ -706,7 +720,7 @@ public class KeyguardStatusView extends GridLayout implements
     private void refreshOwnerInfoFont() {
         final Resources res = getContext().getResources();
         boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
-        int ownerinfoFont = isPrimary ? getOwnerInfoFont() : 26;
+        int ownerinfoFont = isPrimary ? getOwnerInfoFont() : 0;
 
         switch (ownerinfoFont) {
             case 0:
@@ -788,8 +802,22 @@ public class KeyguardStatusView extends GridLayout implements
                 mOwnerInfo.setTypeface(Typeface.create("ubuntu", Typeface.NORMAL));
                 break;
             case 26:
-            default:
-                mOwnerInfo.setTypeface(Typeface.create("themeable", Typeface.NORMAL));
+                mOwnerInfo.setTypeface(Typeface.create("aclonica-sys", Typeface.NORMAL));
+                break;
+            case 27:
+                mOwnerInfo.setTypeface(Typeface.create("amarante-sys", Typeface.NORMAL));
+                break;
+            case 28:
+                mOwnerInfo.setTypeface(Typeface.create("coolstory-sys", Typeface.NORMAL));
+                break;
+            case 29:
+                mOwnerInfo.setTypeface(Typeface.create("sonysketch-sys", Typeface.NORMAL));
+                break;
+            case 30:
+                mOwnerInfo.setTypeface(Typeface.create("surfer-sys", Typeface.NORMAL));
+                break;
+            case 31:
+                mOwnerInfo.setTypeface(Typeface.create("themeable-sys", Typeface.NORMAL));
                 break;
         }
     }
