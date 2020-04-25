@@ -67,6 +67,7 @@ import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.app.IBatteryStats;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.util.DumpUtils;
+import com.android.internal.util.titanium.TitaniumUtils;
 import com.android.server.am.BatteryStatsService;
 import com.android.server.lights.Light;
 import com.android.server.lights.LightsManager;
@@ -180,7 +181,6 @@ public final class BatteryService extends SystemService {
     private boolean mLastOemFastCharger;
 
     private boolean mDashCharger;
-    private boolean mHasDashCharger;
     private boolean mLastDashCharger;
 
     private long mDischargeStartTime;
@@ -224,9 +224,6 @@ public final class BatteryService extends SystemService {
         mLed = new Led(context, getLocalService(LightsManager.class));
         mBatteryStats = BatteryStatsService.getService();
         mActivityManagerInternal = LocalServices.getService(ActivityManagerInternal.class);
-
-        mHasDashCharger = mContext.getResources().getBoolean(
-                com.android.internal.R.bool.config_hasDashCharger);
 
         mCriticalBatteryLevel = mContext.getResources().getInteger(
                 com.android.internal.R.integer.config_criticalBatteryWarningLevel);
@@ -600,7 +597,7 @@ public final class BatteryService extends SystemService {
 
         mOemFastCharger = isOemFastCharger();
 
-        mDashCharger = mHasDashCharger && isDashCharger();
+        mDashCharger = TitaniumUtils.isDashCharger();
 
         if (force || (mHealthInfo.batteryStatus != mLastBatteryStatus ||
                 mHealthInfo.batteryHealth != mLastBatteryHealth ||
