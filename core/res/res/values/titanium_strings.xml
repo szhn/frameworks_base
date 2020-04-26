@@ -81,4 +81,8 @@
     <!-- Vendor mismatch fingerprint warning [CHAR LIMIT=NONE] -->
     <string name="system_error_vendorprint">Your vendor image does not match the system. Please flash the <xliff:g id="string">%s</xliff:g> vendor image for your device</string>
 
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Restart SystemUI</string>
+    <string name="systemui_restart_message">For the changes to take effect, a SystemUI restart is required. Restart SystemUI now?</string>
+
 </resources>
