@@ -91,11 +91,6 @@
 
     <color name="ringer_icon_mute">@android:color/white</color>
 
-    <!-- MIUI Slider -->
-    <color name="brightness_slider_progress">#9B9B9D</color>
-    <color name="brightness_slider_background">@android:color/black</color>
-    <color name="brightness_slider_icons">@android:color/white</color>
-
     <!-- Oxygen Button -->
     <color name="recents_dismiss_all_background_color">@color/volume_background_tint</color>
     <color name="recents_dismiss_all_background_color_ripple">#555555</color>

@@ -6618,16 +6618,6 @@ public final class Settings {
         public static final String CUSTOM_AMBIENT_POCKETMODE_GESTURE = "custom_ambient_pocketmode_gesture";
 
         /**
-         * Display cutout
-         * @hide
-         */
-        public static final String BRIGHTNESS_SLIDER_QS_UNEXPANDED = "brightness_slider_qs_unexpanded";
-
-        /** @hide */
-        private static final Validator BRIGHTNESS_SLIDER_QS_UNEXPANDED_VALIDATOR = new
-                SettingsValidators.InclusiveIntegerRangeValidator(0, 1);
-
-        /**
          * DismissAll Button
          * @hide
          */
@@ -7074,7 +7064,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(CAMERA_SLEEP_ON_RELEASE);
             PRIVATE_SETTINGS.add(CAMERA_LAUNCH);
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO);
-            PRIVATE_SETTINGS.add(BRIGHTNESS_SLIDER_QS_UNEXPANDED);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_COLOR);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_COLOR_WALL);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_WALL);
@@ -7295,7 +7284,6 @@ public final class Settings {
             VALIDATORS.put(CAMERA_WAKE_SCREEN, CAMERA_WAKE_SCREEN_VALIDATOR);
             VALIDATORS.put(CAMERA_SLEEP_ON_RELEASE, CAMERA_SLEEP_ON_RELEASE_VALIDATOR);
             VALIDATORS.put(CAMERA_LAUNCH, CAMERA_LAUNCH_VALIDATOR);
-            VALIDATORS.put(BRIGHTNESS_SLIDER_QS_UNEXPANDED, BRIGHTNESS_SLIDER_QS_UNEXPANDED_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_COLOR, QS_PANEL_BG_COLOR_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_COLOR_WALL, QS_PANEL_BG_COLOR_WALL_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_USE_WALL, QS_PANEL_BG_USE_WALL_VALIDATOR);

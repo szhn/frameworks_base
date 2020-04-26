@@ -222,11 +222,6 @@
    <color name="row_icon_dark">@color/ringer_icon_normal</color>
    <color name="row_icon_white">@android:color/white</color>
 
-    <!-- MIUI Slider -->
-    <color name="brightness_slider_progress">#FFFFFF</color>
-    <color name="brightness_slider_background">#99FFFFFF</color>
-    <color name="brightness_slider_icons">#00FFFFFF</color>
-
     <!-- Oxygen Button -->
     <color name="recents_dismiss_all_background_color">@android:color/white</color>
     <color name="recents_dismiss_all_background_color_ripple">#a8a8a8</color>
