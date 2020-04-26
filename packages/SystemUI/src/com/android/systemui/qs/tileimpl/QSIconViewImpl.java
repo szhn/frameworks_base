@@ -32,11 +32,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 
-import com.android.systemui.R;
 import com.android.systemui.plugins.qs.QSIconView;
 import com.android.systemui.plugins.qs.QSTile;
 import com.android.systemui.plugins.qs.QSTile.State;
 import com.android.systemui.qs.AlphaControlledSignalTileView.AlphaControlledSlashImageView;
+import com.android.systemui.R;
 
 import java.util.Objects;
 
@@ -180,7 +180,10 @@ public class QSIconViewImpl extends QSIconView {
             ((AlphaControlledSlashImageView)iv)
                     .setFinalImageTintList(ColorStateList.valueOf(toColor));
         }
-        if (mAnimationEnabled && ValueAnimator.areAnimatorsEnabled()) {
+        boolean setQsFromResources = System.getIntForUser(getContext().getContentResolver(),
+                     System.QS_PANEL_BG_USE_FW, 1, UserHandle.USER_CURRENT) == 1;
+
+    if (mAnimationEnabled && setQsFromResources && ValueAnimator.areAnimatorsEnabled()) {
             final float fromAlpha = Color.alpha(fromColor);
             final float toAlpha = Color.alpha(toColor);
             final float fromChannel = Color.red(fromColor);
