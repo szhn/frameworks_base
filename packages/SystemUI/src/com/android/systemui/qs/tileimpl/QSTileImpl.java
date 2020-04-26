@@ -441,6 +441,9 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
         boolean setQsFromResources = Settings.System.getIntForUser(context.getContentResolver(),
                 Settings.System.QS_PANEL_BG_USE_FW, 1,
                 UserHandle.USER_CURRENT) == 1;
+        boolean setQsUseNewTint = Settings.System.getIntForUser(context.getContentResolver(),
+                Settings.System.QS_PANEL_BG_USE_NEW_TINT, 1,
+                UserHandle.USER_CURRENT) == 1;
 
         int qsBackGroundColor = ColorUtils.getValidQsColor(System.getIntForUser(context.getContentResolver(),
                 System.QS_PANEL_BG_COLOR, defaultColor, UserHandle.USER_CURRENT));
@@ -455,13 +458,15 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
                 return Utils.getColorAttrDefaultColor(context, android.R.attr.textColorSecondary);
             case Tile.STATE_ACTIVE:
                 if (setQsFromResources) {
-                    return Utils.getColorAttrDefaultColor(context, android.R.attr.colorAccent);
+                    if (setQsUseNewTint)
+                        return Utils.getColorAttrDefaultColor(context, android.R.attr.colorAccent);
+                    else
+                       return Utils.getColorAttrDefaultColor(context, android.R.attr.colorPrimary);
                 } else {
                     if (setQsFromWall)
                         return qsBackGroundColorWall;
                     else
                         return qsBackGroundColor;
-                     }
                 }
             default:
                 Log.e("QSTile", "Invalid state " + state);

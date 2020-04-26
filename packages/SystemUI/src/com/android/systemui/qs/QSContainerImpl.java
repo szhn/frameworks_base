@@ -75,6 +75,7 @@ public class QSContainerImpl extends FrameLayout implements
 
     private int mSideMargins;
     private boolean mQsDisabled;
+    private Drawable mQsBackGround;
 
     private boolean mHeaderImageEnabled;
     private ImageView mBackgroundImage;

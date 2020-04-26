@@ -6670,6 +6670,15 @@ public final class Settings {
         private static final Validator QS_PANEL_BG_USE_FW_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+         * Whether to use new QS panel bg tint or not
+         * @hide
+         */
+        public static final String QS_PANEL_BG_USE_NEW_TINT = "qs_panel_bg_use_new_tint";
+
+        /** @hide */
+        private static final Validator QS_PANEL_BG_USE_NEW_TINT_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6823,6 +6832,7 @@ public final class Settings {
             QS_PANEL_BG_COLOR_WALL,
             QS_PANEL_BG_USE_WALL,
             QS_PANEL_BG_USE_FW,
+            QS_PANEL_BG_USE_NEW_TINT,
             // TitaniumOS Settings end
         };
 
@@ -7069,6 +7079,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_PANEL_BG_COLOR_WALL);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_WALL);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_FW);
+            PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_NEW_TINT);
             //TitaniumOS Settings end
         }
 
@@ -7289,6 +7300,7 @@ public final class Settings {
             VALIDATORS.put(QS_PANEL_BG_COLOR_WALL, QS_PANEL_BG_COLOR_WALL_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_USE_WALL, QS_PANEL_BG_USE_WALL_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_USE_FW, QS_PANEL_BG_USE_FW_VALIDATOR);
+            VALIDATORS.put(QS_PANEL_BG_USE_NEW_TINT, QS_PANEL_BG_USE_NEW_TINT_VALIDATOR);
             // TitaniumOS Settings end
         }
 
