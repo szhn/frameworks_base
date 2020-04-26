@@ -876,16 +876,16 @@ public class KeyguardStatusView extends GridLayout implements
                     mKeyguardSlice.setPaddingRelative(updateTextClockPadding(), 0, 0, 0);
                     break;
                 case 1:
-                    mTextClock.setGravity(Gravity.CENTER);
-                    mTextClock.setPaddingRelative(0, 0, 0, 0);
+                    mTextClock.setGravity(Gravity.START);
+                    mTextClock.setPaddingRelative(updateTextClockPadding(), 0, 0, 0);
                     mKeyguardSlice.setGravity(Gravity.CENTER);
                     mKeyguardSlice.setPaddingRelative(0, 0, 0, 0);
                     break;
                 case 2:
-                    mTextClock.setGravity(Gravity.END);
-                    mTextClock.setPaddingRelative(0, 0, updateTextClockPadding(), 0);
-                    mKeyguardSlice.setGravity(Gravity.END);
-                    mKeyguardSlice.setPaddingRelative(0, 0, updateTextClockPadding(), 0);
+                    mTextClock.setGravity(Gravity.CENTER);
+                    mTextClock.setPaddingRelative(0, 0, 0, 0);
+                    mKeyguardSlice.setGravity(Gravity.CENTER);
+                    mKeyguardSlice.setPaddingRelative(0, 0, 0, 0);
                     break;
                 case 3:
                     mTextClock.setGravity(Gravity.START);
