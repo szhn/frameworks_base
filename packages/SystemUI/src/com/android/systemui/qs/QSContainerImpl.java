@@ -86,7 +86,6 @@ public class QSContainerImpl extends FrameLayout implements
     private int mQsBackGroundColorWall;
     private int mCurrentColor;
     private boolean mSetQsFromWall;
-    private boolean mSetQsFromAccent;
     private boolean mSetQsFromResources;
     private SysuiColorExtractor mColorExtractor;
 
@@ -179,9 +178,6 @@ public class QSContainerImpl extends FrameLayout implements
                     .getUriFor(Settings.System.QS_PANEL_BG_USE_WALL),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System
-                    .getUriFor(Settings.System.QS_PANEL_BG_USE_ACCENT),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System
                     .getUriFor(Settings.System.QS_PANEL_BG_USE_FW),
                     false, this, UserHandle.USER_ALL);
         }
@@ -202,9 +198,6 @@ public class QSContainerImpl extends FrameLayout implements
                 Settings.System.QS_PANEL_BG_USE_FW, 1,
                 UserHandle.USER_CURRENT);
         mSetQsFromResources = userQsFwSetting == 1;
-        mSetQsFromAccent = Settings.System.getIntForUser(getContext().getContentResolver(),
-                Settings.System.QS_PANEL_BG_USE_ACCENT, 0,
-                UserHandle.USER_CURRENT) == 1;
         mQsBackGroundAlpha = Settings.System.getIntForUser(resolver,
                 Settings.System.QS_PANEL_BG_ALPHA, 255,
                 UserHandle.USER_CURRENT);
@@ -218,9 +211,7 @@ public class QSContainerImpl extends FrameLayout implements
         if (mColorExtractor != null) {
             systemColors = mColorExtractor.getWallpaperColors(WallpaperManager.FLAG_SYSTEM);
         }
-        mCurrentColor = mSetQsFromAccent
-                ? getContext().getResources().getColor(R.color.accent_device_default_light)
-                : mSetQsFromWall ? mQsBackGroundColorWall : mQsBackGroundColor;
+        mCurrentColor = mSetQsFromWall ? mQsBackGroundColorWall : mQsBackGroundColor;
         setQsBackground();
         updateHeaderImageHeight();
         updateResources();
