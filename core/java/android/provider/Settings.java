@@ -6624,6 +6624,51 @@ public final class Settings {
         public static final String DISMISS_ALL_BUTTON = "dismiss_all_button";
 
         /**
+         * Whether to change the color of the qs panel
+         * @hide
+         */
+        public static final String QS_PANEL_BG_COLOR = "qs_panel_bg_color";
+
+        /** @hide */
+        private static final Validator QS_PANEL_BG_COLOR_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
+        /**
+         * Color of the qs panel evaluated from wallpaper
+         * @hide
+         */
+        public static final String QS_PANEL_BG_COLOR_WALL = "qs_panel_bg_color_wall";
+
+        /** @hide */
+        private static final Validator QS_PANEL_BG_COLOR_WALL_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
+        /**
+         * Whether to change the color of the qs panel based on wallpaper
+         * @hide
+         */
+        public static final String QS_PANEL_BG_USE_WALL = "qs_panel_bg_use_wall";
+
+        /** @hide */
+        private static final Validator QS_PANEL_BG_USE_WALL_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
+         * Whether to use framework styles and resources on qs panel
+         * @hide
+         */
+        public static final String QS_PANEL_BG_USE_FW = "qs_panel_bg_use_fw";
+
+        /** @hide */
+        private static final Validator QS_PANEL_BG_USE_FW_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
+         * Whether to use new QS panel bg tint or not
+         * @hide
+         */
+        public static final String QS_PANEL_BG_USE_NEW_TINT = "qs_panel_bg_use_new_tint";
+
+        /** @hide */
+        private static final Validator QS_PANEL_BG_USE_NEW_TINT_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6773,6 +6818,11 @@ public final class Settings {
             CLOCK_SHOW_STATUS_AREA,
             FORCE_SHOW_NAVBAR,
             ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER,
+            QS_PANEL_BG_COLOR,
+            QS_PANEL_BG_COLOR_WALL,
+            QS_PANEL_BG_USE_WALL,
+            QS_PANEL_BG_USE_FW,
+            QS_PANEL_BG_USE_NEW_TINT,
             // TitaniumOS Settings end
         };
 
@@ -7014,6 +7064,11 @@ public final class Settings {
             PRIVATE_SETTINGS.add(CAMERA_SLEEP_ON_RELEASE);
             PRIVATE_SETTINGS.add(CAMERA_LAUNCH);
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO);
+            PRIVATE_SETTINGS.add(QS_PANEL_BG_COLOR);
+            PRIVATE_SETTINGS.add(QS_PANEL_BG_COLOR_WALL);
+            PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_WALL);
+            PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_FW);
+            PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_NEW_TINT);
             //TitaniumOS Settings end
         }
 
@@ -7229,6 +7284,11 @@ public final class Settings {
             VALIDATORS.put(CAMERA_WAKE_SCREEN, CAMERA_WAKE_SCREEN_VALIDATOR);
             VALIDATORS.put(CAMERA_SLEEP_ON_RELEASE, CAMERA_SLEEP_ON_RELEASE_VALIDATOR);
             VALIDATORS.put(CAMERA_LAUNCH, CAMERA_LAUNCH_VALIDATOR);
+            VALIDATORS.put(QS_PANEL_BG_COLOR, QS_PANEL_BG_COLOR_VALIDATOR);
+            VALIDATORS.put(QS_PANEL_BG_COLOR_WALL, QS_PANEL_BG_COLOR_WALL_VALIDATOR);
+            VALIDATORS.put(QS_PANEL_BG_USE_WALL, QS_PANEL_BG_USE_WALL_VALIDATOR);
+            VALIDATORS.put(QS_PANEL_BG_USE_FW, QS_PANEL_BG_USE_FW_VALIDATOR);
+            VALIDATORS.put(QS_PANEL_BG_USE_NEW_TINT, QS_PANEL_BG_USE_NEW_TINT_VALIDATOR);
             // TitaniumOS Settings end
         }
 

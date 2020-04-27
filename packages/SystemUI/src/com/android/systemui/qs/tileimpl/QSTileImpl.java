@@ -433,6 +433,23 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
     public abstract CharSequence getTileLabel();
 
     public static int getColorForState(Context context, int state) {
+        int defaultColor = ColorUtils.genRandomQsColor();
+
+        boolean setQsFromWall = Settings.System.getIntForUser(context.getContentResolver(),
+                Settings.System.QS_PANEL_BG_USE_WALL, 0,
+                UserHandle.USER_CURRENT) == 1;
+        boolean setQsFromResources = Settings.System.getIntForUser(context.getContentResolver(),
+                Settings.System.QS_PANEL_BG_USE_FW, 1,
+                UserHandle.USER_CURRENT) == 1;
+        boolean setQsUseNewTint = Settings.System.getIntForUser(context.getContentResolver(),
+                Settings.System.QS_PANEL_BG_USE_NEW_TINT, 1,
+                UserHandle.USER_CURRENT) == 1;
+
+        int qsBackGroundColor = ColorUtils.getValidQsColor(System.getIntForUser(context.getContentResolver(),
+                System.QS_PANEL_BG_COLOR, defaultColor, UserHandle.USER_CURRENT));
+        int qsBackGroundColorWall = ColorUtils.getValidQsColor(System.getIntForUser(context.getContentResolver(),
+                System.QS_PANEL_BG_COLOR_WALL, defaultColor, UserHandle.USER_CURRENT));
+
         switch (state) {
             case Tile.STATE_UNAVAILABLE:
                 return Utils.getDisabled(context,
@@ -440,7 +457,17 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
             case Tile.STATE_INACTIVE:
                 return Utils.getColorAttrDefaultColor(context, android.R.attr.textColorSecondary);
             case Tile.STATE_ACTIVE:
-                return Utils.getColorAttrDefaultColor(context, android.R.attr.colorPrimary);
+                if (setQsFromResources) {
+                    if (setQsUseNewTint)
+                        return Utils.getColorAttrDefaultColor(context, android.R.attr.colorAccent);
+                    else
+                       return Utils.getColorAttrDefaultColor(context, android.R.attr.colorPrimary);
+                } else {
+                    if (setQsFromWall)
+                        return qsBackGroundColorWall;
+                    else
+                        return qsBackGroundColor;
+                }
             default:
                 Log.e("QSTile", "Invalid state " + state);
                 return 0;
