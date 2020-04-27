@@ -587,7 +587,6 @@ public class KeyguardStatusView extends GridLayout implements
             if (mClockSelection) {
                 switch (mTextClockAlign) {
                     case 0:
-                    case 4:
                     default:
                         mOwnerInfo.setPaddingRelative(updateTextClockPadding() + 8, 0, 0, 0);
                         mOwnerInfo.setGravity(Gravity.START);
@@ -597,9 +596,20 @@ public class KeyguardStatusView extends GridLayout implements
                         mOwnerInfo.setGravity(Gravity.CENTER);
                         break;
                     case 2:
+                        mOwnerInfo.setPaddingRelative(0, 0, updateTextClockPadding() + 8, 0);
+                        mOwnerInfo.setGravity(Gravity.END);
+                        break;
                     case 3:
                         mOwnerInfo.setPaddingRelative(0, 0, updateTextClockPadding() + 8, 0);
                         mOwnerInfo.setGravity(Gravity.END);
+                        break;
+                    case 4:
+                        mOwnerInfo.setPaddingRelative(updateTextClockPadding() + 8, 0, 0, 0);
+                        mOwnerInfo.setGravity(Gravity.START);
+                        break;
+                    case 5:
+                        mOwnerInfo.setPaddingRelative(0, 0, 0, 0);
+                        mOwnerInfo.setGravity(Gravity.CENTER);
                         break;
                 }
             } else {
@@ -876,33 +886,30 @@ public class KeyguardStatusView extends GridLayout implements
                     mKeyguardSlice.setPaddingRelative(updateTextClockPadding(), 0, 0, 0);
                     break;
                 case 1:
+                    mTextClock.setGravity(Gravity.START);
+                    mTextClock.setPaddingRelative(updateTextClockPadding(), 0, 0, 0);
+                    mKeyguardSlice.setGravity(Gravity.CENTER);
+                    mKeyguardSlice.setPaddingRelative(0, 0, 0, 0);
+                    break;
+                case 2:
+                    mTextClock.setGravity(Gravity.CENTER);
+                    mTextClock.setPaddingRelative(0, 0, 0, 0);
+                    mKeyguardSlice.setPaddingRelative(0, 0, 0, 0);
+                    mKeyguardSlice.setGravity(Gravity.CENTER);
+                    break;
+                case 3:
+                    mTextClock.setGravity(Gravity.START);
+                    mTextClock.setPaddingRelative(updateTextClockPadding(), 0, 0, 0);
+                    mKeyguardSlice.setPaddingRelative(0, 0, 0, 0);
+                    mKeyguardSlice.setGravity(Gravity.CENTER);
+                    break;
+                case 4:
                     mTextClock.setGravity(Gravity.CENTER);
                     mTextClock.setPaddingRelative(0, 0, 0, 0);
                     mKeyguardSlice.setGravity(Gravity.CENTER);
                     mKeyguardSlice.setPaddingRelative(0, 0, 0, 0);
                     break;
-                case 2:
-                    mTextClock.setGravity(Gravity.START);
-                    mTextClock.setPaddingRelative(updateTextClockPadding(), 0, 0, 0);
-                    mKeyguardSlice.setGravity(Gravity.CENTER);
-                    mKeyguardSlice.setPaddingRelative(0, 0, 0, 0);
-                    break;
-                case 3:
-                    mTextClock.setGravity(Gravity.START);
-                    mTextClock.setPaddingRelative(updateTextClockPadding(), 0, 0, 0);
-                    mKeyguardSlice.setGravity(Gravity.END);
-                    mKeyguardSlice.setPaddingRelative(0, 0, updateTextClockPadding(), 0);
-                    break;
-                case 4:
-                    mTextClock.setGravity(Gravity.END);
-                    mTextClock.setPaddingRelative(0, 0, updateTextClockPadding(), 0);
-                    mKeyguardSlice.setGravity(Gravity.START);
-                    mKeyguardSlice.setPaddingRelative(updateTextClockPadding(), 0, 0, 0);
-                    break;
             }
-        } else {
-            mKeyguardSlice.setPaddingRelative(0, 0, 0, 0);
-            mKeyguardSlice.setGravity(Gravity.CENTER);
         }
     }
 

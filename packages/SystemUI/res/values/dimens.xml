@@ -366,7 +366,7 @@
     <dimen name="qs_footer_icon_padding">14dp</dimen>
 
     <!-- The padding between the notifications and the quick settings container -->
-    <dimen name="qs_notification_padding">20dp</dimen>
+    <dimen name="qs_notification_padding">@dimen/notification_side_paddings</dimen>
 
     <!-- Height of the status bar header bar when expanded -->
     <dimen name="status_bar_header_height_expanded">124dp</dimen>
@@ -378,7 +378,7 @@
     <dimen name="system_icons_super_container_margin_start">16dp</dimen>
 
     <!-- Margin end of the system icons super container when the avatar is missing. -->
-    <dimen name="system_icons_super_container_avatarless_margin_end">2dp</dimen>
+    <dimen name="system_icons_super_container_avatarless_margin_end">6dp</dimen>
 
     <!-- Width for the notification panel and related windows -->
     <dimen name="match_parent">-1px</dimen>
