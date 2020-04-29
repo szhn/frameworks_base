@@ -655,7 +655,7 @@ public class Notifier {
         mSuspendBlocker.acquire();
         Message msg = mHandler.obtainMessage(MSG_WIRED_CHARGING_STARTED);
         msg.setAsynchronous(true);
-        msg.arg2 = batteryLevel;
+        msg.arg1 = userId;
         mHandler.sendMessage(msg);
     }
 

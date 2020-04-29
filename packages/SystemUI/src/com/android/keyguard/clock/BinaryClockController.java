@@ -157,7 +157,6 @@ public class BinaryClockController implements ClockPlugin {
     private void updateColor() {
         final int primary = mPalette.getPrimaryColor();
         final int secondary = mPalette.getSecondaryColor();
-        mBigClockView.setTextColor(secondary);
         mBinaryClock.setTintColor(primary);
     }
 
