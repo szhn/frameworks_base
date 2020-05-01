@@ -411,6 +411,10 @@ public class NotificationManagerService extends SystemService {
 
     private boolean mVibrateOnNotifications;
 
+    // Gaming Mode
+    private boolean mGamingMode;
+    private boolean mSoundVibGamingMode;
+
     private Uri mInCallNotificationUri;
     private AudioAttributes mInCallNotificationAudioAttributes;
     private float mInCallNotificationVolume;
@@ -1404,6 +1408,10 @@ public class NotificationManagerService extends SystemService {
                 = Settings.System.getUriFor(Settings.System.NOTIFICATION_SOUND_VIB_SCREEN_ON);
         private final Uri VIBRATE_ON_NOTIFICATIONS
                 = Settings.System.getUriFor(Settings.System.VIBRATE_ON_NOTIFICATIONS);
+        private final Uri GAMING_MODE_ACTIVE
+                = Settings.System.getUriFor(Settings.System.GAMING_MODE_ACTIVE);
+        private final Uri GAMING_MODE_NOTIFICATIONS_FEEDBACK
+                = Settings.System.getUriFor(Settings.System.GAMING_MODE_NOTIFICATIONS_FEEDBACK);
 
         SettingsObserver(Handler handler) {
             super(handler);
@@ -1424,6 +1432,10 @@ public class NotificationManagerService extends SystemService {
             resolver.registerContentObserver(NOTIFICATION_SOUND_VIB_SCREEN_ON,
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(VIBRATE_ON_NOTIFICATIONS,
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(GAMING_MODE_ACTIVE,
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(GAMING_MODE_NOTIFICATIONS_FEEDBACK,
                     false, this, UserHandle.USER_ALL);
             update(null);
         }
@@ -1469,6 +1481,16 @@ public class NotificationManagerService extends SystemService {
             }
             if (NOTIFICATION_BUBBLES_URI_SECURE.equals(uri)) {
                 syncBubbleSettings(resolver, NOTIFICATION_BUBBLES_URI_SECURE);
+            }
+            if (uri == null || GAMING_MODE_ACTIVE.equals(uri)) {
+                mGamingMode = Settings.System.getIntForUser(resolver,
+                        Settings.System.GAMING_MODE_ACTIVE, 0,
+                        UserHandle.USER_CURRENT) == 1;
+            }
+            if (uri == null || GAMING_MODE_NOTIFICATIONS_FEEDBACK.equals(uri)) {
+                mSoundVibGamingMode = Settings.System.getIntForUser(resolver,
+                        Settings.System.GAMING_MODE_NOTIFICATIONS_FEEDBACK, 1,
+                        UserHandle.USER_CURRENT) == 1;
             }
         }
 
@@ -5979,7 +6001,8 @@ public class NotificationManagerService extends SystemService {
         if (aboveThreshold && isNotificationForCurrentUser(record)) {
 
             boolean beNoisy = !mScreenOn || (mScreenOn && mSoundVibScreenOn);
-            if (mSystemReady && mAudioManager != null && beNoisy) {
+            boolean noNoiseOnGamingMode = (mScreenOn && mGamingMode && mSoundVibGamingMode);
+            if (mSystemReady && mAudioManager != null && beNoisy && !noNoiseOnGamingMode) {
                 Uri soundUri = record.getSound();
                 hasValidSound = soundUri != null && !Uri.EMPTY.equals(soundUri);
                 long[] vibration = record.getVibration();

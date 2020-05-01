@@ -5755,10 +5755,6 @@ public final class Settings {
         /** @hide */
         private static final Validator ASPECT_RATIO_APPS_ENABLED_VALIDATOR = BOOLEAN_VALIDATOR;
 
-        /** @hide */
-        private static final Validator FOD_ANIM_VALIDATOR =
-                new SettingsValidators.InclusiveIntegerRangeValidator(0, 19);
-
         /**
          * Gaming mode master switch
          * @hide
@@ -5791,8 +5787,11 @@ public final class Settings {
          */
         public static final String GAMING_MODE_HEADSUP_TOGGLE = "gaming_mode_headsup_toggle";
 
-        /** @hide */
-        private static final Validator FOD_ICON_VALIDATOR = ANY_STRING_VALIDATOR;
+        /**
+         * Whether to disable notifications feedback gaming mode
+         * @hide
+         */
+        public static final String GAMING_MODE_NOTIFICATIONS_FEEDBACK = "gaming_mode_notifications_feedback";
 
         /**
          * Ringer in gaming mode (0:OFF, 1:Vibrate, 2:DND, 3:Silent)
@@ -5800,18 +5799,8 @@ public final class Settings {
          */
         public static final String GAMING_MODE_RINGER_MODE = "gaming_mode_ringer_mode";
 
-        /** @hide */
-        private static final Validator FOD_PRESSED_STATE_VALIDATOR =
-                new SettingsValidators.InclusiveIntegerRangeValidator(0, 4);
-
         /**
-         * FOD recognizing animation picker
-         * @hide
-         */
-        public static final String FOD_ANIM = "fod_anim";
-
-        /**
-         * Accent Color
+         * Whether to show notifications/toasts (0:OFF, 1:notifications, 2:toasts, 3: all)
          * @hide
          */
         public static final String GAMING_MODE_NOTIFICATIONS = "gaming_mode_notifications";
@@ -5838,12 +5827,6 @@ public final class Settings {
         /** @hide */
         private static final Validator QS_PANEL_BG_ALPHA_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
-
-        /**
-         * FOD icon picker
-         * @hide
-         */
-        public static final String FOD_ICON = "fod_icon";
 
         /**
          * Whether the battery light should be enabled (if hardware supports it)
@@ -5920,10 +5903,33 @@ public final class Settings {
         private static final Validator GESTURE_PILL_TOGGLE_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+         * FOD icon picker
+         * @hide
+         */
+        public static final String FOD_ICON = "fod_icon";
+
+        /** @hide */
+        private static final Validator FOD_ICON_VALIDATOR = ANY_STRING_VALIDATOR;
+
+        /**
          * FOD pressed state
          * @hide
          */
         public static final String FOD_PRESSED_STATE = "fod_pressed_state";
+
+        /** @hide */
+        private static final Validator FOD_PRESSED_STATE_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 4);
+
+        /**
+         * FOD recognizing animation picker
+         * @hide
+         */
+        public static final String FOD_ANIM = "fod_anim";
+
+        /** @hide */
+        private static final Validator FOD_ANIM_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 19);
 
         /**
          * QS blur
