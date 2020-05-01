@@ -306,9 +306,7 @@ public class ThemedBatteryDrawable extends Drawable {
             // If power save is enabled draw the perimeter path with colorError
             canvas.drawPath(scaledErrorPerimeter, errorPaint);
             // And draw the plus sign on top of the fill
-            if (!showPercent) {
             canvas.drawPath(scaledPlus, errorPaint);
-            }
         } else if (drawText) {
             canvas.clipOutPath(textPath);
             if (invertFillIcon) {

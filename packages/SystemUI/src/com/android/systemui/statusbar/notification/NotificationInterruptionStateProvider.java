@@ -402,7 +402,7 @@ public class NotificationInterruptionStateProvider {
                 notificationPackageName.contains("clock") ||
                 notificationPackageName.contains("messaging");
 
-        return !getShadeController().isDozing() && mLessBoringHeadsUp && !isLessBoring;
+        return !mStatusBarStateController.isDozing() && mLessBoringHeadsUp && !isLessBoring;
     }
 
     /**
