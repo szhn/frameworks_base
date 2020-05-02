@@ -62,7 +62,6 @@ public class InflatedSmartReplies {
             @Nullable SmartReplyView smartReplyView,
             @Nullable List<Button> smartSuggestionButtons,
             @NonNull SmartRepliesAndActions smartRepliesAndActions) {
-        mContext = context;
         mSmartReplyView = smartReplyView;
         mSmartSuggestionButtons = smartSuggestionButtons;
         mSmartRepliesAndActions = smartRepliesAndActions;
@@ -91,6 +90,7 @@ public class InflatedSmartReplies {
             SmartReplyController smartReplyController,
             HeadsUpManager headsUpManager,
             SmartRepliesAndActions existingSmartRepliesAndActions) {
+    	mContext = context;
         SmartRepliesAndActions newSmartRepliesAndActions =
                 chooseSmartRepliesAndActions(smartReplyConstants, entry);
         if (!shouldShowSmartReplyView(entry, newSmartRepliesAndActions)) {
