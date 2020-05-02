@@ -4556,9 +4556,6 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.BACK_GESTURE_HAPTIC),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.LOCKSCREEN_MEDIA_BLUR),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QS_BLUR_INTENSITY),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.Secure.getUriFor(
@@ -4597,6 +4594,8 @@ public class StatusBar extends SystemUI implements DemoMode,
         public void onChange(boolean selfChange, Uri uri) {
             if (uri.equals(Settings.Secure.getUriFor(Settings.Secure.FP_SWIPE_TO_DISMISS_NOTIFICATIONS))) {
                 setFpToDismissNotifications();
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.LESS_BORING_HEADS_UP))) {
+                setUseLessBoringHeadsUp();
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.POCKET_JUDGE_ALLOW_FP))) {
                 updatePocketJudgeFP();
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_ROWS_PORTRAIT)) ||
