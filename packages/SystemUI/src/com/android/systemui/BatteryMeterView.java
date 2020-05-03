@@ -480,7 +480,6 @@ public class BatteryMeterView extends LinearLayout implements
             setContentDescription(
                     getContext().getString(mCharging ? R.string.accessibility_battery_level_charging
                             : R.string.accessibility_battery_level, mLevel));
-        }
     }
 
     private void removeBatteryPercentView() {
