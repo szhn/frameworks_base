@@ -6727,6 +6727,15 @@ public final class Settings {
         private static final Validator HIDE_SMART_REPLIES_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+         * Whether to show charging bolt on battery text while charging
+         * @hide
+         */
+        public static final String STATUS_BAR_BATTERY_CHARGING_BOLT = "status_bar_battery_charging_bolt";
+        /** @hide */
+        private static final Validator STATUS_BAR_BATTERY_CHARGING_BOLT_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6883,6 +6892,7 @@ public final class Settings {
             QS_PANEL_BG_USE_NEW_TINT,
             NOTIFICATION_HEADERS,
             HIDE_SMART_REPLIES,
+            STATUS_BAR_BATTERY_CHARGING_BOLT,
             // TitaniumOS Settings end
         };
 
@@ -7352,6 +7362,7 @@ public final class Settings {
             VALIDATORS.put(QS_PANEL_BG_USE_NEW_TINT, QS_PANEL_BG_USE_NEW_TINT_VALIDATOR);
             VALIDATORS.put(NOTIFICATION_HEADERS, NOTIFICATION_HEADERS_VALIDATOR);
             VALIDATORS.put(HIDE_SMART_REPLIES, HIDE_SMART_REPLIES_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_BATTERY_CHARGING_BOLT, STATUS_BAR_BATTERY_CHARGING_BOLT_VALIDATOR);
             // TitaniumOS Settings end
         }
 
