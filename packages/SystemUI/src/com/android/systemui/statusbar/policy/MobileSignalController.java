@@ -26,14 +26,16 @@ import android.graphics.drawable.Drawable;
 import android.net.NetworkCapabilities;
 import android.net.Uri;
 import android.os.Handler;
-import android.os.UserHandle;
 import android.os.Looper;
 import android.os.Message;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.provider.Settings.Global;
-import android.telephony.NetworkRegistrationInfo;
-import android.telephony.ims.ImsReasonInfo;
+import android.telephony.ims.feature.MmTelFeature;
 import android.telephony.ims.ImsMmTelManager;
+import android.telephony.ims.ImsReasonInfo;
+import android.telephony.ims.stub.ImsRegistrationImplBase;
+import android.telephony.NetworkRegistrationInfo;
 import android.telephony.PhoneStateListener;
 import android.telephony.ServiceState;
 import android.telephony.SignalStrength;
@@ -66,7 +68,6 @@ import java.util.BitSet;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 
 public class MobileSignalController extends SignalController<
         MobileSignalController.MobileState, MobileSignalController.MobileIconGroup> implements TunerService.Tunable {
@@ -104,6 +105,10 @@ public class MobileSignalController extends SignalController<
     // Some specific carriers have 5GE network which is special LTE CA network.
     private static final int NETWORK_TYPE_LTE_CA_5GE = TelephonyManager.MAX_NETWORK_TYPE + 1;
 
+    private ImsManager mImsManager;
+    private ImsManager.Connector mImsManagerConnector;
+    private int mCallState = TelephonyManager.CALL_STATE_IDLE;
+
     // Show 4G
     private boolean mShow4gForLte;
 
@@ -113,9 +118,7 @@ public class MobileSignalController extends SignalController<
     // Volte Icon Style
     private int mVoLTEstyle;
 
-    private ImsManager mImsManager;
-    private ImsManager.Connector mImsManagerConnector;
-    private int mCallState = TelephonyManager.CALL_STATE_IDLE;
+    // Data disabled icon
     private boolean mDataDisabledIcon;
 
     // TODO: Reduce number of vars passed in, if we have the NetworkController, probably don't
@@ -173,39 +176,39 @@ public class MobileSignalController extends SignalController<
             }
         };
 
+        Handler mHandler = new Handler();
+        SettingsObserver settingsObserver = new SettingsObserver(mHandler);
+        settingsObserver.observe();
+
         mDisplayGraceHandler = new Handler(receiverLooper) {
             @Override
             public void handleMessage(Message msg) {
                 if (msg.what == MSG_DISPLAY_GRACE) {
                     mIsShowingIconGracefully = false;
                     updateTelephony();
-
                 }
             }
         };
 
         Dependency.get(TunerService.class).addTunable(this, "data_disabled");
-
-        Handler mHandler = new Handler();
-        SettingsObserver settingsObserver = new SettingsObserver(mHandler);
-        settingsObserver.observe();
     }
 
      class SettingsObserver extends ContentObserver {
          SettingsObserver(Handler handler) {
              super(handler);
          }
+
         void observe() {
             ContentResolver resolver = mContext.getContentResolver();
             resolver.registerContentObserver(
-                Settings.System.getUriFor(Settings.System.SHOW_FOURG_ICON), false,
-            this, UserHandle.USER_ALL);
+                Settings.System.getUriFor(Settings.System.SHOW_FOURG_ICON),
+                false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(
-                Settings.System.getUriFor(Settings.System.SHOW_VOLTE_ICON), false,
-            this, UserHandle.USER_ALL);
+                Settings.System.getUriFor(Settings.System.SHOW_VOLTE_ICON),
+                false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(
-	            Settings.System.getUriFor(Settings.System.VOLTE_ICON_STYLE), false,
-		    this, UserHandle.USER_ALL);
+	            Settings.System.getUriFor(Settings.System.VOLTE_ICON_STYLE),
+                false, this, UserHandle.USER_ALL);
             updateSettings();
         }
 
@@ -469,7 +472,7 @@ public class MobileSignalController extends SignalController<
     private int getVolteResId() {
         int resId = 0;
 
-        if ( mCurrentState.imsRegistered && mVoLTEicon) {
+        if (mCurrentState.imsRegistered && mVoLTEicon) {
             resId = R.drawable.ic_volte;
             switch(mVoLTEstyle) {
                 // Asus Style VoLTE
@@ -554,7 +557,6 @@ public class MobileSignalController extends SignalController<
                 && !mCurrentState.carrierNetworkChangeMode
                 && mCurrentState.activityOut;
         showDataIcon &= mCurrentState.isDefault || dataDisabled;
-
         int typeIcon = (showDataIcon || mConfig.alwaysShowDataRatIcon) ? icons.mDataType : 0;
         int volteIcon = isVolteSwitchOn() ? getVolteResId() : 0;
         callback.setMobileDataIndicators(statusIcon, qsIcon, typeIcon, qsTypeIcon,
@@ -987,7 +989,7 @@ public class MobileSignalController extends SignalController<
     private final BroadcastReceiver mVolteSwitchObserver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
             Log.d(mTag, "action=" + intent.getAction());
-                notifyListeners();
+            notifyListeners();
         }
     };
 

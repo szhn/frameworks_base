@@ -224,10 +224,6 @@ public class StatusBarMobileView extends FrameLayout implements DarkReceiver,
         mInoutContainer.setVisibility((state.activityIn || state.activityOut)
                 ? View.VISIBLE : View.GONE);
 
-        needsLayout |= state.roaming != mState.roaming
-                || state.activityIn != mState.activityIn
-                || state.activityOut != mState.activityOut;
-
         if (mState.volteId != state.volteId) {
             if (state.volteId != 0) {
                 mVolte.setImageResource(state.volteId);
@@ -236,6 +232,11 @@ public class StatusBarMobileView extends FrameLayout implements DarkReceiver,
                 mVolte.setVisibility(View.GONE);
             }
         }
+
+        needsLayout |= state.roaming != mState.roaming
+                || state.activityIn != mState.activityIn
+                || state.activityOut != mState.activityOut;
+
         mState = state;
         return needsLayout;
     }
