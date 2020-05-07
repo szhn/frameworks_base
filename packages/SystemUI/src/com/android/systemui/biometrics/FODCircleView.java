@@ -456,6 +456,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         }
 
         setImageResource(ICON_STYLES[mSelectedIcon]);
+        this.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
     }
 
     public void show() {
