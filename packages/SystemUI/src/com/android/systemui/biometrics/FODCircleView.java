@@ -105,6 +105,8 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
     private FODAnimation mFODAnimation;
     private boolean mIsRecognizingAnimEnabled;
     private boolean mShouldRemoveIconOnAOD;
+    private boolean mScreenOffFodEnabled;
+    private boolean mScreenOffFodIconEnabled;
 
     private int mSelectedIcon;
     private final int[] ICON_STYLES = {
@@ -487,7 +489,11 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
     }
 
     private void updateAlpha() {
-        setAlpha(1.0f);
+        if (mIsCircleShowing) {
+            setAlpha(1.0f);
+        } else {
+            setAlpha(mIsDreaming ? 0.5f : 1.0f);
+        }
     }
 
     private void updateStyle() {
@@ -500,8 +506,11 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         if (mFODAnimation != null) {
             mFODAnimation.update();
         }
-        mShouldRemoveIconOnAOD = Settings.System.getInt(mContext.getContentResolver(),
+        mScreenOffFodEnabled = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.SCREEN_OFF_FOD, 0) != 0;
+        mScreenOffFodIconEnabled = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.SCREEN_OFF_FOD_ICON, 1) != 0;
+        mShouldRemoveIconOnAOD = mScreenOffFodEnabled && !mScreenOffFodIconEnabled;
     }
 
     private void updatePosition() {

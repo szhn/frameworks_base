@@ -6742,6 +6742,12 @@ public final class Settings {
         public static final String SCREEN_OFF_FOD = "screen_off_fod";
 
         /**
+         * Whether to show icon when Screen off FODis enabled
+         * @hide
+         */
+        public static final String SCREEN_OFF_FOD_ICON = "screen_off_fod_icon";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
