@@ -6024,20 +6024,6 @@ public final class Settings {
         private static final Validator BACK_GESTURE_HAPTIC_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
-         * Screen stabilization parameters
-         * @hide
-         */
-        public static final String STABILIZATION_ENABLE = "stabilization_enable";
-
-        public static final String STABILIZATION_VELOCITY_FRICTION = "stabilization_velocity_friction";
-
-        public static final String STABILIZATION_POSITION_FRICTION = "stabilization_position_friction";
-
-        public static final String STABILIZATION_LOWPASS_ALPHA = "stabilization_lowpass_alpha";
-
-        public static final String STABILIZATION_VELOCITY_AMPLITUDE = "stabilization_velocity_amplitude";
-
-        /**
          * @hide
          */
         public static final String TORCH_LONG_PRESS_POWER_GESTURE = "torch_long_press_power_gesture";
